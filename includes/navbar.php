@@ -8,7 +8,16 @@
 	        $q->execute();
 	        $categories = $q->fetchAll();
 	        Database::disconnect(); 
-	?>
+
+     if( isset( $_SESSION['userid'] ) )
+     {
+        echo "you are logged in" ;
+     }
+   else
+     {
+        echo "create account to login";
+     }
+  ?>
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
       		<div class="navbar-header">
