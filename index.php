@@ -1,4 +1,8 @@
-<?php require_once 'includes/database.php';?>
+<?php 
+require_once 'includes/database.php'; 
+echo "got here";
+die();
+?>
 
 <!DOCTYPE html>
 	<html lang="en">
