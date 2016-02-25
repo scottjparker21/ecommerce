@@ -1,9 +1,4 @@
-<?php 
-require_once 'includes/database.php'; 
-echo "got here";
-die();
-?>
-
+<?php  require_once 'includes/session.php'; ?>
 <!DOCTYPE html>
 	<html lang="en">
 		<?php require_once 'includes/header.php';?>
@@ -22,4 +17,3 @@ die();
 
 		</body>
 	</html>
-
