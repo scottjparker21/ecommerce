@@ -1,5 +1,5 @@
 <?php	 
-   require_once 'includes/database.php';
+   require_once 'database.php';
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -83,12 +83,12 @@
     }
 ?>
 
-<?php require_once 'includes/session.php' ?>
+<?php require_once 'session.php' ?>
 <!DOCTYPE html>
 	<html lang="en">
-		<?php require_once 'includes/header.php'; ?>
+		<?php require_once 'header.php'; ?>
 		<body>
-		<?php require_once 'includes/navbar.php'; ?>
+		<?php require_once 'navbar.php'; ?>
 			<div class="container">
 			  	<div class="span10 offset1">
                     <div class="row">
@@ -183,6 +183,6 @@
                     </form>
                 </div>
             </div>    
-		<?php require_once 'includes/footer.php';?>
+		<?php require_once 'footer.php';?>
 		</body>
 	</html>
