@@ -1,5 +1,5 @@
 <?php	 
-   require_once 'includes/database.php';
+    require_once 'includes/session.php';
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -72,18 +72,22 @@
         }
          
         if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
-            Database::disconnect();
-            header("Location: index.php");
+            try {
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
+                Database::disconnect();
+                header("Location: index.php");
+            } catch (PDOException $e){
+                echo $e->getMessage();
+                die();
+            }
         }
     }
 ?>
 
-<?php require_once 'includes/session.php' ?>
 <!DOCTYPE html>
 	<html lang="en">
 		<?php require_once 'includes/header.php'; ?>
