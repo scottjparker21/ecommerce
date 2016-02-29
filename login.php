@@ -3,6 +3,7 @@
 	<html lang="en">
 		<?php require_once 'includes/header.php'; ?>
 		<body>
+			<?php require_once 'includes/navbar.php';?>
 				<form method="post" action="auth.php" enctype="multipart/form-data">
 			  		<div class="control-group">
 			    		<label class="control-label" for="inputUsername">Username</label>
