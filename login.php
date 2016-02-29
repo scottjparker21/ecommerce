@@ -1,7 +1,7 @@
-<?php require 'session.php' ?>
+<?php require_once 'includes/session.php' ?>
 <!DOCTYPE html>
 	<html lang="en">
-		<?php require 'header.php'; ?>
+		<?php require_once 'includes/header.php'; ?>
 		<body>
 				<form method="post" action="auth.php" enctype="multipart/form-data">
 			  		<div class="control-group">
