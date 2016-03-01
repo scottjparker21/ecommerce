@@ -1,5 +1,5 @@
 <?php	 
-   require_once 'database.php';
+    require_once 'includes/session.php';
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -72,23 +72,27 @@
         }
          
         if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
-            Database::disconnect();
-            header("Location: index.php");
+            try {
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
+                Database::disconnect();
+                header("Location: index.php");
+            } catch (PDOException $e){
+                echo $e->getMessage();
+                die();
+            }
         }
     }
 ?>
 
-<?php require_once 'session.php' ?>
 <!DOCTYPE html>
 	<html lang="en">
-		<?php require_once 'header.php'; ?>
+		<?php require_once 'includes/header.php'; ?>
 		<body>
-		<?php require_once 'navbar.php'; ?>
+		<?php require_once 'includes/navbar.php'; ?>
 			<div class="container">
 			  	<div class="span10 offset1">
                     <div class="row">
@@ -183,6 +187,6 @@
                     </form>
                 </div>
             </div>    
-		<?php require_once 'footer.php';?>
+		<?php require_once 'includes/footer.php';?>
 		</body>
 	</html>
