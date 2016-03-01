@@ -44,11 +44,13 @@
                             <input type="text" class="form-control" placeholder="Search" id="search">
                       </div>
                   </form>
+                  <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] === 1 ){ ?>
+                      <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
                       <li><a class="btn" href=""><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
-                        <li><i class="icon-user"></i><a class="btn" href="logout.php">Logout</a></li>
+                        <li><i class="icon-cog"></i><a class="btn" href="admin.php">Admin</a></li>
                   <?php } 
                       else{ ?>
                       <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
