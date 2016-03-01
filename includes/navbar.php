@@ -51,6 +51,7 @@
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
                         <li><i class="icon-cog"></i><a class="btn" href="admin.php">Admin</a></li>
+                  <?php } ?>      
                   <?php } 
                       else{ ?>
                       <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
