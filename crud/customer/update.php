@@ -111,7 +111,7 @@
     }
 ?>
 
-<TYPE html>
+<!-- <TYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -218,6 +218,6 @@
                  
     </div> <!-- /container -->
   </body>
-</html>
+</html> -->
 
 
