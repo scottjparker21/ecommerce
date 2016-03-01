@@ -46,6 +46,7 @@
                   </form>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] === 1 ){ ?>
                       <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
+                  <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
                       <li><a class="btn" href=""><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                   <?php } ?>
