@@ -8,9 +8,9 @@
 		
 				<p>Admin Page</p>
 
-				<?php require_once 'crud/address/index.php';?>
+				<?php require_once 'crud/customer/index.php';?>
 
-				<?php require_once 'crud/address/update.php';?>
+				<?php require_once 'crud/customer/update.php';?>
 
 
 			</div>
