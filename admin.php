@@ -5,10 +5,12 @@
 		<body>
 			<?php require_once 'includes/navbar.php';?>
 			<div class="container">
-			
-
-				
+		
 				<p>Admin Page</p>
+
+				<?php require_once 'crud/address/index.php';?>
+
+				<?php require_once 'crud/address/update.php';?>
 
 
 			</div>
