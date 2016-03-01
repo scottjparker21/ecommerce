@@ -1,6 +1,6 @@
 <?php
 
-			require 'database.php';
+			require_once 'includes/database.php';
 			$pdo = Database::connect();
 			$user = ($_POST["username"]);
 			$pass = ($_POST["password"]);
