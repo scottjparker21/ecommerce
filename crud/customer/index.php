@@ -31,7 +31,7 @@
                   </thead>
                   <tbody>
                   <?php
-                   require_once '../../database.php';
+                   
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM customer ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
