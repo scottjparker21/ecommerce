@@ -48,11 +48,11 @@
                       <li><a class="btn" href=""><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
-                        <li><i class="icon-user"></i><a class="btn" href="logout.php">Logout</a></li>
+                        <li><i class="icon-user"></i><a class="btn" href="../logout.php">Logout</a></li>
                   <?php } 
                       else{ ?>
                       <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
-                      <li><i class=""></i><a class="btn" href="includes/register.php">Register</a></li>
+                      <li><i class=""></i><a class="btn" href="../register.php">Register</a></li>
                   <?php } ?>
         		  </ul>
       		</div>
