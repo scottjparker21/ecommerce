@@ -48,7 +48,7 @@
                       <li><i class="icon-cog"></i><a class="btn" href="admin.php">Admin</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 2 ){ ?>
-                      <li><i class="icon-cog"></i><a class="btn" href="customer.php">Update Info</a></li>
+                      <li><a class="" href="customer.php"><i class="fa fa-user fa-fw"></i>&nbsp;<?php echo $_SESSION['first']; ?></a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
                       <li><a class="btn" href=""><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
