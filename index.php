@@ -10,6 +10,7 @@
 				<?php echo $_SESSION['first']; ?>
 
 				<p> This will hopefully been hidden when search field is not empty. </p>
+				<i class="fa fa-camera-retro fa-lg"></i>
 
 
 			</div>
