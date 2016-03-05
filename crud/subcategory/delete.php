@@ -4,22 +4,24 @@
 
         // DELETE PAGE
     require_once '../../includes/database.php';
-    $id = 0;
+    
      
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    }
-     
-    if ( !empty($_POST)) {
+    if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track post values
         $id = $_POST['id'];
          
         // delete data
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         $sql = "DELETE FROM subcategory WHERE id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
+
+        $sql2 = "UPDATE product SET subcategory_id = null WHERE subcategory_id = ?";
+        $q2 = $pdo->prepare($sql2);
+        $q2->execute(array($id));
+
         Database::disconnect();
         header("Location: index.php");
          
