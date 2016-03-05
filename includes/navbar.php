@@ -45,13 +45,13 @@
                       </div>
                   </form>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 1 ){ ?>
-                      <li><i class="icon-cog"></i><a class="btn" href="admin.php">Admin</a></li>
+                      <li><a class="" href="admin.php"><i class="fa fa-user-plus fa-fw"></i>&nbsp; Admin</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 2 ){ ?>
                       <li><a class="" href="customer.php"><i class="fa fa-user fa-fw"></i>&nbsp;<?php echo $_SESSION['first']; ?></a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
-                      <li><a class="btn" href=""><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+                      <li><a class="" href="cart.php"><i class="fa fa-cart-arrow-down fa-fw"></i> &nbsp; Cart</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
                         <li><i class="icon-user"></i><a class="btn" href="logout.php">Logout</a></li>
