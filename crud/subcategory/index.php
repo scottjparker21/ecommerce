@@ -34,7 +34,7 @@
                             echo '<td><input type="text" name="name" value="' . $row["name"] . '"></td>';                       
                             echo '<td>';
                             echo '<select name="category_id">';
-                            echo '<option name="subcategory_id" value="' . $row["subcategory_id"] . '">' . $row["subcategory_id"] . '</option>';                          
+                            echo '<option name="category_id" value="' . $row["category_id"] . '">' . $row["category_id"] . '</option>';                          
                                 $sql2 = 'SELECT * FROM category ORDER BY id DESC';                         
                                   foreach ($pdo->query($sql2) as $row2) {
 
