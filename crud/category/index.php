@@ -22,20 +22,25 @@
 		    </tr>
                   <tbody>
                   <?php
-                   require_once '../../database.php';
+                   require_once '../../includes/database.php';
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM category ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
                       echo '<tr>';
-                      echo '<td>'. $row['name'] . '</td>';
-                      // echo '<td><a class="btn" href="read.php?id='.$row['id'].'">Read</a></td>';
-                      echo '<td width=250>';
-                            echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';
-                            echo ' ';
-                          echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Update</a>';
-                          echo ' ';
-                          echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Delete</a>';
-                          echo '</td>';
+                            echo '<form action="update.php" method="post">';
+
+                            echo '<td><input type="text" name="name" value="' . $row["name"] . '"></td>';
+                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+           
+                            echo '<td>';
+                              echo '<input type="submit" class="btn-success" value="update">';
+                              echo '</form>';
+          
+                              echo '<form action="delete.php" method="post">';
+                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+                              echo '<input type="submit" class="btn-danger" value="delete">';
+                              echo '</form>';
+                            echo '</td>';
                            echo '</tr>';
                    }
                    Database::disconnect();
