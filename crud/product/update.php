@@ -3,7 +3,7 @@
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
     // echo "im here";
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
 
    $id = $_POST['id'];
    

@@ -3,7 +3,7 @@
 <?php
 
         // DELETE PAGE
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
      
      
     if (!empty($_POST['id']) && isset($_POST['id'])) {

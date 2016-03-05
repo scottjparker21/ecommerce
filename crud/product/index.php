@@ -27,7 +27,7 @@
                   </thead>
                   <tbody>
                   <?php
-                   require_once '../../database.php';
+                   require_once '../../includes/database.php';
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM product ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
