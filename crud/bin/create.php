@@ -28,9 +28,21 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO bin (name,shipment_center_id) values(?, ?)";
+
+            $sql = "INSERT INTO bin (name,shipment_center_id) VALUES(?, ?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($name,$shipment_center_id));
+
+            $last_id = $pdo->lastInsertId();
+
+
+           
+
+            $sql2 = "INSERT INTO product_bin (product_id,bin_id) VALUES(?, ?)";
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($product_id,$last_id));
+
+
             Database::disconnect();
             header("Location: index.php");
         }
@@ -65,21 +77,28 @@
                             <?php endif; ?>
                         </div>
                       </div>
-                      <div class="control-group <?php echo !empty($shipment_center_idError)?'error':'';?>">
-                        <label class="control-label">Shipment Center id</label>
-                        <div class="controls">
-                            <input name="shipment_center_id" type="text" placeholder="Shipment Center id" value="<?php echo !empty($shipment_center_id)?$shipment_center_id:'';?>">
-                            <?php if (!empty($shipment_center_idError)): ?>
-                                <span class="help-inline"><?php echo $shipment_center_idError;?></span>
-                            <?php endif;?>
-                        </div>
-                      </div>
+                      <label class="control-label">Shipment Center ID</label>
+                      <br>
+                        <select name="shipment_center_id">
+                            <?php
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM shipment_center ORDER BY id DESC';                         
+                                   foreach ($pdo->query($sql) as $row) {
+                                            echo '<option name="shipment_center_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                  }
+                                   Database::disconnect();
+                                  ?>
+                        </select>
+                      <br>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
                           <a class="btn" href="index.php">Back</a>
                         </div>
                     </form>
                 </div>
+
+                
+                
                  
     </div> <!-- /container -->
   </body>
