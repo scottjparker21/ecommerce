@@ -27,7 +27,7 @@ if (!empty($_POST['id']) && isset($_POST['id'])) {
         echo $e->getMessage();
         $error = $e->getMessage();
         echo $error;
-        if(strpos($e, 'Constraint') !== false) {  
+        if(strpos($e, 'CONSTRAINT') !== false) {  
             $error = 'Products currently using this Subcategory. Go to products and delete any using this subcategory in order to delete.';
             echo $error;
         die();
