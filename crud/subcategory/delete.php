@@ -3,7 +3,7 @@
 <?php
 
         // DELETE PAGE
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
     $id = 0;
      
     if ( !empty($_GET['id'])) {
