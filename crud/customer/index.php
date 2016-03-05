@@ -15,7 +15,7 @@
 		<p>
 			<a href="create.php" class="btn btn-success"> Create </a>
 		</p>		
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" style="white-space:nowrap;">
                   <thead>
                     <tr>
                       <th>First</th>
@@ -27,33 +27,39 @@
                       <th>Gender</th>
                       <th>Permission</th>
                       <th>Email</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php
-                   
+                   require_once '../../includes/database.php';
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM customer ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
-                            echo '<td>'. $row['first'] . '</td>';
-                            echo '<td>'. $row['last'] . '</td>';
-                            echo '<td>'. $row['phone'] . '</td>';
-                            echo '<td>'. $row['dob'] . '</td>';
-                            echo '<td>'. $row['username'] . '</td>';
-                            echo '<td>'. $row['password'] . '</td>';
-                            echo '<td>'. $row['gender'] . '</td>';
-                            echo '<td>'. $row['permission'] . '</td>';
-                            echo '<td>'. $row['email'] . '</td>';
+                            echo '<form action="update.php" method="post">';
+
+                            echo '<td><input type="text" name="first" value="' . $row["first"] . '"></td>';
+                            echo '<td><input type="text" name="last" value="' . $row["last"] . '"></td>';
+                            echo '<td><input type="text" name="phone" size="12" value="' . $row["phone"] . '"></td>';
+                            echo '<td><input type="text" name="dob" value="' . date('m-d-Y',strtotime($row["dob"])) . '"></td>';
+                            echo '<td><input type="text" name="username" value="' . $row["username"] . '"></td>';
+                            echo '<td><input type="text" name="password" value="' . $row["password"] . '"></td>';
+                            echo '<td><input type="text" name="gender" size="1" value="' . $row["gender"] . '"></td>';
+                            echo '<td><input type="text" name="permission" size="1" value="' . $row["permission"] . '"></td>';
+                            echo '<td><input type="text" name="email" value="' . $row["email"] . '"></td>';
+                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+            
+                            echo '<td>';
+                              echo '<input type="submit" class="btn-success" value="update">';
+                              echo '</form>';
 			    
-                            echo '<td width=250>';
-                                echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';
-                                echo ' ';
-                                echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Update</a>';
-                                echo ' ';
-                                echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Delete</a>';
-                                echo '</td>';
-			    echo '</tr>';
+                              echo '<form action="delete.php" method="post">';
+                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+                              echo '<input type="submit" class="btn-danger" value="delete">';
+                              echo '</form>';
+                            echo '</td>';
+			                     echo '</tr>';
                    }
                    Database::disconnect();
                   ?>

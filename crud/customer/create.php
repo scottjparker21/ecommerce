@@ -1,7 +1,7 @@
 
 <?php
 	 
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
  	
 	echo "now im here";
 

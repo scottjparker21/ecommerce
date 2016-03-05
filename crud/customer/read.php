@@ -1,5 +1,5 @@
 <?php
-require_once '../../database.php';
+require_once '../../includes/database.php';
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
