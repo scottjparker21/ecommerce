@@ -65,15 +65,19 @@
                             <?php endif; ?>
                         </div>
                       </div>
-                      <div class="control-group <?php echo !empty($category_idError)?'error':'';?>">
-                        <label class="control-label">Category id</label>
-                        <div class="controls">
-                            <input name="category_id" type="text" placeholder="category id" value="<?php echo !empty($category_id)?$category_id:'';?>">
-                            <?php if (!empty($category_idError)): ?>
-                                <span class="help-inline"><?php echo $category_idError;?></span>
-                            <?php endif;?>
-                        </div>
-                      </div>
+                      <label class="control-label">Subcategory ID</label>
+                      <br>
+                        <select name="category_id">
+                            <?php
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM category ORDER BY id DESC';                         
+                                   foreach ($pdo->query($sql) as $row) {
+                                            echo '<option name="category_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                  }
+                                   Database::disconnect();
+                                  ?>
+                        </select>
+                      <br>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
                           <a class="btn" href="index.php">Back</a>
