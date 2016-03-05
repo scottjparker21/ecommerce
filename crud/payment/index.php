@@ -30,25 +30,32 @@
                   </thead>
                   <tbody>
                   <?php
-                   require_once '../../database.php';
+                   require_once '../../includes/database.php';
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM payment ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
-                            echo '<td>'. $row['card_full_name'] . '</td>';
-                            echo '<td>'. $row['card_number'] . '</td>';
-                            echo '<td>'. $row['card_security'] . '</td>';
-                            echo '<td>'. $row['expires_month'] . '</td>';
-                            echo '<td>'. $row['expires_year'] . '</td>';
-                            echo '<td>'. $row['type'] . '</td>';
-                            echo '<td width=250>';
-                            echo '<a class="btn btn-default " href="read.php?id='.$row['id'].'">Read</a>';
-                            echo ' ';
-                            echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Update</a>';
-                            echo ' ';
-                            echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Delete</a>';
+                            echo '<form action="update.php" method="post">';
+
+                            echo '<td><input type="text" name="card_full_name" value="' . $row["card_full_name"] . '"></td>';
+                            echo '<td><input type="text" name="card_number" value="' . $row["card_number"] . '"></td>';
+                            echo '<td><input type="text" name="card_security" size="3" value="' . $row["card_security"] . '"></td>';
+                            echo '<td><input type="text" name="expires_month" size="2" value="' . $row["expires_month"] . '"></td>';
+                            echo '<td><input type="text" name="expires_year" size="4" value="' . $row["expires_year"] . '"></td>';
+                            echo '<td><input type="text" name="type" value="' . $row["type"] . '"></td>';
+                            
+                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+            
+                            echo '<td>';
+                              echo '<input type="submit" class="btn-success" value="update">';
+                              echo '</form>';
+          
+                              echo '<form action="delete.php" method="post">';
+                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+                              echo '<input type="submit" class="btn-danger" value="delete">';
+                              echo '</form>';
                             echo '</td>';
-	                           echo '</tr>';
+                           echo '</tr>';
                   }
                    Database::disconnect();
                   ?>
