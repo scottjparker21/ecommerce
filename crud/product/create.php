@@ -7,12 +7,13 @@
         $costError = null;
         $descriptionError = null;
         $subidError = null;
-         
+        $binidError = null;       
         // keep track post values
         $name = $_POST['name'];
         $cost = $_POST['cost'];
         $description = $_POST['description'];
         $subid = $_POST['subcategory_id'];
+        $binid = $_POST['bin_id'];
         // validate input
         $valid = true;
         if (empty($name)) {
@@ -32,14 +33,31 @@
             $subidError = 'Please enter Subcategory id';
             $valid = false;
         }
+        if (empty($subid)) {
+            $subidError = 'Please enter Bin id';
+            $valid = false;
+        }
          
         // insert data
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
             $sql = "INSERT INTO product (name,cost,description,subcategory_id) values(?, ?, ?, ?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($name,$cost,$description,$subid));
+
+            $last_id = $pdo->lastInsertId();
+
+            $sql2 = "INSERT INTO image (image,description,featured,product_id) values(?, ?, ?, ?)";
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($name,$cost,$description,$last_id));
+
+            $sql3 = "INSERT INTO product_bin (product_id,bin_id) values(?, ?)";
+            $q3 = $pdo->prepare($sql3);
+            $q3->execute(array($last_id,$binid));
+
+
             Database::disconnect();
             header("Location: index.php");
         }
@@ -92,15 +110,32 @@
                             <?php endif;?>
                         </div>
                       </div>
-                        <div class="control-group <?php echo !empty($subidError)?'error':'';?>">
-                        <label class="control-label">Subcategory id</label>
-                        <div class="controls">
-                            <input name="subcategory_id" type="text" placeholder="Subcategory id" value="<?php echo !empty($subid)?$subid:'';?>">
-                            <?php if (!empty($subidError)): ?>
-                                <span class="help-inline"><?php echo $subidError;?></span>
-                            <?php endif;?>
-                        </div>
-                      </div>
+                      <label class="control-label">Subcategory ID</label>
+                      <br>
+                        <select name="subcategory_id">
+                            <?php
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM subcategory ORDER BY id DESC';                         
+                                   foreach ($pdo->query($sql) as $row) {
+                                            echo '<option name="subcategory_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                  }
+                                   Database::disconnect();
+                                  ?>
+                        </select>
+                      <br>
+                      <label class="control-label">Bin ID</label>
+                      <br>
+                        <select name="bin_id">
+                            <?php
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM bin ORDER BY id DESC';                         
+                                   foreach ($pdo->query($sql) as $row) {
+                                            echo '<option name="bin_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                  }
+                                   Database::disconnect();
+                                  ?>
+                        </select>
+                      <br>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
                           <a class="btn" href="index.php">Back</a>
