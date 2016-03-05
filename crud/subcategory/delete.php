@@ -25,6 +25,7 @@ if (!empty($_POST['id']) && isset($_POST['id'])) {
     } catch (PDOException $e){
         Database::disconnect();
         if(strpos($e->getMessage(), 'Constraint') !== false) {
+            echo $e->getMessage();
         $error = 'Products currently using this Subcategory. Go to products and delete any using this subcategory in order to delete.'
         echo $error;
         die();
