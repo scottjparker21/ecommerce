@@ -33,8 +33,8 @@
             $subidError = 'Please enter Subcategory id';
             $valid = false;
         }
-        if (empty($subid)) {
-            $subidError = 'Please enter Bin id';
+        if (empty($binid)) {
+            $binidError = 'Please enter Bin id';
             $valid = false;
         }
          
