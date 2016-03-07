@@ -76,7 +76,7 @@
                 echo $e->getMessage();
                 die();
             }  
-    } } else {
+    }  else {
         echo "failed.";
         die();
     }
