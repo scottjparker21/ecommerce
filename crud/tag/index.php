@@ -22,7 +22,7 @@
 		    </tr>
                   <tbody>
                   <?php
-                   require_once '../../includes/sdatabase.php';
+                   require_once '../../includes/database.php';
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM tag ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
