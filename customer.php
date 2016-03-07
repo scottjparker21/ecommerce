@@ -10,7 +10,7 @@
 		                <h3>Payment</h3>
 		                <br>
 		                <p>
-							<a href="crud/user_crud/customerpayment.php" class="btn btn-success"> Add New Payment Option </a>
+							<a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Add New Payment Option </a>
 						</p>	
 		            </div>
 		            <div class="row">		
