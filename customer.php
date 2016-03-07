@@ -96,10 +96,11 @@
 		                   $pdo = Database::connect();
 
 		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = ? ';
-						    $q = $pdo->prepare($sql2);
-					        $q->execute(array($uid));
-					        $data = $q->fetch(PDO::FETCH_ASSOC);
-					        $payment_id = $data['payment_id'];
+
+		                   foreach ($pdo->query($sql2) as $row2) {
+
+						    
+					        $payment_id = $row2['payment_id'];
 
 					        echo $payment_id;
 
