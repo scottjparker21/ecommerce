@@ -100,7 +100,7 @@
 		                   foreach ($pdo->query($sql2) as $row2) {
 
 						    
-					        $payment_id = $row2['payment_id'];
+					        $payment_id = $row2["payment_id"];
 
 					        echo $payment_id;
 
