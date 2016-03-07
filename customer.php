@@ -7,6 +7,9 @@
 
 			echo "i work";?>
 				<div class="container">
+					<p>
+						<a href="crud/user_crud/customer_payment_update/create.php" class="btn btn-success"> Create </a>
+					</p>	
 					
 		            <div class="row">
 		                <h3>Payment</h3>
