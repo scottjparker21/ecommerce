@@ -103,7 +103,7 @@
 
 					        echo $payment_id;
 
-		                   $sql = 'SELECT * FROM payment WHERE id = $payment_id ORDER BY id DESC';
+		                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
 		                   foreach ($pdo->query($sql) as $row) {
 
 		                   		if ( $row["id"] == $payment_id) {
