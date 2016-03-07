@@ -83,8 +83,10 @@
         die();
     }
 
+    ?>
+
     <!DOCTYPE html>
-<!-- NEW CREATE PAGE -->
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
