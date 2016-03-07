@@ -96,7 +96,7 @@
                         <h3>Create Payment Information</h3>
                     </div>
              
-                    <form class="form-horizontal" action="create.php" method="post">
+                    <form class="form-horizontal" action="customer_payment_update.php" method="post">
                       <div class="control-group <?php echo !empty($card_full_nameError)?'error':'';?>">
                         <label class="control-label">Full Name</label>
                         <div class="controls">
