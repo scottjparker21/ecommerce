@@ -76,10 +76,7 @@
 		                <div class="row">
 		                <h3>Payment</h3>
 		            </div>
-		            <div class="row">
-				<p>
-					<a href="create.php" class="btn btn-success"> Create </a>
-				</p>		
+		            <div class="row">		
 		                <table class="table table-striped table-bordered">
 		                  <thead>
 		                    <tr>
@@ -93,12 +90,21 @@
 		                  </thead>
 		                  <tbody>
 		                  <?php
+
+		                  	$uid = $_SESSION["userid"];
 		                   
 		                   $pdo = Database::connect();
-		                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
+
+		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = ? ';
+						    $q = $pdo->prepare($sql);
+					        $q->execute(array($uid));
+					        $data = $q->fetch(PDO::FETCH_ASSOC);
+					        $payment_id = $data['payment_id'];
+
+		                   $sql = 'SELECT * FROM payment WHERE id = $payment_id ORDER BY id DESC';
 		                   foreach ($pdo->query($sql) as $row) {
 		                            echo '<tr>';
-		                            echo '<form action="update.php" method="post">';
+		                            echo '<form action="crud/payment/update.php" method="post">';
 
 		                            echo '<td><input type="text" name="card_full_name" value="' . $row["card_full_name"] . '"></td>';
 		                            echo '<td><input type="text" name="card_number" value="' . $row["card_number"] . '"></td>';
