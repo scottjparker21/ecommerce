@@ -95,20 +95,19 @@
 		                   
 		                   $pdo = Database::connect();
 
-		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = :uid ';
-		                   $sql2->bindValue(':uid', $pdo, PDO::PARAM_INT);
-		                   $q = $pdo->query($sql2);
+		                   $sql2 = "SELECT * FROM customer_payment WHERE customer_id = '$uid' ";
+		                  
 
-		                   echo $sql2;
+		                   
 
-		                   foreach ( $query as $row2) {
-
-						    
+		                   foreach ( $pdo->query($sql2); as $row2) {
+    
 					        $payment_id = $row2["payment_id"];
 
 					        echo $payment_id;
 
 		                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
+		                   // $sql = 'SELECT * FROM payment JOIN customer_payment ON (id=payment_id) WHERE'
 		                   foreach ($pdo->query($sql) as $row) {
 
 		                   		if ( $row["id"] == $payment_id) {
