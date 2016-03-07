@@ -101,6 +101,8 @@
 					        $data = $q->fetch(PDO::FETCH_ASSOC);
 					        $payment_id = $data['payment_id'];
 
+					        echo $payment_id;
+
 		                   $sql = 'SELECT * FROM payment WHERE id = $payment_id ORDER BY id DESC';
 		                   foreach ($pdo->query($sql) as $row) {
 
