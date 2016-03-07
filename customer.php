@@ -8,7 +8,7 @@
 			echo "i work";?>
 				<div class="container">
 					<p>
-						<a href="crud/user_crud/customer_payment_update/create.php" class="btn btn-success"> Create </a>
+						<a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a>
 					</p>	
 					
 		            <div class="row">
