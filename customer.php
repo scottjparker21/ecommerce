@@ -106,7 +106,7 @@
 		                   $sql = 'SELECT * FROM payment WHERE id = $payment_id ORDER BY id DESC';
 		                   foreach ($pdo->query($sql) as $row) {
 
-		                   		if ( $row['id'] == $payment_id) {
+		                   		if ( $row["id"] == $payment_id) {
 		                            echo '<tr>';
 		                            echo '<form action="crud/payment/update.php" method="post">';
 
