@@ -97,10 +97,11 @@
 
 		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = :uid ';
 		                   $sql2->bindValue(':uid', $pdo, PDO::PARAM_INT);
+		                   $q = $pdo->query($sql2);
 
 		                   echo $sql2;
 
-		                   foreach ($pdo->query($sql2) as $row2) {
+		                   foreach ( $query as $row2) {
 
 						    
 					        $payment_id = $row2["payment_id"];
