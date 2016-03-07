@@ -56,7 +56,7 @@
         }
          
         // insert data
-        try {
+        if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -73,15 +73,8 @@
             Database::disconnect();
             header("Location: index.php");
         }
-        catch (PDOException $e){
-                Database::disconnect();
-                echo $e->getMessage();
-                die();
-            }  
-    }  else {
-        echo "failed.";
-        die();
     }
+    
 
     ?>
 
