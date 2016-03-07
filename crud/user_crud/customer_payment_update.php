@@ -57,6 +57,7 @@
          
         // insert data
         if ($valid) {
+            try {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -71,7 +72,12 @@
             $q2->execute(array($uid,$last_id));
 
             Database::disconnect();
-            header("Location: index.php");
+            header("Location: ../../customer.php");
+            }
+            catch (PDOException $e){
+                echo $e->getMessage();
+                die();
+            }
         }
     }
     
