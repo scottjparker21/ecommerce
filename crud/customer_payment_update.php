@@ -1,5 +1,5 @@
 <?php
-    require_once '../../includes/database.php';
+    require_once '../../database.php';
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
     
@@ -21,6 +21,7 @@
         $type = $_POST['type'];
         // validate input
         $valid = true;
+
         if (empty($card_full_name)) {
             $nameError = 'Please enter Full Name';
             $valid = false;
@@ -48,16 +49,25 @@
             $typeError = 'Please enter Card Type';
             $valid = false;
         }
+
+         $uid = $_POST["userid"];
          
         // insert data
-        if ($valid) {
+        
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
             $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
             $q = $pdo->prepare($sql);
             $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
+
+            $last_id = $pdo->lastInsertId();
+
+            $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($uid,$last_id));
+
             Database::disconnect();
             header("Location: index.php");
-        }
+        
     }
-
