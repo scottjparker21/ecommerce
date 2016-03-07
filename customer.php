@@ -95,7 +95,7 @@
 		                   
 		                   $pdo = Database::connect();
 
-		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = ? ';
+		                   $sql2 = 'SELECT payment_id FROM customer_payment WHERE customer_id = ? ';
 
 		                   foreach ($pdo->query($sql2) as $row2) {
 
