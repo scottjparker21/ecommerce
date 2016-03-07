@@ -95,7 +95,7 @@
 		                   
 		                   $pdo = Database::connect();
 
-		                   $sql2 = 'SELECT payment_id FROM customer_payment WHERE customer_id = ? ';
+		                   $sql2 = 'SELECT * FROM customer_payment WHERE customer_id = '$uid' ';
 
 		                   foreach ($pdo->query($sql2) as $row2) {
 
@@ -104,7 +104,34 @@
 
 					        echo $payment_id;
 
-		                   
+		                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
+		                   foreach ($pdo->query($sql) as $row) {
+
+		                   		if ( $row["id"] == $payment_id) {
+		                            echo '<tr>';
+		                            echo '<form action="crud/payment/update.php" method="post">';
+
+		                            echo '<td><input type="text" name="card_full_name" value="' . $row["card_full_name"] . '"></td>';
+		                            echo '<td><input type="text" name="card_number" value="' . $row["card_number"] . '"></td>';
+		                            echo '<td><input type="text" name="card_security" size="3" value="' . $row["card_security"] . '"></td>';
+		                            echo '<td><input type="text" name="expires_month" size="2" value="' . $row["expires_month"] . '"></td>';
+		                            echo '<td><input type="text" name="expires_year" size="4" value="' . $row["expires_year"] . '"></td>';
+		                            echo '<td><input type="text" name="type" value="' . $row["type"] . '"></td>';
+		                            
+		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+		            
+		                            echo '<td>';
+		                              echo '<input type="submit" class="btn-success" value="update">';
+		                              echo '</form>';
+		          
+		                              echo '<form action="delete.php" method="post">';
+		                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+		                              echo '<input type="submit" class="btn-danger" value="delete">';
+		                              echo '</form>';
+		                            echo '</td>';
+		                           echo '</tr>';
+		                        }
+		                    }
 		                  }
 		                   Database::disconnect();
 		                  ?>
