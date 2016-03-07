@@ -1,10 +1,15 @@
 <?php
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
+
+   
+
     
-    if ( !empty($_POST)) {
+    if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
+        $id = $_POST['id'];
+        $uid = $_POST["userid"];
         $card_full_nameError = null;
         $card_numberError = null;
         $card_securityError = null;
@@ -49,11 +54,9 @@
             $typeError = 'Please enter Card Type';
             $valid = false;
         }
-
-         $uid = $_POST["userid"];
          
         // insert data
-        if ($valid) {
+        try {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -63,11 +66,19 @@
 
             $last_id = $pdo->lastInsertId();
 
-            $sql2 = 'INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)';
+            $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
             $q2 = $pdo->prepare($sql2);
             $q2->execute(array($uid,$last_id));
 
             Database::disconnect();
             header("Location: index.php");
         }
+        catch (PDOException $e){
+                Database::disconnect();
+                echo $e->getMessage();
+                die();
+            }  
+    }  else {
+        echo "failed.";
+        die();
     }
