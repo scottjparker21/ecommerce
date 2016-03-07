@@ -104,7 +104,7 @@
     
 					        $payment_id = $row2["payment_id"];
 
-					        echo $payment_id;
+					        
 
 		                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
 		                   // $sql = 'SELECT * FROM payment JOIN customer_payment ON (id=payment_id) WHERE'
