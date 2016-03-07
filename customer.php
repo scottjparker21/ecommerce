@@ -5,13 +5,11 @@
 		<body>
 			<?php require_once 'includes/navbar.php'; ?>
 
-			
+			echo "i work";?>
+				<div class="container">
+					
 		            <div class="row">
 		                <h3>Payment</h3>
-		                <br>
-		                <p>
-							<a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Add New Payment Option </a>
-						</p>	
 		            </div>
 		            <div class="row">		
 		                <table class="table table-striped table-bordered">
@@ -71,7 +69,8 @@
 		                   Database::disconnect();
 		                  ?>
 		                  </tbody>
-		            </table>
+		            	</row>
+		            	</table>
 		        </div>
 		    </div>
 		
