@@ -3,7 +3,7 @@
 	 
     require_once '../../includes/database.php';
  	
-	echo "now im here";
+	
 
     if ( !empty($_POST)) {
         // keep track validation errors

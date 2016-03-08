@@ -5,12 +5,64 @@
 		<body>
 			<?php require_once 'includes/navbar.php'; ?>
 
-			echo "i work";?>
-				<div class="container">
-					<p>
-						<a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a>
-					</p>	
-					
+			<div class="container">
+				<div class="row">
+                	<h3>Customer</h3>
+            	</div>
+	            <div class="row">
+	        		<p>
+	        			<a href="create.php" class="btn btn-success"> Create </a>
+	        		</p>		
+	                <table class="table table-striped table-bordered" style="white-space:nowrap;">
+	                  <thead>
+	                    <tr>
+	                      <th>First</th>
+	                      <th>Last</th>
+			                  <th>Phone</th>
+	                      <th>Date of Birth</th>
+	                      <th>Username</th>
+	                      <th>Password</th>
+	                      <th>Gender</th>
+	                      <th>Email</th>
+	                      <th>Actions</th>
+	                    </tr>
+	                  </thead>
+	                  <tbody>
+	                  <?php
+	                   require_once '../../includes/database.php';
+	                   $pdo = Database::connect();
+	                   $sql = 'SELECT * FROM customer ORDER BY id DESC';
+	                   foreach ($pdo->query($sql) as $row) {
+	                            echo '<tr>';
+	                            echo '<form action="update.php" method="post">';
+
+	                            echo '<td><input type="text" name="first" value="' . $row["first"] . '"></td>';
+	                            echo '<td><input type="text" name="last" value="' . $row["last"] . '"></td>';
+	                            echo '<td><input type="text" name="phone" size="12" value="' . $row["phone"] . '"></td>';
+	                            echo '<td><input type="text" name="dob" value="' . date('m-d-Y',strtotime($row["dob"])) . '"></td>';
+	                            echo '<td><input type="text" name="username" value="' . $row["username"] . '"></td>';
+	                            echo '<td><input type="text" name="password" value="' . $row["password"] . '"></td>';
+	                            echo '<td><input type="text" name="gender" size="1" value="' . $row["gender"] . '"></td>';
+	                            echo '<td><input type="text" name="email" value="' . $row["email"] . '"></td>';
+	                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+	            
+	                            echo '<td>';
+	                              echo '<input type="submit" class="btn-success" value="update">';
+	                              echo '</form>';
+				    
+	                              echo '<form action="delete.php" method="post">';
+	                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+	                              echo '<input type="submit" class="btn-danger" value="delete">';
+	                              echo '</form>';
+	                            echo '</td>';
+				                     echo '</tr>';
+	                   }
+	                   Database::disconnect();
+	                  ?>
+	                  </tbody>
+	            	</table>
+	        	</div>		
+					<p><a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a></p>							
 		            <div class="row">
 		                <h3>Payment</h3>
 		            </div>
@@ -78,8 +130,7 @@
 		    </div>
 		
 
-				
-			
+					
 			<?php require_once 'includes/footer.php';?>
 
 		</body>
