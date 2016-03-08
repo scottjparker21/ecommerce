@@ -45,7 +45,8 @@
                       </div>
                   </form>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 1 ){ ?>
-                      <li><a class="" href="admin.php"><i class="fa fa-user-plus fa-fw"></i>&nbsp; Admin</a></li>
+                      <ul class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-plus fa-fw"></i>&nbsp; Admin <span class="caret"></span></a>
+                          <li><a href="crud/address/index.php"> Address </a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 2 ){ ?>
                       <li><a class="" href="customer.php"><i class="fa fa-user fa-fw"></i>&nbsp;<?php echo $_SESSION['first']; ?></a></li>
