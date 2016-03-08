@@ -9,10 +9,7 @@
 				<div class="row">
                 	<h3>Customer</h3>
             	</div>
-	            <div class="row">
-	        		<p>
-	        			<a href="create.php" class="btn btn-success"> Create </a>
-	        		</p>		
+	            <div class="row">	
 	                <table class="table table-striped table-bordered" style="white-space:nowrap;">
 	                  <thead>
 	                    <tr>
@@ -150,7 +147,7 @@
 		                  <?php
 		                   
 		                   $pdo = Database::connect();
-		                   $sql = 'SELECT * FROM address ORDER BY id DESC';
+		                   $sql = 'SELECT * FROM address LEFT JOIN customer_address ON address.id = customer_address.address_id AND customer_address.customer_id = ' . $_SESSION['userid'];
 		                   foreach ($pdo->query($sql) as $row) {
 		                            echo '<tr>';
 		                            echo '<form action="crud/address/update.php" method="post">';
