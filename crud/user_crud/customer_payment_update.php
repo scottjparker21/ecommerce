@@ -1,16 +1,19 @@
 <?php
     require_once '../../includes/database.php';
-    require_once '../../includes/session.php';
+
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
 
+    session_start();
 
-   $id = $_POST['id'];
+   
    $uid = $_SESSION["userid"];
 
     
     if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
+
+        $id = $_POST['id'];
         
         $card_full_nameError = null;
         $card_numberError = null;
