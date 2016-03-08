@@ -7,7 +7,11 @@
     session_start();
 
     if (!empty($_POST)) {
-        // keep track validation errors        
+        // keep track validation errors  
+
+        echo "got here";
+        die();
+              
         $nameError = null;
         $card_numberError = null;
         $card_securityError = null;
