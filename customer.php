@@ -63,11 +63,12 @@
 	                  ?>
 	                  </tbody>
 	            	</table>
-	        	</div>		
-					<p><a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a></p>							
-		            <div class="row">
+	        	</div>	
+	        		<div class="row">
 		                <h3>Payment</h3>
-		            </div>
+		            </div>	
+					<p><a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a></p>							
+		            
 		            <div class="row">		
 		                <table class="table table-striped table-bordered">
 		                  <thead>
@@ -129,6 +130,12 @@
 		            	</row>
 		            	</table>
 		        	</div>
+		        		<div class="row">
+		                	<h3>Address</h3>
+		            	</div>
+		        		<p>
+	        				<a href="create.php" class="btn btn-success"> Create </a>
+	        			</p>
 				        <table class="table table-striped table-bordered">
 		                  <thead>
 		                    <tr>
