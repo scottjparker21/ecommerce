@@ -117,7 +117,7 @@
                                 $pdo = Database::connect();
                                 $sql = 'SELECT * FROM subcategory ORDER BY id DESC';                         
                                    foreach ($pdo->query($sql) as $row) {
-                                            echo '<option name="subcategory_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                            echo '<option name="subcategory_id" value="' . $row["id"] . '">' . $row["name"] . '</option>';
                                   }
                                    Database::disconnect();
                                   ?>
@@ -130,7 +130,7 @@
                                 $pdo = Database::connect();
                                 $sql = 'SELECT * FROM bin ORDER BY id DESC';                         
                                    foreach ($pdo->query($sql) as $row) {
-                                            echo '<option name="bin_id" value="' . $row["id"] . '">' . $row["id"] . '</option>';
+                                            echo '<option name="bin_id" value="' . $row["id"] . '">' . $row["name"] . '</option>';
                                   }
                                    Database::disconnect();
                                   ?>

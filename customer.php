@@ -49,10 +49,6 @@
 	                              echo '<input type="submit" class="btn-success" value="update">';
 	                              echo '</form>';
 				    
-	                              echo '<form action="delete.php" method="post">';
-	                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-	                              echo '<input type="submit" class="btn-danger" value="delete">';
-	                              echo '</form>';
 	                            echo '</td>';
 				                     echo '</tr>';
 	                   }
@@ -79,9 +75,7 @@
 		                    </tr>
 		                  </thead>
 		                  <tbody>
-		                  <?php
-
-		                  	
+		                  <?php          	
 		                   
 		                   $pdo = Database::connect();
 
@@ -89,7 +83,7 @@
 		                 
 		                   foreach ( $pdo->query($sql2) as $row2) {
     
-					        $payment_id = $row2["payment_id"];
+					           $payment_id = $row2["payment_id"];
 
 			                   $sql = 'SELECT * FROM payment ORDER BY id DESC';
 			                   // $sql = 'SELECT * FROM payment JOIN customer_payment ON (id=payment_id) WHERE'
@@ -112,7 +106,7 @@
 			                              echo '<input type="submit" class="btn-success" value="update">';
 			                              echo '</form>';
 			          
-			                              echo '<form action="delete.php" method="post">';
+			                              echo '<form action="crud/user_crud/payment_delete.php" method="post">';
 			                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			                              echo '<input type="submit" class="btn-danger" value="delete">';
 			                              echo '</form>';
