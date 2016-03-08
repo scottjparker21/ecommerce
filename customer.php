@@ -18,7 +18,7 @@
 	                    <tr>
 	                      <th>First</th>
 	                      <th>Last</th>
-			                  <th>Phone</th>
+			              <th>Phone</th>
 	                      <th>Date of Birth</th>
 	                      <th>Username</th>
 	                      <th>Password</th>
@@ -29,7 +29,7 @@
 	                  </thead>
 	                  <tbody>
 	                  <?php
-	                   require_once '../../includes/database.php';
+	                   
 	                   $pdo = Database::connect();
 	                   $sql = 'SELECT * FROM customer ORDER BY id DESC';
 	                   foreach ($pdo->query($sql) as $row) {
