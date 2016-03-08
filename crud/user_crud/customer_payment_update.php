@@ -9,7 +9,7 @@
     if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
         $id = $_POST['id'];
-        $uid = $_POST["userid"];
+        $uid = $_SESSION["userid"];
         $card_full_nameError = null;
         $card_numberError = null;
         $card_securityError = null;

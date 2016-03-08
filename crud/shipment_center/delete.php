@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../../database.php';
+    require_once '../../includes/database.php';
      
     if ( !empty($_GET['id']) && isset($_GET['id'])) {
         $id = $_GET['id'];
