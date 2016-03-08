@@ -29,9 +29,11 @@
 	                  </thead>
 	                  <tbody>
 	                  <?php
+
+	                  $uid = $_SESSION["userid"];
 	                   
 	                   $pdo = Database::connect();
-	                   $sql = 'SELECT * FROM customer ORDER BY id DESC';
+	                   $sql = "SELECT * FROM customer WHERE customer_id = '$uid'";
 	                   foreach ($pdo->query($sql) as $row) {
 	                            echo '<tr>';
 	                            echo '<form action="update.php" method="post">';
@@ -81,7 +83,7 @@
 		                  <tbody>
 		                  <?php
 
-		                  	$uid = $_SESSION["userid"];
+		                  	
 		                   
 		                   $pdo = Database::connect();
 
