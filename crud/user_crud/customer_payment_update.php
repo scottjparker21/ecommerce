@@ -60,6 +60,9 @@
             $valid = false;
         }
 
+        echo "git here";
+        die();
+
         // insert data
         if ($valid) {
             try {
@@ -101,6 +104,7 @@
  
 <body>
     <div class="container">
+
      
                 <div class="span10 offset1">
                     <div class="row">
