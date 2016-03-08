@@ -5,14 +5,12 @@
     error_reporting(E_ALL);
 
 
-   
-   
+   $id = $_POST['id'];
+   $uid = $_SESSION["userid"];
 
     
     if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
-        
-        $uid = $_SESSION["userid"];
         
         $card_full_nameError = null;
         $card_numberError = null;
@@ -28,8 +26,7 @@
         $expires_month = $_POST['expires_month'];
         $expires_year = $_POST['expires_year'];
         $type = $_POST['type'];
-        $id = $_POST['id'];
-        // validate 
+        // validate input
         $valid = true;
 
         if (empty($card_full_name)) {
