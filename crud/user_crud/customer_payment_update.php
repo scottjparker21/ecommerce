@@ -1,15 +1,17 @@
 <?php
     require_once '../../includes/database.php';
+    require_once '../../includes/session.php';
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
 
-   
+
+   $id = $_POST['id'];
+   $uid = $_SESSION["userid"];
 
     
     if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
-        $id = $_POST['id'];
-        $uid = $_SESSION["userid"];
+        
         $card_full_nameError = null;
         $card_numberError = null;
         $card_securityError = null;
@@ -54,8 +56,7 @@
             $typeError = 'Please enter Card Type';
             $valid = false;
         }
-        echo "here";
-         
+
         // insert data
         if ($valid) {
             try {
