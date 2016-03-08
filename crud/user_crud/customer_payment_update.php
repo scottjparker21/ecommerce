@@ -12,6 +12,8 @@
     
     if (!empty($_POST['id']) && isset($_POST['id'])) {
         // keep track validation errors
+        echo "git here";
+        die();
 
         $id = $_POST['id'];
         
@@ -60,8 +62,7 @@
             $valid = false;
         }
 
-        echo "git here";
-        die();
+
 
         // insert data
         if ($valid) {
