@@ -15,7 +15,7 @@
 
         $id = $_POST['id'];
         
-        $card_full_nameError = null;
+        $nameError = null;
         $card_numberError = null;
         $card_securityError = null;
         $expires_monthError = null;
@@ -112,8 +112,8 @@
                         <label class="control-label">Full Name</label>
                         <div class="controls">
                             <input name="card_full_name" type="text"  placeholder="Full Name" value="<?php echo !empty($card_full_name)?$card_full_name:'';?>">
-                            <?php if (!empty($card_full_nameError)): ?>
-                                <span class="help-inline"><?php echo $card_full_nameError;?></span>
+                            <?php if (!empty($nameError)): ?>
+                                <span class="help-inline"><?php echo $nameError;?></span>
                             <?php endif; ?>
                         </div>
                       </div>
