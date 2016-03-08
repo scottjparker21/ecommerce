@@ -58,31 +58,28 @@
             $valid = false;
         }
 
-        echo "got here" . $valid;
-        die();
-
-
 
         // insert data
         if ($valid) {
             try {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                echo "got here <br>";
+                $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
+                $q = $pdo->prepare($sql);
+                echo $card_full_name . "<br>" . $card_number . "<br>" . $card_security . "<br>" . $expires_month . "<br>" . $expires_year . "<br>" . $type;
+                $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
 
-            $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
+                $last_id = $pdo->lastInsertId();
+                echo $last_id . "<br>";
+                $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
+                $q2 = $pdo->prepare($sql2);
+                $q2->execute(array($uid,$last_id));
 
-            $last_id = $pdo->lastInsertId();
-
-            $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
-            $q2 = $pdo->prepare($sql2);
-            $q2->execute(array($uid,$last_id));
-
-            Database::disconnect();
-            header("Location: ../../customer.php");
-            }
-            catch (PDOException $e){
+                Database::disconnect();
+                die();
+                header("Location: ../../customer.php");
+            } catch (PDOException $e){
                 echo $e->getMessage();
                 die();
             }
