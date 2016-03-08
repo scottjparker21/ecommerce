@@ -54,6 +54,7 @@
             $typeError = 'Please enter Card Type';
             $valid = false;
         }
+        echo "here";
          
         // insert data
         if ($valid) {
