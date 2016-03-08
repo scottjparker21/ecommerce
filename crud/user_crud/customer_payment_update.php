@@ -6,17 +6,8 @@
 
     session_start();
 
-   
-   $uid = $_SESSION["userid"];
-
-    
-    if (!empty($_POST['id']) && isset($_POST['id'])) {
-        // keep track validation errors
-        echo "git here";
-        die();
-
-        $id = $_POST['id'];
-        
+    if (!empty($_POST)) {
+        // keep track validation errors        
         $nameError = null;
         $card_numberError = null;
         $card_securityError = null;
@@ -31,6 +22,8 @@
         $expires_month = $_POST['expires_month'];
         $expires_year = $_POST['expires_year'];
         $type = $_POST['type'];
+        $uid = $_SESSION["userid"];
+
         // validate input
         $valid = true;
 
