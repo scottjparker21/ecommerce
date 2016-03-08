@@ -147,7 +147,7 @@
 		                  <?php
 		                   
 		                   $pdo = Database::connect();
-		                   $sql = 'SELECT * FROM address LEFT JOIN customer_address ON address.id = customer_address.address_id AND customer_address.customer_id = ' . $_SESSION['userid'];
+		                   $sql = "SELECT * FROM address LEFT JOIN customer_address ON address.id = customer_address.address_id AND customer_address.customer_id ='$uid'";
 		                   foreach ($pdo->query($sql) as $row) {
 		                            echo '<tr>';
 		                            echo '<form action="crud/address/update.php" method="post">';
