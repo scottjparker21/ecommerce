@@ -148,7 +148,7 @@
 		                  <?php
 		                   
 		                   $pdo = Database::connect();
-		                   $sql3 = "SELECT * FROM `address` LEFT JOIN `customer_address` ON `address`.`id` = `customer_address`.`address_id` AND `customer_address`.`customer_id` = " . $uid;
+		                   $sql3 = "SELECT * FROM `address` LEFT JOIN `customer_address` ON `address`.`id` = `customer_address`.`address_id` WHERE `customer_address`.`customer_id` = " . $uid;
 		                   echo $sql3 . "<br>";
 		                   foreach ($pdo->query($sql3) as $row) {
 		                            echo '<tr>';
