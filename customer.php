@@ -33,7 +33,7 @@
 	                  $uid = $_SESSION["userid"];
 	                   
 	                   $pdo = Database::connect();
-	                   $sql = "SELECT * FROM customer WHERE customer_id = '$uid'";
+	                   $sql = "SELECT * FROM customer WHERE id = '$uid'";
 	                   foreach ($pdo->query($sql) as $row) {
 	                            echo '<tr>';
 	                            echo '<form action="update.php" method="post">';
