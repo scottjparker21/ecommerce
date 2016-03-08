@@ -58,7 +58,7 @@
             $valid = false;
         }
 
-        echo "got here";
+        echo "got here" . $valid;
         die();
 
 
