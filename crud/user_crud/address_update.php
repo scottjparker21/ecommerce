@@ -1,12 +1,8 @@
 <?php
-    
-            echo "dont got it";
-
+    echo "ok";
+    /*
     require_once '../../includes/database.php';
-        echo "got it";
 
-    
-     
     if (!empty($_POST)) {
         // keep track validation errorss
         $cityError = null;
@@ -23,9 +19,9 @@
         $street_2 = $_POST['street_2'];
         $id = $_POST['id'];
          
-        echo "fields:";
-        echo  " " . $city . $state . $zip . $street_1 . $street_2 . $id;
-        die();
+        //echo "fields:";
+        //echo  " " . $city . $state . $zip . $street_1 . $street_2 . $id;
+        //die();
 
         // validate input
         $valid = true;
@@ -70,11 +66,12 @@
             }
             catch (PDOException $e){
                 Database::disconnect();
-                echo $e->getMessage();f
+                echo $e->getMessage();
                 die();
         }
     } else {
         // echo "are you there?";
-         echo "failed.";
-            die();
+        echo "failed.";
+        die();
     }
+    */
