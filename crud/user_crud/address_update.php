@@ -21,9 +21,12 @@
         $street_2 = $_POST['street_2'];
         $id = $_POST['id'];
          
+        echo "fields:";
+        echo  " " . $city . $state . $zip . $street_1 . $street_2 . $id;
+        die();
+
         // validate input
         $valid = true;
-        echo $city . $state . $zip . $street_1 . $street_2 . $id;
 
         if (empty($city)) {
             $cityError = 'Please enter City';
@@ -58,10 +61,6 @@
             $sql = "UPDATE address  set city = ?, state = ?, zip = ?, street_1 = ?, street_2 = ?  WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($city,$state,$zip,$street_1,$street_2,$id));
-
-            echo $city . $state . $zip . $street_1 . $street_2 . $id;
-            die();
-
 
             Database::disconnect();
             header("Location: ../../customer.php");
