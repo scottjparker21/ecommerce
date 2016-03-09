@@ -146,7 +146,7 @@
 		                   
 		                   foreach ($pdo->query($sql3) as $row) {
 		                            echo '<tr>';
-		                            echo '<form action="crud/address/update.php" method="post">';
+		                            echo '<form action="crud/user_crud/address_update.php" method="post">';
 
 		                            echo '<td><input type="text" name="city" value="' . $row["city"] . '"></td>';
 		                            echo '<td><input type="text" name="state" value="' . $row["state"] . '"></td>';
@@ -159,7 +159,7 @@
 		                              echo '<input type="submit" class="btn-success" value="update">';
 		                              echo '</form>';
 		          
-		                              echo '<form action="delete.php" method="post">';
+		                              echo '<form action="crud/user_crud/address_delete.php" method="post">';
 		                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 		                              echo '<input type="submit" class="btn-danger" value="delete">';
 		                              echo '</form>';

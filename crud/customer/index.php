@@ -12,9 +12,9 @@
                 <h3>Customer</h3>
             </div>
             <div class="row">
-		<p>
-			<a href="create.php" class="btn btn-success"> Create </a>
-		</p>		
+        		<p>
+        			<a href="create.php" class="btn btn-success"> Create </a>
+        		</p>		
                 <table class="table table-striped table-bordered" style="white-space:nowrap;">
                   <thead>
                     <tr>
