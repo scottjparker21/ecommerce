@@ -1,5 +1,6 @@
 <?php
     require_once '../../includes/database.php';
+    echo "why";
  
     if ( !empty($_POST)) {
         // keep track validation errors
