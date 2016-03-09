@@ -60,7 +60,7 @@
 	        		<div class="row">
 		                <h3>Payment</h3>
 		            </div>	
-					<p><a href="crud/user_crud/customer_payment_update.php" class="btn btn-success"> Create </a></p>							
+					<p><a href="crud/user_crud/payment_create.php" class="btn btn-success"> Create </a></p>							
 		            
 		            <div class="row">		
 		                <table class="table table-striped table-bordered">
@@ -91,7 +91,7 @@
 
 			                   		if ( $row["id"] == $payment_id) {
 			                            echo '<tr>';
-			                            echo '<form action="crud/payment/update.php" method="post">';
+			                            echo '<form action="crud/user_crud/payment_update.php" method="post">';
 
 			                            echo '<td><input type="text" name="card_full_name" value="' . $row["card_full_name"] . '"></td>';
 			                            echo '<td><input type="text" name="card_number" value="' . $row["card_number"] . '"></td>';
