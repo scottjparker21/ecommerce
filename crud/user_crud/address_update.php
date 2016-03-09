@@ -19,7 +19,7 @@
         $zip = $_POST['zip'];
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
-        $id = $_SESSION['id'];
+        $id = $_POST['id'];
          
         // validate input
         $valid = true;
