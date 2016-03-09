@@ -2,7 +2,7 @@
 
     require_once '../../includes/database.php';
 
-    session_start()
+    session_start();
  
     if ( !empty($_POST)) {
         // keep track validation errors
