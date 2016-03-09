@@ -60,14 +60,15 @@
             $q->execute(array($city,$state,$zip,$street_1,$street_2,$id));
             Database::disconnect();
             header("Location: ../../customer.php");
-
             }
             catch (PDOException $e){
                 Database::disconnect();
                 echo $e->getMessage();
                 die();
         }
-    } }else {
+            
+        }
+    } else {
         // echo "are you there?";
          echo "failed.";
             die();
