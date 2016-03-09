@@ -4,6 +4,11 @@
     require_once '../../includes/database.php';  
 
     session_start();  
+
+    $addy_id = $_POST['id'];
+        echo $addy_id . '<br>';
+        echo $_SESSION['userid'] . '<br>';
+        die();
   
     if ( !empty($_POST))
         // keep track post values
