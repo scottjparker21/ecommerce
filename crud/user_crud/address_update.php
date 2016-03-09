@@ -48,7 +48,7 @@
         } 
          
         // update data
-        if ($valid == FALSE) {
+        if ($valid) {
             echo "failed at validation";
             die();
         }
