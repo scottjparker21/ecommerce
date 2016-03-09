@@ -53,8 +53,8 @@
 
             $lastId = $pdo->lastInsertId();
             $uid = $_SESSION['userid']);
-            echo $lastId . ' ' . $uid;
-            die();
+            if(isset($lastId)){ echo $lastId . ' ' . $uid; die();}
+
 
             $sql2 = "INSERT INTO customer_address (address_id,customer_id) values (?,?)";
             $q2 = $pdo->prepare($sql);
