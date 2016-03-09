@@ -57,6 +57,11 @@
             $sql = "UPDATE address  set city = ?, state = ?, zip = ?, street_1 = ?, street_2 = ?  WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($city,$state,$zip,$street_1,$street_2,$id));
+
+            echo $city . $state . $zip . $street_1 . $street_2 . $id;
+            die();
+
+
             Database::disconnect();
             header("Location: ../../customer.php");
 
