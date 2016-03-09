@@ -4,8 +4,7 @@
     require_once '../../includes/database.php';
 
     if (!empty($_POST)) {
-        echo "i made it.";
-    }
+     
 
         // keep track post values
         $city = $_POST['city'];
@@ -16,9 +15,8 @@
         $id = $_POST['id'];
          
         //echo "fields:";
-        echo  " " . $city . $state . $zip . $street_1 . $street_2 . 'id=' . ' ' .  $id;
         //die();
-        /*
+        
         // validate input
         $valid = true;
 
@@ -40,9 +38,7 @@
             $valid = false;
         } 
     }
-    echo "jc";
-        
-
+    
         // update data
         if ($valid) {
             
@@ -68,4 +64,4 @@
         echo "failed.";
         die();
     }
-    */
+    
