@@ -67,8 +67,9 @@
                 echo $e->getMessage();
                 die();
         }
-    } else {
+    } }else {
         // echo "are you there?";
          echo "failed.";
             die();
     }
+
