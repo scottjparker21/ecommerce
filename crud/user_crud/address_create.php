@@ -52,10 +52,13 @@
             $q->execute(array($city,$state,$zip,$street_1,$street_2));
 
             $lastId = $pdo->lastInsertId();
+            $uid = $_SESSION['userid']);
+            echo $lastId . ' ' . $uid;
+            die();
 
             $sql2 = "INSERT INTO customer_address (address_id,customer_id) values (?,?)";
             $q2 = $pdo->prepare($sql);
-            $q2->execute(array($lastId,$_SESSION['userid']));
+            $q2->execute(array($lastId,$uid);
 
             Database::disconnect();
             header("Location: ../../customer.php");
