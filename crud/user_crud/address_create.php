@@ -57,7 +57,7 @@
             
             $sql2 = "INSERT INTO customer_address (address_id,customer_id) values (?,?)";
             $q2 = $pdo->prepare($sql2);
-            $q2->execute(array($lastId,$_SESSION['userid']);
+            $q2->execute(array($lastId,$_SESSION['userid']));
 
             Database::disconnect();
             header("Location: ../../customer.php");
