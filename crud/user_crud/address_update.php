@@ -2,7 +2,7 @@
     echo "ok";
     
     require_once '../../includes/database.php';
-/*
+
     if (!empty($_POST)) {
         // keep track validation errorss
         $cityError = null;
@@ -48,7 +48,10 @@
             $street_2Error = 'Please enter Street 2';
             $valid = false;
         } 
-         
+    }
+    echo "jc";
+        /*
+
         // update data
         if ($valid) {
             
