@@ -4,13 +4,9 @@
     require_once '../../includes/database.php';
 
     if (!empty($_POST)) {
-        // keep track validation errorss
-        $cityError = null;
-        $stateError = null;
-        $zipError = null;
-        $street_1Error = null;
-        $street_2Error = null;
-         
+        echo "i made it.";
+    }
+    /*
         // keep track post values
         $city = $_POST['city'];
         $state = $_POST['state'];
@@ -27,30 +23,25 @@
         $valid = true;
 
         if (empty($city)) {
-            $cityError = 'Please enter City';
             $valid = false;
         }
          
         if (empty($state)) {
-            $stateError = 'Please enter State';
             $valid = false;
         } 
          
         if (empty($zip)) {
-            $zipError = 'Please enter Zip';
             $valid = false;
         }
         if (empty($street_1)) {
-            $street_1Error = 'Please enter Street 1';
             $valid = false;
         } 
          if (empty($street_2)) {
-            $street_2Error = 'Please enter Street 2';
             $valid = false;
         } 
     }
     echo "jc";
-        /*
+        
 
         // update data
         if ($valid) {
