@@ -3,9 +3,9 @@
     
     require_once '../../includes/database.php';
 
-    $id = $_POST['id'];
+    
      
-    if (!empty($_POST['id']) && isset($_POST['id'])) {
+    if (!empty($_POST)) {
         // keep track validation errorss
         $cityError = null;
         $stateError = null;
@@ -19,6 +19,7 @@
         $zip = $_POST['zip'];
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
+        $id = $_SESSION['id'];
          
         // validate input
         $valid = true;
@@ -48,7 +49,7 @@
          
         // update data
         if ($valid == FALSE) {
-            echo "failed.";
+            echo "failed at validation";
             die();
         }
             try {
