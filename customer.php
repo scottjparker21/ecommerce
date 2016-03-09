@@ -33,7 +33,7 @@
 	                   $sql = "SELECT * FROM customer WHERE id = '$uid'";
 	                   foreach ($pdo->query($sql) as $row) {
 	                            echo '<tr>';
-	                            echo '<form action="update.php" method="post">';
+	                            echo '<form action="crud/user_crud/customer_update.php" method="post">';
 
 	                            echo '<td><input type="text" name="first" value="' . $row["first"] . '"></td>';
 	                            echo '<td><input type="text" name="last" value="' . $row["last"] . '"></td>';
