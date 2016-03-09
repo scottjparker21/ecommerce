@@ -50,7 +50,6 @@
         // update data
         if ($valid) {
             
-        
             try {
             // echo "in the connect";
             $pdo = Database::connect();
@@ -60,17 +59,15 @@
             $q->execute(array($city,$state,$zip,$street_1,$street_2,$id));
             Database::disconnect();
             header("Location: ../../customer.php");
+
             }
             catch (PDOException $e){
                 Database::disconnect();
-                echo $e->getMessage();
+                echo $e->getMessage();f
                 die();
-        }
-            
         }
     } else {
         // echo "are you there?";
          echo "failed.";
             die();
     }
-
