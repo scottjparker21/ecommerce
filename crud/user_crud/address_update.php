@@ -1,7 +1,9 @@
 <?php
     
-    
+            echo "dont got it";
+
     require_once '../../includes/database.php';
+        echo "got it";
 
     
      
