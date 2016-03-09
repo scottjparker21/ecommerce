@@ -49,8 +49,7 @@
          
         // update data
         if ($valid) {
-            echo "failed at validation";
-            die();
+            
         }
             try {
             // echo "in the connect";
