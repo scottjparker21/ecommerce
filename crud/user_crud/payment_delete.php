@@ -11,6 +11,8 @@
     if ( !empty($_POST)) {
         // keep track post values
             $id = $_POST['id'];
+            echo $id;
+            die();
         try{
             // delete data
             $pdo = Database::connect();
