@@ -1,8 +1,8 @@
 <?php
     echo "ok";
-    /*
+    
     require_once '../../includes/database.php';
-
+/*
     if (!empty($_POST)) {
         // keep track validation errorss
         $cityError = null;
