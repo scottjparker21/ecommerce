@@ -50,7 +50,7 @@
         // update data
         if ($valid) {
             
-        }
+        
             try {
             // echo "in the connect";
             $pdo = Database::connect();
