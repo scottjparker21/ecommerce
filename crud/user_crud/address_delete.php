@@ -6,15 +6,23 @@
     if ( !empty($_POST)) {
         // keep track post values
         $id = $_POST['id'];
-         
+    try {
         // delete data
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "DELETE FROM address WHERE id = ?";
+        $sql = "DELETE FROM customer_address WHERE customer_id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
         header("Location: ../../customer.php");
-         
+    } catch (PDOException $e){
+        Database::disconnect();
+        echo $e->getMessage();
+        die();
+        }
+    } else {
+        echo "failed.";
+        die();
     }
-?>
+         
+    
