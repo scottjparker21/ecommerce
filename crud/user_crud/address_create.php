@@ -1,7 +1,8 @@
 <?php
+
     require_once '../../includes/database.php';
 
-    // session_start();
+    session_start()
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -51,13 +52,11 @@
             $q = $pdo->prepare($sql);
             $q->execute(array($city,$state,$zip,$street_1,$street_2));
 
-            $lastId = $pdo->lastInsertId();
-            $uid = $_SESSION['userid']);
+            $last_id = $pdo->lastInsertId();
 
-            $sql2 = "INSERT INTO customer_address (address_id,customer_id) values (?,?)";
+            $sql2 = "INSERT INTO customer_address (address_id,customer_id) values(?, ?)";
             $q2 = $pdo->prepare($sql2);
-            $q2->execute(array($lastId,$uid);
-
+            $q2->execute(array($last_id,$_SESSION['userid']));
             Database::disconnect();
             header("Location: ../../customer.php");
         }
