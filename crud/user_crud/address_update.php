@@ -65,7 +65,7 @@
             }
             catch (PDOException $e){
                 Database::disconnect();
-                echo $e->getMessage();f
+                echo $e->getMessage();
                 die();
         }
     } else {
