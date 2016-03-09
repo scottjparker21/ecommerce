@@ -6,7 +6,7 @@
     if (!empty($_POST)) {
         echo "i made it.";
     }
-    /*
+    
         // keep track post values
         $city = $_POST['city'];
         $state = $_POST['state'];
@@ -16,9 +16,9 @@
         $id = $_POST['id'];
          
         //echo "fields:";
-        //echo  " " . $city . $state . $zip . $street_1 . $street_2 . $id;
+        echo  " " . $city . $state . $zip . $street_1 . $street_2 . $id;
         //die();
-
+        /*
         // validate input
         $valid = true;
 
