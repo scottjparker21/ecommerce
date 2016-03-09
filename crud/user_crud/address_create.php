@@ -17,6 +17,8 @@
         $zip = $_POST['zip'];
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
+        $uid = $_SESSION['userid']);
+
         // validate input
         $valid = true;
         if (empty($city)) {
@@ -52,13 +54,10 @@
             $q->execute(array($city,$state,$zip,$street_1,$street_2));
 
             $lastId = $pdo->lastInsertId();
-            $uid = $_SESSION['userid']);
-            if(isset($lastId)){ echo $lastId . ' ' . $uid; die();}
-
-
+            
             $sql2 = "INSERT INTO customer_address (address_id,customer_id) values (?,?)";
-            $q2 = $pdo->prepare($sql);
-            $q2->execute(array($lastId,$uid);
+            $q2 = $pdo->prepare($sql2);
+            $q2->execute(array($lastId,$_SESSION['userid']);
 
             Database::disconnect();
             header("Location: ../../customer.php");
