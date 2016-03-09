@@ -8,6 +8,8 @@
     if ( !empty($_POST))
         // keep track post values
         $addy_id = $_POST['id'];
+        echo $addy_id . '<br>';
+        echo $_SESSION['userid'] . '<br>';
 
     try {
         // delete data
@@ -17,8 +19,8 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($_SESSION['userid'],$addy_id));
         Database::disconnect();
-        
-        header("Location: ../../customer.php");
+        die();
+        // header("Location: ../../customer.php");
     } catch (PDOException $e){
         Database::disconnect();
         echo $e->getMessage();
