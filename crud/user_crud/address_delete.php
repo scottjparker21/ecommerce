@@ -17,10 +17,8 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($_SESSION['userid'],$addy_id));
         Database::disconnect();
-        echo $_SESSION['userid'] . "<br>";
-        echo $addy_id . "<br>";
-        die();
-        //header("Location: ../../customer.php");
+        
+        header("Location: ../../customer.php");
     } catch (PDOException $e){
         Database::disconnect();
         echo $e->getMessage();
