@@ -160,7 +160,7 @@
 			                        echo '<input type="submit" class="btn-success" value="update">';
 			                        echo '</form>';
 			          
-			                        echo '<form action="crud/user_crud/payment_delete.php" method="post">';
+			                        echo '<form action="crud/user_crud/address_delete.php" method="post">';
 			                        echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			                        echo '<input type="submit" class="btn-danger" value="delete">';
 			                        echo '</form>';
