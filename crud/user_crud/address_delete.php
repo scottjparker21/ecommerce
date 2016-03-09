@@ -1,9 +1,11 @@
 <?php
 
         // DELETE PAGE
-    require_once '../../includes/database.php';    
+    require_once '../../includes/database.php';  
+
+    session_start();  
   
-    if ( !empty($_POST)) {
+    if ( !empty($_POST))
         // keep track post values
         $addy_id = $_POST['id'];
     try {
