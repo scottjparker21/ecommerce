@@ -23,6 +23,7 @@
          
         // validate input
         $valid = true;
+        echo $city . $state . $zip . $street_1 . $street_2 . $id;
 
         if (empty($city)) {
             $cityError = 'Please enter City';
