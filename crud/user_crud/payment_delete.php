@@ -11,14 +11,14 @@
     if ( !empty($_POST)) {
         // keep track post values
             $id = $_POST['id'];
-            echo $id;
-            die();
+        
+            
         try{
             // delete data
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "DELETE FROM customer_payment  WHERE customer_id = ?";
+            $sql = "DELETE FROM customer_payment  WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($id));
 
