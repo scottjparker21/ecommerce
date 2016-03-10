@@ -145,7 +145,7 @@
 		                   
 		                   $pdo = Database::connect();
 		                   	// Use Case:
-							$myAddresses = new customerAddress($_SESSION['user_id']);
+							$myAddresses = new customerAddress($_SESSION['userid']);
 
 							foreach ($myAddresses->read() as $row) {
 									echo '<tr>';
