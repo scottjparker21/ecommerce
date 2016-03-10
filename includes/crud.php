@@ -3,9 +3,9 @@
 // helper function for validation
 ​
 ​
-function valid($varname){
-	return ( !empty($varname) && isset($varname) );
-}
+// function valid($varname){
+// 	return ( !empty($varname) && isset($varname) );
+// }
 ​
 /*
 class Database {
