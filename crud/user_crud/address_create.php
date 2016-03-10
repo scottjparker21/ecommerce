@@ -13,20 +13,14 @@
         $zip = $_POST['zip'];
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
-        // validate input
-       
+        // validate input     
          
         // insert data
-        
-
             $address = new customerAddress($_SESSION['user_id']);
             $response = $address->create($city, $state, $zip, $street_1, $street_2);
             header("Location: ../../customer.php");
 
-    } else {
-        echo "failed.";
-        die();
-    }
+    } 
     
 ?>
 
