@@ -17,17 +17,17 @@
        
          
         // insert data
-        if ($valid) {
+        
 
             $address = new customerAddress($_SESSION['user_id']);
             $response = $address->create($city, $state, $zip, $street_1, $street_2);
             header("Location: ../../customer.php");
 
-        } else {
-            echo "failed.";
-            die();
-        }
+    } else {
+        echo "failed.";
+        die();
     }
+    
 ?>
 
 <!DOCTYPE html>
