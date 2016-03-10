@@ -1,4 +1,5 @@
 <?php  require_once 'includes/session.php'; ?>
+<?php require_once 'includes/crud.php'; ?>
 <!DOCTYPE html>
 	<html lang="en">
 		<?php require_once 'includes/header.php';?>
@@ -172,6 +173,19 @@
 		                  </tbody>
 		            </table>
 		    </div>
+
+		    <?php  
+		    			
+				$myAddresses = new customerAddress($_SESSION['customer_id']);
+			​
+				foreach ($myAddresses->read() as $row) {
+					echo '<tr>';
+					echo '<td>' . $row["city"] . '</td>';
+					// and so on... 
+					echo '</tr>';
+				}
+
+		     ?>
 
 		
 			<?php require_once 'includes/footer.php';?>
