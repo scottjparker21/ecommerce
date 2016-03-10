@@ -19,7 +19,7 @@
         // echo $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email; " " . 
          
         $customer = new userCustomer($_SESSION['userid']);
-        $response = $customer->update($first,$last,$phone,$dob,$username,$password,$gender,$email);
+        $response = $customer->update($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email);
         header("Location: ../../customer.php");
     } else {
         echo "failed.";
