@@ -17,7 +17,7 @@
 
         
         $address = new customerAddress($id);
-        $response = $address->update($city, $state, $zip, $street_one, $street_two,$id);
+        $response = $address->update($city, $state, $zip, $street_one, $street_two);
         header("Location: ../../customer.php");
 
     } else {
