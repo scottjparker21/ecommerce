@@ -11,8 +11,8 @@
 
         $address = new customerAddress($_SESSION['user_id']);
         $response = $address->delete($_POST['id']);
-        
-        header ('Location: ../../customer.php')
+
+        header('Location: ../../customer.php');
     
     } else {
         echo "failed.";
