@@ -17,6 +17,9 @@
         $street_2 = $_POST['street_2'];
         $id = $_POST['id'];
 
+        echo $city . $state . $zip . $street_one . $street_two . $_SESSION['user_id'];
+            die();
+
         
         $address = new customerAddress($_SESSION['user_id']);
         $response = $address->update($city, $state, $zip, $street_one, $street_two);
