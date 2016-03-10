@@ -177,9 +177,9 @@ class customerPayment {
 		} else {
 
 			$pdo = Database::connect();
-			$sql = "UPDATE address SET city = ?, state = ?,zip = ?, street_1 = ?, street_2 = ? WHERE id = ?";
+			$sql = "UPDATE payment SET card_full_name = ?, card_number = ?, card_security = ?, expires_month = ?, expires_year = ?, type = ?, WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($city,$state,$zip,$street_one,$street_two,$id));
+			$q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type,$id));
 			Database::disconnect();
 			return true;
 		}
