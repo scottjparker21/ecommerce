@@ -4,6 +4,8 @@
     require_once '../../includes/database.php';  
     require_once '../../includes/crud.php';
 
+    session_start();
+
     if (!empty($_POST)) {
      
 
@@ -16,7 +18,7 @@
         $id = $_POST['id'];
 
         
-        $address = new customerAddress($id);
+        $address = new customerAddress($_SESSION['user_id']);
         $response = $address->update($city, $state, $zip, $street_one, $street_two);
         header("Location: ../../customer.php");
 

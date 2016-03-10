@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 // helper function for validation
 function valid($varname){
 	return ( !empty($varname) && isset($varname) );
