@@ -232,7 +232,7 @@ class userCustomer {
 	public function update($first, $last, $phone, $dob, $username, $password, $gender, $email){
 		echo "in function";
 		die();
-		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($type) || !valid($gender) || !valid($email)) {
+		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($password) || !valid($gender) || !valid($email)) {
 			return false;
 		} else {
 
