@@ -4,6 +4,10 @@
     require_once '../../includes/crud.php';
 
     session_start();
+
+    $uid = $_SESSION['user_id'];
+        echo $uid;
+        die();
  
     if ( !empty($_POST)) {
 
