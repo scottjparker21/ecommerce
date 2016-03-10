@@ -147,8 +147,7 @@ class customerPayment {
                 $q2->execute(array($this->customer_id,$last_id));
 
                 Database::disconnect();
-                header("Location: ../../customer.php");
-			return true;
+				return true;
 		}
 	}
 
@@ -175,10 +174,9 @@ class customerPayment {
 		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type) || !valid($id)) {
 			return false;
 		} else {
-			echo $card_full_name  . ' ' . $card_number  . ' ' . $card_security  . ' ' . $expires_month  . ' ' . $expires_year  . ' ' . $type  . ' ' . $id;
-			 die();
+
 			$pdo = Database::connect();
-			$sql = "UPDATE payment SET card_full_name = ?, card_number = ?, card_security = ?, expires_month = ?, expires_year = ?, type = ?, WHERE id = ?";
+			$sql = "UPDATE payment SET card_full_name = ?, card_number = ?, card_security = ?, expires_month = ?, expires_year = ?, type = ? WHERE id = ?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type,$id));
 			Database::disconnect();
