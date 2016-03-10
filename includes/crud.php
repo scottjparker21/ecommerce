@@ -41,7 +41,7 @@ function valid($varname){
 class customerAddress {	
 ​
 ​
-	public $customer_id = NULL;
+	public $customer_id;
 ​
 	public function __construct($customer_id){
 		$this->customer_id = $customer_id;
@@ -112,5 +112,7 @@ class customerAddress {
 ​
 }
 ​
-​?>
 ​
+​
+​
+

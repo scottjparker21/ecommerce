@@ -175,8 +175,8 @@
 		    </div>
 
 		    <?php  
-		    			
-				$myAddresses = new customerAddress($_SESSION['customer_id']);
+
+				$myAddresses = new customerAddress($_SESSION['user_id']);
 			​
 				foreach ($myAddresses->read() as $row) {
 					echo '<tr>';
