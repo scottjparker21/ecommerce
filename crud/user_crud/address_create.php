@@ -1,9 +1,11 @@
 <?php
 
+    session_start();
+
     require_once '../../includes/database.php';
     require_once '../../includes/crud.php';
 
-    session_start();
+    
 
     $uid = $_SESSION['user_id'];
         echo $uid;
