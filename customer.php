@@ -63,7 +63,7 @@
 	        		<div class="row">
 		                <h3>Payment</h3>
 		            </div>	
-					<p><a href="crud/user_crud/payment_create.php" class="btn"> Create </a></p>							
+					<p><a href="crud/user_crud/payment_create.php" class="btn btn-secondary"> Create </a></p>							
 		            
 		            <div class="row">		
 		                <table class="table table-striped table-bordered">
@@ -106,7 +106,7 @@
 			                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			            
 										echo '<td>';
-										echo '<input type="submit" class="btn-success" value="update">';
+										echo '<input type="submit" class="btn" value="update">';
 										echo '</form>';
 										echo '<form action="crud/user_crud/payment_delete.php" method="post">';
 										echo '<input type="hidden" name="id" value="'.$row["id"].'">';
@@ -127,7 +127,7 @@
 		                	<h3>Address</h3>
 		            	</div>
 		        		<p>
-	        				<a href="crud/user_crud/address_create.php" class=""> Create </a>
+	        				<a href="crud/user_crud/address_create.php" class="btn btn-secondary"> Create </a>
 	        			</p>
 				        <table class="table table-striped table-bordered">
 		                  <thead>
