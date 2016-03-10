@@ -1,5 +1,6 @@
 <?php
     require_once '../../includes/database.php';
+    require_once '../../includes/crud.php';
 
     session_start();
 
