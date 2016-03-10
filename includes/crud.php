@@ -63,9 +63,9 @@ class customerAddress {
 			$q->execute(array($city,$state,$zip,$street_one,$street_two));
 			$address_id = $pdo->lastInsertId();
 
-			$sql = "INSERT INTO customer_address (address_id, customer_id) values(?, ?)";
+			$sql = "INSERT INTO customer_address (customer_id,address_id) values(?, ?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($address_id, $this->customer_id)); 
+			$q->execute(array($this->customer_id, $address_id)); 
 
 			Database::disconnect();
 			return true;
