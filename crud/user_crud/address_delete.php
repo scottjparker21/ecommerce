@@ -14,9 +14,6 @@
 
         header('Location: ../../customer.php');
     
-    } else {
-        echo "failed.";
-        die();
-    }
+    } 
          
     
