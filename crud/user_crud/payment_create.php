@@ -113,7 +113,7 @@
                         <h3>Create Payment Information</h3>
                     </div>
              
-                    <form class="form-horizontal" action="customer_payment_update.php" method="post">
+                    <form class="form-horizontal" action="payment_create.php" method="post">
                       <div class="control-group <?php echo !empty($card_full_nameError)?'error':'';?>">
                         <label class="control-label">Full Name</label>
                         <div class="controls">
@@ -170,7 +170,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="index.php">Back</a>
+                          <a class="btn" href="../../customer.php">Back</a>
                         </div>
                     </form>
                 </div>
