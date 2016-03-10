@@ -1,11 +1,11 @@
 <?php
 
-    session_start();
+    
 
     require_once '../../includes/database.php';
     require_once '../../includes/crud.php';
 
-    
+    session_start();
  
     if ( !empty($_POST)) {
 
@@ -16,14 +16,12 @@
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
 
-        
-        // validate input     
-         
-        // insert data
-            $address = new customerAddress($_SESSION['user_id']);
+        $uid = $_SESSION['user_id'];
 
-            $response = $address->create($city, $state, $zip, $street_1, $street_2);
-            header("Location: ../../customer.php");
+        $address = new customerAddress($uid);
+
+        $response = $address->create($city, $state, $zip, $street_1, $street_2);
+        header("Location: ../../customer.php");
 
     } 
     
