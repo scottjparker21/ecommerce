@@ -184,12 +184,12 @@ class customerPayment {
 		}
 	}
 
-	public function delete($address_id){
+	public function delete($payment_id){
 
         $pdo = Database::connect();
-        $sql = "DELETE FROM customer_address WHERE address_id = ?"; //taken from SQL query on phpMyAdmin
+        $sql = "DELETE FROM customer_payment WHERE payment_id = ?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($address_id));
+        $q->execute(array($payment_id));
         Database::disconnect();
         return true;
 
