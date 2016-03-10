@@ -16,6 +16,7 @@
 
         $uid = $_SESSION['user_id'];
         echo $uid;
+        die();
         // validate input     
          
         // insert data
