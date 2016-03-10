@@ -18,8 +18,8 @@
         $id = $_POST['id'];
 
         
-        $address = new customerAddress($_SESSION['user_id']);
-        $response = $address->update($city, $state, $zip, $street_1, $street_2);
+        $address = new customerAddress($_POST['id']);
+        $response = $address->update($city, $state, $zip, $street_1, $street_2,$id);
         header("Location: ../../customer.php");
 
     } else {
