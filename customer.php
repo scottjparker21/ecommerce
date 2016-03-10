@@ -174,7 +174,9 @@
 		    </div>
 
 		<?php    
-		    session_start();
+		    
+
+		    $pdo = Database::connect();
 			$myAddresses = new customerAddress($_SESSION['customer_id']);
 		​
 			foreach ($myAddresses->read() as $row) {
