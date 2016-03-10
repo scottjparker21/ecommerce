@@ -15,11 +15,11 @@
         $gender = $_POST['gender'];
         $permission = $_POST['permission'];
         $email = $_POST['email'];
+
+        echo $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email; " " . 
          
         $customer = new userCustomer($_SESSION['userid']);
         $response = $customer->update($first,$last,$phone,$dob,$username,$password,$gender,$email);
-               echo "after function";
-            die();
         header("Location: ../../customer.php");
     } else {
         echo "failed.";
