@@ -170,13 +170,8 @@
 			                        echo '</tr>';
 		                  }
 		                   Database::disconnect();
-		                  ?>
-		                  </tbody>
-		            </table>
-		    </div>
 
-		    
-			<?php
+		                   <?php
 
 				// Use Case:
 				$myAddresses = new customerAddress($_SESSION['user_id']);
@@ -206,6 +201,13 @@
 				}
 
 			?>
+		                  ?>
+		                  </tbody>
+		            </table>
+		    </div>
+
+		    
+			
 
 
 		
