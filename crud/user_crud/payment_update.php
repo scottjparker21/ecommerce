@@ -14,6 +14,9 @@
         $type = $_POST['type'];
         $id = $_POST['id'];
         
+        echo $card_full_name  . ' ' . $card_number  . ' ' . $card_security  . ' ' . $expires_month  . ' ' . $expires_year  . ' ' . $type  . ' ' . $id;
+             die();
+        
         $payment = new customerAddress($_SESSION['userid']);
         $response = $payment->update($card_full_name, $card_number, $card_security, $expires_month, $expires_year,$type, $id);
         header("Location: ../../customer.php");
