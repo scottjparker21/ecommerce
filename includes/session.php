@@ -1,8 +1,8 @@
 <?php
-	require_once 'includes/database.php';
+	require_once 'database.php';
 	session_start();
 
-	<?php
+
 ​
 // helper function for validation
 function valid($varname){
