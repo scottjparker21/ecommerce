@@ -10,7 +10,7 @@
         // keep track post values
 
         $address = new customerAddress($_SESSION['user_id']);
-        $response = $addy->delete($_POST['id']);
+        $response = $address->delete($_POST['id']);
     
     } else {
         echo "failed.";
