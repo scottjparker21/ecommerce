@@ -35,25 +35,25 @@
 	                   $userCustomer = new userCustomer($_SESSION['userid']);
 	                  
 	                   foreach ($userCustomer->read() as $row) {
-	                            echo '<tr>';
-	                            echo '<form action="crud/user_crud/customer_update.php" method="post">';
+							echo '<tr>';
+							echo '<form action="crud/user_crud/customer_update.php" method="post">';
 
-	                            echo '<td><input type="text" name="first" value="' . $row["first"] . '"></td>';
-	                            echo '<td><input type="text" name="last" value="' . $row["last"] . '"></td>';
-	                            echo '<td><input type="text" name="phone" size="12" value="' . $row["phone"] . '"></td>';
-	                            echo '<td><input type="text" name="dob" value="' . date('m-d-Y',strtotime($row["dob"])) . '"></td>';
-	                            echo '<td><input type="text" name="username" value="' . $row["username"] . '"></td>';
-	                            echo '<td><input type="text" name="password" value="' . $row["password"] . '"></td>';
-	                            echo '<td><input type="text" name="gender" size="1" value="' . $row["gender"] . '"></td>';
-	                            echo '<td><input type="text" name="email" value="' . $row["email"] . '"></td>';
-	                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-	            
-	                            echo '<td>';
-	                              echo '<input type="submit" class="btn-success" value="update">';
-	                              echo '</form>';
-				    
-	                            echo '</td>';
-				                     echo '</tr>';
+							echo '<td><input type="text" name="first" value="' . $row["first"] . '"></td>';
+							echo '<td><input type="text" name="last" value="' . $row["last"] . '"></td>';
+							echo '<td><input type="text" name="phone" size="12" value="' . $row["phone"] . '"></td>';
+							echo '<td><input type="text" name="dob" value="' . date('m-d-Y',strtotime($row["dob"])) . '"></td>';
+							echo '<td><input type="text" name="username" value="' . $row["username"] . '"></td>';
+							echo '<td><input type="text" name="password" value="' . $row["password"] . '"></td>';
+							echo '<td><input type="text" name="gender" size="1" value="' . $row["gender"] . '"></td>';
+							echo '<td><input type="text" name="email" value="' . $row["email"] . '"></td>';
+							echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+
+							echo '<td>';
+							echo '<input type="submit" class="" value="update">';
+							echo '</form>';
+
+							echo '</td>';
+							echo '</tr>';
 	                   }
 	                   Database::disconnect();
 	                  ?>
@@ -63,7 +63,7 @@
 	        		<div class="row">
 		                <h3>Payment</h3>
 		            </div>	
-					<p><a href="crud/user_crud/payment_create.php" class="btn btn-success"> Create </a></p>							
+					<p><a href="crud/user_crud/payment_create.php" class="btn"> Create </a></p>							
 		            
 		            <div class="row">		
 		                <table class="table table-striped table-bordered">
@@ -110,7 +110,7 @@
 										echo '</form>';
 										echo '<form action="crud/user_crud/payment_delete.php" method="post">';
 										echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-										echo '<input type="submit" class="btn-danger" value="delete">';
+										echo '<input type="submit" class="" value="delete">';
 										echo '</form>';
 										echo '</td>';
 										echo '</tr>';
@@ -127,7 +127,7 @@
 		                	<h3>Address</h3>
 		            	</div>
 		        		<p>
-	        				<a href="crud/user_crud/address_create.php" class="btn btn-success"> Create </a>
+	        				<a href="crud/user_crud/address_create.php" class=""> Create </a>
 	        			</p>
 				        <table class="table table-striped table-bordered">
 		                  <thead>
@@ -160,12 +160,12 @@
 		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			            
 			                        echo '<td>';
-			                        echo '<input type="submit" class="btn-success" value="update">';
+			                        echo '<input type="submit" class="" value="update">';
 			                        echo '</form>';
 			          
 			                        echo '<form action="crud/user_crud/address_delete.php" method="post">';
 			                        echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-			                        echo '<input type="submit" class="btn-danger" value="delete">';
+			                        echo '<input type="submit" class="" value="delete">';
 			                        echo '</form>';
 			                        echo '</td>';
 			                        echo '</tr>';
