@@ -97,7 +97,7 @@ class customerAddress {
 		} else {
 
 			$pdo = Database::connect();
-			$sql = "UPDATE address SET city = ?, state = ?,zip = ?, street_one = ?, street_two = ? WHERE id = ?";
+			$sql = "UPDATE address SET city = ?, state = ?,zip = ?, street_1 = ?, street_2 = ? WHERE id = ?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($city,$state,$zip,$street_one,$street_two,$id));
 			Database::disconnect();
