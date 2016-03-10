@@ -40,7 +40,7 @@ function valid($varname){
 
 
 
-
+// Customer Address Crud ------------------------------------------------------------------------->
 
 
 class customerAddress {	
@@ -117,6 +117,8 @@ class customerAddress {
 
 }
 
+// Customer Payment Crud ------------------------------------------------------------------------->
+
 class customerPayment {	
 
 
@@ -169,8 +171,8 @@ class customerPayment {
 
     }
 
-	public function update($city, $state, $zip, $street_one, $street_two, $id){
-		if (!valid($city) || !valid($state) || !valid($zip) || !valid($street_one) || !valid($street_two) || !valid($id)) {
+	public function update($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type, $id){
+		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type) || !valid($id)) {
 			return false;
 		} else {
 
@@ -197,6 +199,7 @@ class customerPayment {
 }
 
 
+// ------------------------------------------------------------------------->
 
 
 

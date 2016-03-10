@@ -23,7 +23,6 @@
         header("Location: ../../customer.php");
 
     } else {
-        // echo "are you there?";
         echo "failed.";
         die();
     }
