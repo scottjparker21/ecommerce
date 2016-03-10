@@ -17,10 +17,7 @@
         $payment = new customerPayment($uid);
         $response = $payment->create($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type);
         header("Location: ../../customer.php");
-    }   else {
-            echo "failed.";
-            die();
-        }
+    }  
     
 
     ?>
