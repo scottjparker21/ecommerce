@@ -233,7 +233,7 @@ class userCustomer {
 		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($type) || !valid($gender) || !valid($email)) {
 			return false;
 		} else {
-			echo "on crud " . $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email;
+			echo "on crud " . $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email . " " . $this->customer_id;
 			$pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE customer set first = ?, last = ?, phone = ?, dob = ?, username = ?, password = ?, gender = ?, email = ? WHERE id = ?";
