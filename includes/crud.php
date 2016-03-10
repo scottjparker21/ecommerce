@@ -95,6 +95,8 @@ class customerAddress {
 		if (!valid($city) || !valid($state) || !valid($zip) || !valid($street_one) || !valid($street_two)) {
 			return false;
 		} else {
+			echo $city . $state . $zip . $street_one . $street_two . $_SESSION['user_id'];
+			die();
 			$pdo = Database::connect();
 			$sql = "UPDATE address SET city = ?, state = ?,zip = ?, street_one = ?, street_two = ? WHERE id = ?";
 			$q = $pdo->prepare($sql);
