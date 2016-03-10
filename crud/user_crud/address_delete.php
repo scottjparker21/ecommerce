@@ -9,8 +9,8 @@
     if ( !empty($_POST)) {
         // keep track post values
         $address_id = $_POST['id'];
-        $address = new customerAddress($_SESSION['uid']);
-        $response = $addy->delete($_POST['id']);
+        $address = new customerAddress($_SESSION['user_id']);
+        $response = $addy->delete($address_id);
     
     } else {
         echo "failed.";
