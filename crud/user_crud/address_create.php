@@ -6,10 +6,6 @@
     require_once '../../includes/crud.php';
 
     
-
-    $uid = $_SESSION['user_id'];
-        echo $uid;
-        die();
  
     if ( !empty($_POST)) {
 
@@ -20,9 +16,7 @@
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
 
-        $uid = $_SESSION['user_id'];
-        echo $uid;
-        die();
+        
         // validate input     
          
         // insert data
