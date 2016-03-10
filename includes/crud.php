@@ -75,14 +75,13 @@ class customerAddress {
 	public function read(){
 		try{
 			$pdo = Database::connect();
-			$sql = 'SELECT * FROM address WHERE id IN (SELECT address_id FROM customer_address WHERE customer_id = ?) ORDER BY id DESC';
+			$sql = "SELECT `address`.* FROM `address` LEFT JOIN `customer_address` ON `address`.`id` = `customer_address`.`address_id` WHERE `customer_address`.`customer_id` = ?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($this->customer_id));
 			$data = $q->fetchAll(PDO::FETCH_ASSOC);
 	        Database::disconnect();
 	        return $data;
 		} catch (PDOException $error){
-
 			header( "Location: 500.php" );
 			//echo $error->getMessage();
 			die();
