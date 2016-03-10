@@ -64,6 +64,7 @@ class customerAddress {
 			$address_id = $pdo->lastInsertId();
 
 			echo $this->customer_id . " " . $address_id;
+			die();
 
 			$sql = "INSERT INTO customer_address (customer_id,address_id) values(?, ?)";
 			$q = $pdo->prepare($sql);
