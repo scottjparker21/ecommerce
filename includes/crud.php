@@ -210,29 +210,6 @@ class userCustomer {
 		$this->customer_id = $customer_id;
 	}
 
-	public function create($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type){
-		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type)) {
-			return false;
-		} else {
-
-			$pdo = Database::connect();
-           
-                $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
-                $q = $pdo->prepare($sql);
-
-                $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
-
-                $last_id = $pdo->lastInsertId();
-
-                $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
-                $q2 = $pdo->prepare($sql2);
-                $q2->execute(array($this->customer_id,$last_id));
-
-                Database::disconnect();
-				return true;
-		}
-	}
-
 	public function read(){
 		try{
 			$pdo = Database::connect();
@@ -252,29 +229,19 @@ class userCustomer {
 
     }
 
-	public function update($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type, $id){
-		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type) || !valid($id)) {
+	public function update($first, $last, $phone, $dob, $username, $password, $gender, $email){
+		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($type) || !valid($gender) || !valid($email)) {
 			return false;
 		} else {
 
 			$pdo = Database::connect();
-			$sql = "UPDATE payment SET card_full_name = ?, card_number = ?, card_security = ?, expires_month = ?, expires_year = ?, type = ? WHERE id = ?";
-			$q = $pdo->prepare($sql);
-			$q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type,$id));
-			Database::disconnect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE customer set first = ?, last = ?, phone = ?, dob = ?, username = ?, password = ?, gender = ?, email = ? WHERE id = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$email,$this->customer_id));
+            Database::disconnect();
 			return true;
 		}
-	}
-
-	public function delete($payment_id){
-
-        $pdo = Database::connect();
-        $sql = "DELETE FROM customer_payment WHERE payment_id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($payment_id));
-        Database::disconnect();
-        return true;
-
 	}
 
 }
