@@ -1,23 +1,9 @@
 <?php
     require_once '../../includes/database.php';
 
-    ini_set('display_errors', 'On');
-    error_reporting(E_ALL);
-
     session_start();
 
     if (!empty($_POST)) {
-        // keep track validation errors  
-
-        
-
-        $nameError = null;
-        $card_numberError = null;
-        $card_securityError = null;
-        $expires_monthError = null;
-        $expires_yearError = null;
-        $typeError = null;
-         
         // keep track post values
         $card_full_name = $_POST['card_full_name'];
         $card_number = $_POST['card_number'];
@@ -27,69 +13,13 @@
         $type = $_POST['type'];
         $uid = $_SESSION["userid"];
 
-        // validate input
-        $valid = true;
-
-        if (empty($card_full_name)) {
-            $nameError = 'Please enter Full Name';
-            $valid = false;
+        $payment = new customerPayment($uid);
+        $response = $payment->create($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type);
+        header("Location: ../../customer.php");
+    }   else {
+            echo "failed.";
+            die();
         }
-        if (empty($card_number)) {
-            $card_numberError = 'Please enter Card Number';
-            $valid = false;
-        }
-        if (empty($card_security)) {
-            $card_securityError = 'Please enter Card Security Number';
-            $valid = false;
-        }
-
-        if (empty($expires_month)) {
-            $expires_monthError = 'Please enter Expiration Month';
-            $valid = false;
-        }
-
-        if (empty($expires_year)) {
-            $expires_yearError = 'Please enter Expiration Year';
-            $valid = false;
-        }
-
-        if (empty($type)) {
-            $typeError = 'Please enter Card Type';
-            $valid = false;
-        }
-
-
-        // insert data
-        if ($valid) {
-            try {
-                $pdo = Database::connect();
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                //echo "got here <br>";
-
-                $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
-                $q = $pdo->prepare($sql);
-
-                //echo $card_full_name . "<br>" . $card_number . "<br>" . $card_security . "<br>" . $expires_month . "<br>" . $expires_year . "<br>" . $type;
-
-                $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
-
-                $last_id = $pdo->lastInsertId();
-
-                //echo $last_id . "<br>";
-
-                $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
-                $q2 = $pdo->prepare($sql2);
-                $q2->execute(array($uid,$last_id));
-
-                Database::disconnect();
-                header("Location: ../../customer.php");
-            } catch (PDOException $e){
-                echo $e->getMessage();
-                die();
-            }
-        }
-    }
     
 
     ?>
