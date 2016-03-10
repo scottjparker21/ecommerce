@@ -8,8 +8,6 @@
 
     if (!empty($_POST)) {
      
-
-        // keep track post values
         $city = $_POST['city'];
         $state = $_POST['state'];
         $zip = $_POST['zip'];

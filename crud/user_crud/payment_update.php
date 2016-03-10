@@ -13,9 +13,11 @@
         $expires_year = $_POST['expires_year'];
         $type = $_POST['type'];
         $id = $_POST['id'];
-        
+
         $payment = new customerPayment($_SESSION['userid']);
         $response = $payment->update($card_full_name, $card_number, $card_security, $expires_month, $expires_year,$type, $id);
+        echo "after function";
+            die();
         header("Location: ../../customer.php");
 
     }   else {

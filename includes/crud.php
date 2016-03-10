@@ -231,8 +231,13 @@ class userCustomer {
 
 	public function update($first, $last, $phone, $dob, $username, $password, $gender, $email){
 		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($type) || !valid($gender) || !valid($email)) {
+			echo "in validation";
+			die();
 			return false;
 		} else {
+
+			echo "in else";
+			die();
 
 			$pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
