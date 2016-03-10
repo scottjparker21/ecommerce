@@ -32,8 +32,9 @@
 	                  $uid = $_SESSION["userid"];
 	                   
 	                   $pdo = Database::connect();
-	                   $sql = "SELECT * FROM customer WHERE id = '$uid'";
-	                   foreach ($pdo->query($sql) as $row) {
+	                   $userCustomer = new userCustomer($_SESSION['userid']);
+	                  
+	                   foreach ($userCustomer->read() as $row) {
 	                            echo '<tr>';
 	                            echo '<form action="crud/user_crud/customer_update.php" method="post">';
 
@@ -104,16 +105,15 @@
 			                            
 			                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			            
-			                            echo '<td>';
-			                              echo '<input type="submit" class="btn-success" value="update">';
-			                              echo '</form>';
-			          
-			                              echo '<form action="crud/user_crud/payment_delete.php" method="post">';
-			                              echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-			                              echo '<input type="submit" class="btn-danger" value="delete">';
-			                              echo '</form>';
-			                            echo '</td>';
-			                           echo '</tr>';
+										echo '<td>';
+										echo '<input type="submit" class="btn-success" value="update">';
+										echo '</form>';
+										echo '<form action="crud/user_crud/payment_delete.php" method="post">';
+										echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+										echo '<input type="submit" class="btn-danger" value="delete">';
+										echo '</form>';
+										echo '</td>';
+										echo '</tr>';
 			                        }
 		                    	}
 		                    }
@@ -170,8 +170,9 @@
 			                        echo '</td>';
 			                        echo '</tr>';
 							}
-
+							Database::disconnect();
 							?>
+
 		                  
 		                  </tbody>
 		            </table>

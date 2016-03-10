@@ -198,10 +198,86 @@ class customerPayment {
 }
 
 
-// ------------------------------------------------------------------------->
+// User Customer Crud ------------------------------------------------------------------------->
 
 
+class userCustomer {	
 
+
+	public $customer_id;
+
+	public function __construct($customer_id){
+		$this->customer_id = $customer_id;
+	}
+
+	public function create($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type){
+		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type)) {
+			return false;
+		} else {
+
+			$pdo = Database::connect();
+           
+                $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,type) values(?, ?, ?, ?, ?, ?)";
+                $q = $pdo->prepare($sql);
+
+                $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type));
+
+                $last_id = $pdo->lastInsertId();
+
+                $sql2 = "INSERT INTO customer_payment (customer_id,payment_id) values (?, ?)";
+                $q2 = $pdo->prepare($sql2);
+                $q2->execute(array($this->customer_id,$last_id));
+
+                Database::disconnect();
+				return true;
+		}
+	}
+
+	public function read(){
+		try{
+			$pdo = Database::connect();
+			$sql = "SELECT * FROM customer WHERE id = ?";;
+			$q = $pdo->prepare($sql);
+			$q->execute(array($this->customer_id));
+			$data = $q->fetchAll(PDO::FETCH_ASSOC);
+	        Database::disconnect();
+	        return $data;
+		} catch (PDOException $error){
+
+			header( "Location: 500.php" );
+			//echo $error->getMessage();
+			die();
+
+		}
+
+    }
+
+	public function update($card_full_name, $card_number, $card_security, $expires_month, $expires_year, $type, $id){
+		if (!valid($card_full_name) || !valid($card_number) || !valid($card_security) || !valid($expires_month) || !valid($expires_year) || !valid($type) || !valid($id)) {
+			return false;
+		} else {
+
+			$pdo = Database::connect();
+			$sql = "UPDATE payment SET card_full_name = ?, card_number = ?, card_security = ?, expires_month = ?, expires_year = ?, type = ? WHERE id = ?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$type,$id));
+			Database::disconnect();
+			return true;
+		}
+	}
+
+	public function delete($payment_id){
+
+        $pdo = Database::connect();
+        $sql = "DELETE FROM customer_payment WHERE payment_id = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($payment_id));
+        Database::disconnect();
+        return true;
+
+	}
+
+}
 
 
 
