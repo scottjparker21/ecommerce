@@ -174,18 +174,6 @@
 		            </table>
 		    </div>
 
-		    <?php  
-
-				$myAddresses = new customerAddress($_SESSION['user_id']);
-			​
-				foreach ($myAddresses->read() as $row) {
-					echo '<tr>';
-					echo '<td>' . $row["city"] . '</td>';
-					// and so on... 
-					echo '</tr>';
-				}
-
-		     ?>
 
 		
 			<?php require_once 'includes/footer.php';?>
