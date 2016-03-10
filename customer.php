@@ -144,10 +144,11 @@
 		                  <?php
 		                   
 		                   $pdo = Database::connect();
-		                   $sql3 = "SELECT `address`.* FROM `address` LEFT JOIN `customer_address` ON `address`.`id` = `customer_address`.`address_id` WHERE `customer_address`.`customer_id` = " . $uid;
-		                   
-		                   foreach ($pdo->query($sql3) as $row) {
-		                            echo '<tr>';
+		                   	// Use Case:
+							$myAddresses = new customerAddress($_SESSION['user_id']);
+
+							foreach ($myAddresses->read() as $row) {
+									echo '<tr>';
 		                            echo '<form action="crud/user_crud/address_update.php" method="post">';
 
 		                            echo '<td><input type="text" name="city" value="' . $row["city"] . '"></td>';
@@ -168,49 +169,15 @@
 			                        echo '</form>';
 			                        echo '</td>';
 			                        echo '</tr>';
-		                  }
-		                   Database::disconnect();
+							}
 
-		                   
-
-				// Use Case:
-				$myAddresses = new customerAddress($_SESSION['user_id']);
-
-				foreach ($myAddresses->read() as $row) {
-								echo '<tr>';
-		                            echo '<form action="crud/user_crud/address_update.php" method="post">';
-
-		                            echo '<td><input type="text" name="city" value="' . $row["city"] . '"></td>';
-		                            echo '<td><input type="text" name="state" value="' . $row["state"] . '"></td>';
-		                            echo '<td><input type="text" name="zip" size="12" value="' . $row["zip"] . '"></td>';
-		                            echo '<td><input type="text" name="street_1" value="' . $row["street_1"] . '"></td>';
-		                            echo '<td><input type="text" name="street_2" value="' . $row["street_2"] . '"></td>';
-		            
-		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-			            
-			                        echo '<td>';
-			                        echo '<input type="submit" class="btn-success" value="update">';
-			                        echo '</form>';
-			          
-			                        echo '<form action="crud/user_crud/address_delete.php" method="post">';
-			                        echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-			                        echo '<input type="submit" class="btn-danger" value="delete">';
-			                        echo '</form>';
-			                        echo '</td>';
-			                        echo '</tr>';
-				}
-
-			?>
-		                  ?>
+							?>
+		                  
 		                  </tbody>
 		            </table>
 		    </div>
 
-		    
-			
 
-
-		
 			<?php require_once 'includes/footer.php';?>
 
 		</body>
