@@ -1,7 +1,8 @@
 <?php
-    echo "ok";
     
-    require_once '../../includes/database.php';
+    
+    require_once '../../includes/database.php';  
+    require_once '../../includes/crud.php';
 
     if (!empty($_POST)) {
      
@@ -13,52 +14,12 @@
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
         $id = $_POST['id'];
-         
-        //echo "fields:";
-        //die();
+
         
-        // validate input
-        $valid = true;
+        $address = new customerAddress($_SESSION['user_id']);
+        $response = $address->update($city, $state, $zip, $street_one, $street_two);
+        header("Location: ../../customer.php");
 
-        if (empty($city)) {
-            $valid = false;
-        }
-         
-        if (empty($state)) {
-            $valid = false;
-        } 
-         
-        if (empty($zip)) {
-            $valid = false;
-        }
-        if (empty($street_1)) {
-            $valid = false;
-        } 
-         if (empty($street_2)) {
-            $valid = false;
-        } 
-    }
-    
-        // update data
-        if ($valid) {
-            
-            try {
-            // echo "in the connect";
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE address  set city = ?, state = ?, zip = ?, street_1 = ?, street_2 = ?  WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($city,$state,$zip,$street_1,$street_2,$id));
-
-            Database::disconnect();
-            header("Location: ../../customer.php");
-
-            }
-            catch (PDOException $e){
-                Database::disconnect();
-                echo $e->getMessage();
-                die();
-        }
     } else {
         // echo "are you there?";
         echo "failed.";
