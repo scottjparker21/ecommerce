@@ -1,17 +1,12 @@
 <?php
 
     require_once '../../includes/database.php';
+    require_once '../../includes/crud.php';
 
     session_start();
  
     if ( !empty($_POST)) {
-        // keep track validation errors
-        $cityError = null;
-        $stateError = null;
-        $zipError = null;
-        $street_1Error = null;
-        $street_2Error = null;
-         
+
         // keep track post values
         $city = $_POST['city'];
         $state = $_POST['state'];
@@ -19,46 +14,18 @@
         $street_1 = $_POST['street_1'];
         $street_2 = $_POST['street_2'];
         // validate input
-        $valid = true;
-        if (empty($city)) {
-            $cityError = 'Please enter City';
-            $valid = false;
-        }
-        if (empty($state)) {
-            $stateError = 'Please enter State';
-            $valid = false;
-        }
-        if (empty($zip)) {
-            $zipError = 'Please enter Zip';
-            $valid = false;
-        }
-
-        if (empty($street_1)) {
-            $street_1Error = 'Please enter Street 1';
-            $valid = false;
-        }
-
-         if (empty($street_2)) {
-            $street_2Error = 'Please enter Street 2';
-            $valid = false;
-        }
+       
          
         // insert data
         if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "INSERT INTO address (city,state,zip,street_1,street_2) values(?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($city,$state,$zip,$street_1,$street_2));
-
-            $last_id = $pdo->lastInsertId();
-
-            $sql2 = "INSERT INTO customer_address (address_id,customer_id) values(?, ?)";
-            $q2 = $pdo->prepare($sql2);
-            $q2->execute(array($last_id,$_SESSION['userid']));
-            Database::disconnect();
+            $address = new customerAddress($_SESSION['user_id']);
+            $response = $address->update($city, $state, $zip, $street_1, $street_2,$id);
             header("Location: ../../customer.php");
+
+        } else {
+            echo "failed.";
+            die();
         }
     }
 ?>

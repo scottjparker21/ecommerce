@@ -58,7 +58,7 @@ class customerAddress {
 		} else {
 
 			$pdo = Database::connect();
-			$sql = "INSERT INTO address (city,state,zip,street_one,street_two) values(?, ?, ?, ?, ?)";
+			$sql = "INSERT INTO address (city,state,zip,street_1,street_2) values(?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($city,$state,$zip,$street_one,$street_two));
 			$address_id = $pdo->lastInsertId();
