@@ -18,9 +18,9 @@
 
         $uid = $_SESSION['user_id'];
 
-        $address = new customerAddress($uid);
+        $address2 = new customerAddress($uid);
 
-        $response = $address->create($city, $state, $zip, $street_1, $street_2);
+        $response = $address2->create($city, $state, $zip, $street_1, $street_2);
         header("Location: ../../customer.php");
 
     } 
