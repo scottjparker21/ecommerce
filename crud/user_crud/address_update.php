@@ -21,7 +21,7 @@
         die();
 
         
-        $address = new customerAddress($_SESSION['user_id']);
+        $address = new customerAddress($_SESSION['userid']);
         $response = $address->update($city, $state, $zip, $street_1, $street_2,$id);
         header("Location: ../../customer.php");
 
