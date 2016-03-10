@@ -15,7 +15,7 @@
         $gender = $_POST['gender'];
         $email = $_POST['email'];
 
-        // echo $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email; " " . 
+        echo $_SESSION['userid'] . " " . $first . " " . $last . " " . $phone . " " . $dob . " " . $username . " " . $password . " " . $gender . " " . $permission . " " . $email; " " . 
          
         $customer = new userCustomer($_SESSION['userid']);
         $response = $customer->update($first,$last,$phone,$dob,$username,$password,$gender,$email);
