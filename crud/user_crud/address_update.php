@@ -16,8 +16,8 @@
         $id = $_POST['id'];
 
         
-        $address = new customerAddress($_SESSION['user_id']);
-        $response = $address->update($city, $state, $zip, $street_one, $street_two);
+        $address = new customerAddress($id);
+        $response = $address->update($city, $state, $zip, $street_one, $street_two,$id);
         header("Location: ../../customer.php");
 
     } else {

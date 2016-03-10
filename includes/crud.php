@@ -90,14 +90,14 @@ class customerAddress {
 
     }
 
-	public function update($city, $state, $zip, $street_one, $street_two){
-		if (!valid($city) || !valid($state) || !valid($zip) || !valid($street_one) || !valid($street_two)) {
+	public function update($city, $state, $zip, $street_one, $street_two,$id){
+		if (!valid($city) || !valid($state) || !valid($zip) || !valid($street_one) || !valid($street_two || !valid($id)) {
 			return false;
 		} else {
 			$pdo = Database::connect();
 			$sql = "UPDATE address SET city = ?, state = ?,zip = ?, street_one = ?, street_two = ? WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($city,$state,$zip,$street_one,$street_two));
+			$q->execute(array($city,$state,$zip,$street_one,$street_two,$id));
 			Database::disconnect();
 			return true;
 		}
