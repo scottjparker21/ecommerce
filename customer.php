@@ -171,7 +171,7 @@
 		                  }
 		                   Database::disconnect();
 
-		                   <?php
+		                   
 
 				// Use Case:
 				$myAddresses = new customerAddress($_SESSION['user_id']);
