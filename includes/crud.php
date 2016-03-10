@@ -230,10 +230,12 @@ class userCustomer {
     }
 
 	public function update($first, $last, $phone, $dob, $username, $password, $gender, $email){
+		echo "in function";
+		die();
 		if (!valid($first) || !valid($last) || !valid($phone) || !valid($dob) || !valid($username) || !password($type) || !valid($gender) || !valid($email)) {
 			return false;
 		} else {
-			
+
 			$pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE customer set first = ?, last = ?, phone = ?, dob = ?, username = ?, password = ?, gender = ?, email = ? WHERE id = ?";
