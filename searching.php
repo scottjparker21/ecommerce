@@ -2,7 +2,7 @@
 
 			<?php
 
-					require 'database.php';
+					require 'includes/database.php';
 					$pdo = Database::connect();
 					$got = $_GET['entry'];
 					$id = '%' . $got . '%';
