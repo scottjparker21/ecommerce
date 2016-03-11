@@ -106,7 +106,7 @@
 			                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
 			            
 										echo '<td>';
-										echo '<input type="submit" class="btn" value="update">';
+										echo '<input type="submit" class="" value="update">';
 										echo '</form>';
 										echo '<form action="crud/user_crud/payment_delete.php" method="post">';
 										echo '<input type="hidden" name="id" value="'.$row["id"].'">';

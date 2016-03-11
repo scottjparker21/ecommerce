@@ -48,6 +48,14 @@
                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-plus fa-fw"></i>&nbsp; Admin <span class="caret"></span></a>
                         <ul class="dropdown-menu"> 
                             <li><a href="crud/address/index.php"> Address </a></li>
+                            <li><a href="crud/bin/index.php"> Bin </a></li>
+                            <li><a href="crud/category/index.php"> Category </a></li>
+                            <li><a href="crud/customer/index.php"> Customer </a></li>
+                            <li><a href="crud/payment/index.php"> Payment </a></li>
+                            <li><a href="crud/product/index.php"> Product </a></li>
+                            <li><a href="crud/shipment_center/index.php"> Shipment Center </a></li>
+                            <li><a href="crud/subcategory/index.php"> Address </a></li>
+                            <li><a href="crud/tag/index.php"> Tag </a></li>
                         </ul>
                   <?php } ?>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 2 ){ ?>
