@@ -1,9 +1,10 @@
+<?php  require_once 'includes/session.php'; ?>
 <!DOCTYPE html>
 	<html lang="en">
-		<?php require 'header.php';?>
+		<?php require_once 'includes/header.php';?>
 		<body>
 
-			<?php require 'navbar.php';?>
+			<?php require_once 'includes/navbar.php';?>
 
 				<?php	
 					$id = $_GET['productid'];
@@ -47,6 +48,6 @@
 
 
 
-			<?php require 'footer.php';?>
+			<?php require_once 'includes/footer.php';?>
 		</body>
 	</html>
