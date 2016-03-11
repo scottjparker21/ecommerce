@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
 
 	function search (inp){		
-		$.get( "test.php?entry=" + inp, function( data ) {
+		$.get( "searching.php?entry=" + inp, function( data ) {
 		  	$( ".results" ).html(data);
 		});
 	}
