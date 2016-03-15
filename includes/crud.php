@@ -235,7 +235,6 @@ class cart {
 	public function fetchCart() {
 
 		// $items = array();
-			$items = 'i made it';
 		// $pdo = Database::connect();
 		// $sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
 		// $q->execute(array($this->cart_id));
@@ -250,21 +249,20 @@ class cart {
 		// 	array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
 			
 		// }
-		return $items;
+		return "success";
 	}
 
 	public function createCart() {
 
 		try {
 			$pdo = Database::connect();
-			$sql = "INSERT INTO transaction (customer_id,cart,payment_id,address_id) values(?,?,?,?)";
+			$sql = "INSERT INTO `transaction`(`customer_id`, `cart`) VALUES (?,?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($this->customer_id,1,NULL,NULL));
-
-			$_SESSION['cart_id'] = $pdo->lastInsertId();
+			$q->execute(array($this->customer_id,1));
+			$_SESSION['cart_id'] = $pdo->lastInsertId(); // make sure session is started
 			Database::disconnect();
 		} catch(PDOException $error){
-			echo $error;
+			echo $error->getMessage();
 			die();
 		}
 	}
