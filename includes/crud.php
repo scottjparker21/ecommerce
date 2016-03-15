@@ -227,9 +227,10 @@ class cart {
 		$sql = "SELECT * FROM transaction WHERE customer_id = '$this->customer_id'";
 		$result = $pdo->query($sql);
 		$this->cart_id = $result['id'];
+		Database::disconnect();
 
 	}
-
+/*
 	public fetchCart() {
 
 		$items = array();
@@ -248,18 +249,18 @@ class cart {
 		// }
 		// return $items;
 	}
-/*
+*/
 	public createCart() {
 
 		$pdo = Database::connect();
-		$sql = "INSERT INTO transaction (customer_id) values(?)";
+		$sql = "INSERT INTO transaction (customer_id,cart,payment_id,address_id) values(?,?,?,?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($this->customer_id));
+		$q->execute(array($this->customer_id,1,NULL,NULL));
 
 		$_SESSION['cart_id'] = $pdo->lastInsertId();
 		Database::disconnect();
 
-	}*/
+	}
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------>
