@@ -6,23 +6,36 @@
 			<?php require_once 'includes/navbar.php';?>
 			<div class="results"></div>	
 			<div id="content">
-			<?php
-				//store uid and pid and quantity in session variables
-				//when viewing cart call all variables containing uid 
-				//use pid to retreive info from database
+				<h2> Cart </h2>
 
-				if (!empty($_SESSION['cart'] && isset($_SESSION['cart'])) {
+					<?php
+					$pdo = Database::connect();
+					$user_cart = new cart();
 
-					$_SESSION['user_cart'] = TRUE;			
-				}
-				
-				if ($_SESSION['user_cart']) {
+					$cart_data = $user_cart->fetchCart();
 
-					
-					
-				}
+					foreach ($cart_data as $item) {
+									echo '<tr>';
+		                            echo '<form action="update.php" method="post">';
+		                            echo '<td>' . $row["product_id"] . '</td>';
+		                            echo '<td>' . $row["name"] . '</td>';
+		                            echo '<td>' . $row["cost"] . '</td>';
+		                            echo '<td>' . $row["description"] . '</td>';
+		                            echo '<td>'.$row["quantity"].'</td>';                            
+		                            echo '<td>';
+		                            echo '<input type="submit" class="" value="update">';
+		                            echo '</form>';       
+		                            echo '<form action="delete.php" method="post">';
+		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+		                            echo '<input type="submit" class="btn-danger" value="delete">';
+		                            echo '</form>';
+		                            echo '</td>';
+		                            echo '</tr>';
 
-			?>
+					}
+						Database::disconnect();
+					?>
+
 			</div>
 			<?php require_once 'includes/footer.php';?>
 

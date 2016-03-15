@@ -6,40 +6,6 @@ function valid($varname){
 	return ( !empty($varname) && isset($varname) );
 }
 
-
-// class Database {
-
-// 	private static $dbName = 'ecom' ; 
-// 	private static $dbHost = 'localhost' ;
-// 	private static $dbUsername = 'root';
-// 	private static $dbUserPassword = 'password';
-// 	private static $cont  = null;
-	
-// 	public function __construct() {
-// 		exit('Init function is not allowed');
-// 	}
-	
-// 	public static function connect()
-// 	{
-// 	    // One connection through whole application
-//         if ( null == self::$cont ) {      
-//         	try {
-//           		self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);  
-//           		self::$cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// 			} catch(PDOException $e) {
-//           		die($e->getMessage());  
-//         	}
-//         } 
-//        	return self::$cont;
-// 	}
-	
-// 	public static function disconnect() {
-// 		self::$cont = null;
-// 	}
-// }
-
-
-
 // Customer Address Crud ------------------------------------------------------------------------->
 
 
@@ -246,7 +212,59 @@ class userCustomer {
 
 }
 
+// CART CRUD ------------------------------------------------------------------------->
 
+
+class cart {
+
+	public $customer_id;
+	public $cart_id;
+
+	public function __construct(){
+
+		$this->customer_id = $_SESSION['userid'];
+		$pdo = Database::connect();
+		$sql = "SELECT * FROM transaction WHERE customer_id = '$this->customer_id'";
+		$result = $pdo->query($sql);
+		$this->cart_id = $result['id'];
+
+	}
+
+	public fetchCart() {
+
+		$items = array();
+
+		$pdo = Database::connect();
+		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
+		$q->execute(array($this->cart_id));
+		$product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		foreach ($product_ids as $pid => $row) {
+			$sql = "SELECT * FROM product WHERE id = ?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($row['product_id']));
+			$product = $q->fetchAll(PDO::FETCH_ASSOC);
+			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+		}
+		return $items;
+	}
+
+	public createCart() {
+
+		$pdo = Database::connect();
+
+		
+
+
+	}
+}
+
+// TRANSACTION CRUD ------------------------------------------------------------------------->
+
+class transaction {
+
+
+}
 
 
 

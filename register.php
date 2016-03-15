@@ -1,5 +1,6 @@
 <?php	 
     require_once 'includes/session.php';
+    require_once 'includes/crud.php';
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -78,6 +79,12 @@
                 $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
                 $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
+
+                $_SESSION["userid"] = $pdo->lastInsertId();
+
+                $user_cart = new cart();
+                $user_cart->createCart();
+
                 Database::disconnect();
                 header("Location: index.php");
             } catch (PDOException $e){
