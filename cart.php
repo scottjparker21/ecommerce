@@ -35,7 +35,12 @@
 
 					// }
 					// 	Database::disconnect();
+					$new_cart = new cart();
+					echo $new_cart->customer_id;
+					echo $new_cart->cart_id;
+
 					?>
+
 
 			</div>
 			<?php require_once 'includes/footer.php';?>

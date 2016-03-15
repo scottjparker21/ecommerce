@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 // helper function for validation
 function valid($varname){
 	return ( !empty($varname) && isset($varname) );
@@ -246,20 +247,25 @@ class cart {
 			$q->execute(array($row['product_id']));
 			$product = $q->fetchAll(PDO::FETCH_ASSOC);
 			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+			Database::disconnect();
 		}
 		return $items;
 	}
 
 	public function createCart() {
 
-		$pdo = Database::connect();
-		$sql = "INSERT INTO transaction (customer_id,cart,payment_id,address_id) values(?,?,?,?)";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($this->customer_id,1,NULL,NULL));
+		try {
+			$pdo = Database::connect();
+			$sql = "INSERT INTO transaction (customer_id,cart,payment_id,address_id) values(?,?,?,?)";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($this->customer_id,1,NULL,NULL));
 
-		$_SESSION['cart_id'] = $pdo->lastInsertId();
-		Database::disconnect();
-
+			$_SESSION['cart_id'] = $pdo->lastInsertId();
+			Database::disconnect();
+		} catch(PDOException $error){
+			echo $error;
+			die();
+		}
 	}
 }
 
