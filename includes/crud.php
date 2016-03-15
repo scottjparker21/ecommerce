@@ -229,7 +229,7 @@ class cart {
 		$this->cart_id = $result['id'];
 
 	}
-
+/*
 	public fetchCart() {
 
 		$items = array();
@@ -259,12 +259,12 @@ class cart {
 		$_SESSION['cart_id'] = $pdo->lastInsertId();
 		Database::disconnect();
 
-	}
+	}*/
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------->
 
-?>
+
 
 
 
