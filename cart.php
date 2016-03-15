@@ -12,9 +12,10 @@
 					<?php
 					$pdo = Database::connect();
 					$user_cart = new cart();
+					echo $user_cart->fetchCart();
 
-					echo $user_cart->customer_id;
-					echo $user_cart->cart_id;
+					// echo $user_cart->customer_id;
+					// echo $user_cart->cart_id;
 
 				/*	$cart_data = $user_cart->fetchCart();
 
