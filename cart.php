@@ -10,34 +10,32 @@
 				<h2> Cart </h2>
 
 					<?php
-					// $pdo = Database::connect();
-					// $user_cart = new cart();
+					$pdo = Database::connect();
+					$user_cart = new cart();
 
-					// $cart_data = $user_cart->fetchCart();
+					$cart_data = $user_cart->fetchCart();
 
-					// foreach ($cart_data as $item) {
-					// 				echo '<tr>';
-		   //                          echo '<form action="checkout.php" method="post">';
-		   //                          echo '<td>' . $row["product_id"] . '</td>';
-		   //                          echo '<td>' . $row["name"] . '</td>';
-		   //                          echo '<td>' . $row["cost"] . '</td>';
-		   //                          echo '<td>' . $row["description"] . '</td>';
-		   //                          echo '<td>'.$row["quantity"].'</td>';                            
-		   //                          echo '<td>';
-		   //                          echo '<input type="submit" class="" value="update">';
-		   //                          echo '</form>';       
-		   //                          echo '<form action="delete.php" method="post">';
-		   //                          echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-		   //                          echo '<input type="submit" class="btn-danger" value="delete">';
-		   //                          echo '</form>';
-		   //                          echo '</td>';
-		   //                          echo '</tr>';
+					foreach ($cart_data as $item) {
+									echo '<tr>';
+		                            echo '<form action="checkout.php" method="post">';
+		                            echo '<td>' . $row["product_id"] . '</td>';
+		                            echo '<td>' . $row["name"] . '</td>';
+		                            echo '<td>' . $row["cost"] . '</td>';
+		                            echo '<td>' . $row["description"] . '</td>';
+		                            echo '<td>'.$row["quantity"].'</td>';                            
+		                            echo '<td>';
+		                            echo '<input type="submit" class="" value="update">';
+		                            echo '</form>';       
+		                            echo '<form action="delete.php" method="post">';
+		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+		                            echo '<input type="submit" class="btn-danger" value="delete">';
+		                            echo '</form>';
+		                            echo '</td>';
+		                            echo '</tr>';
 
-					// }
-					// 	Database::disconnect();
-					$new_cart = new cart();
-					echo $new_cart->customer_id;
-					echo $new_cart->cart_id;
+					}
+						Database::disconnect();
+					
 
 					?>
 
