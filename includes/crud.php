@@ -229,7 +229,7 @@ class cart {
 		$this->cart_id = $result['id'];
 
 	}
-/*
+
 	public fetchCart() {
 
 		$items = array();
@@ -248,7 +248,7 @@ class cart {
 		}
 		return $items;
 	}
-
+/*
 	public createCart() {
 
 		$pdo = Database::connect();
