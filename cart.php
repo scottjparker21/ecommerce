@@ -13,16 +13,19 @@
 					$pdo = Database::connect();
 					$user_cart = new cart();
 
-					$cart_data = $user_cart->fetchCart();
+					echo $user_cart->customer_id;
+					echo $user_cart->cart_id;
+
+				/*	$cart_data = $user_cart->fetchCart();
 
 					foreach ($cart_data as $item) {
-									echo '<tr>';
-		                            echo '<form action="checkout.php" method="post">';
-		                            echo '<td>' . $row["product_id"] . '</td>';
-		                            echo '<td>' . $row["name"] . '</td>';
-		                            echo '<td>' . $row["cost"] . '</td>';
-		                            echo '<td>' . $row["description"] . '</td>';
-		                            echo '<td>'.$row["quantity"].'</td>';                            
+									// echo '<tr>';
+		       //                      echo '<form action="checkout.php" method="post">';
+		       //                      echo '<td>' . $row["product_id"] . '</td>';
+		       //                      echo '<td>' . $row["name"] . '</td>';
+		       //                      echo '<td>' . $row["cost"] . '</td>';
+		       //                      echo '<td>' . $row["description"] . '</td>';
+		       //                      echo '<td>'.$row["quantity"].'</td>';                            
 		                            // echo '<td>';
 		                            // echo '<input type="submit" class="" value="update">';
 		                            // echo '</form>';       
@@ -31,8 +34,13 @@
 		                            // echo '<input type="submit" class="btn-danger" value="delete">';
 		                            // echo '</form>';
 		                            // echo '</td>';
-		                            echo '</tr>';
+		                            // echo '</tr>';
+		                            echo $row["product_id"];
+		                            echo $row["name"];
+		                            echo $row["cost"];
+		                            echo $row["description"];
 
+					*/
 					}
 						Database::disconnect();
 					
