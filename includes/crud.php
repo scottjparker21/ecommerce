@@ -242,21 +242,21 @@ class cart {
 
 		$pdo = Database::connect();
 		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
+		$q = $pdo->prepare($sql);
 		$q->execute(array($this->cart_id));
 		$product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($product_ids as $pid => $row) {
 
-			// $sql = "SELECT * FROM product WHERE id = ?";
-			// $q = $pdo->prepare($sql);
-			// $q->execute(array($row['product_id']));
-			// $product = $q->fetchAll(PDO::FETCH_ASSOC);
-			// array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+			$sql = "SELECT * FROM product WHERE id = ?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($row['product_id']));
+			$product = $q->fetchAll(PDO::FETCH_ASSOC);
+			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
 			
 		}
 		 Database::disconnect();
-		 echo "after disconnect";
-		 die();
+		
 		return $items;
 	}
 
