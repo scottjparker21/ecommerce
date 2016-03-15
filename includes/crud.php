@@ -238,11 +238,11 @@ class cart {
 
 	public function fetchCart() {
 
-		$items = array();
-		$pdo = Database::connect();
-		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
-		$q->execute(array($this->cart_id));
-		$product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
+		// $items = array();
+		// $pdo = Database::connect();
+		// $sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
+		// $q->execute(array($this->cart_id));
+		// $product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
 
 		// foreach ($product_ids as $pid => $row) {
 
@@ -253,6 +253,7 @@ class cart {
 		// 	array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
 			
 		// }
+		 // Database::disconnect();
 		return "roger that";
 	}
 
