@@ -234,24 +234,23 @@ class cart {
 
 	public function fetchCart() {
 
-		$items = array();
-
-		echo "here";
+		// $items = array();
 
 		$pdo = Database::connect();
 		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
 		$q->execute(array($this->cart_id));
 		$product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
 
-		foreach ($product_ids as $pid => $row) {
-			$sql = "SELECT * FROM product WHERE id = ?";
-			$q = $pdo->prepare($sql);
-			$q->execute(array($row['product_id']));
-			$product = $q->fetchAll(PDO::FETCH_ASSOC);
-			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
-			Database::disconnect();
-		}
-		return $items;
+		// foreach ($product_ids as $pid => $row) {
+			
+		// 	$sql = "SELECT * FROM product WHERE id = ?";
+		// 	$q = $pdo->prepare($sql);
+		// 	$q->execute(array($row['product_id']));
+		// 	$product = $q->fetchAll(PDO::FETCH_ASSOC);
+		// 	array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+			
+		// }
+		// return $items;
 	}
 
 	public function createCart() {
