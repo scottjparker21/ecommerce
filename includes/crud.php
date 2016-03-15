@@ -252,19 +252,17 @@ class cart {
 	public createCart() {
 
 		$pdo = Database::connect();
+		$sql = "INSERT INTO transaction (customer_id) values(?)";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($this->customer_id));
 
-		
-
+		$_SESSION['cart_id'] = $last_id = $pdo->lastInsertId();
+		Database::disconnect();
 
 	}
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------->
-
-class transaction {
-
-
-}
 
 
 
