@@ -224,10 +224,10 @@ class cart {
 	public function __construct(){
 
 		$this->customer_id = $_SESSION['userid'];
+
 		$pdo = Database::connect();
 		$sql = "SELECT * FROM transaction WHERE customer_id = ? AND cart = ?";
 		$q = $pdo->prepare($sql);
-		// $result = $pdo->query($sql);
 		$q->execute(array($this->customer_id,1));
 		$cart = $q->fetch(PDO::FETCH_ASSOC);
 		$this->cart_id = $cart['id'];
@@ -239,22 +239,22 @@ class cart {
 
 	public function fetchCart() {
 
-		// $items = array();
-		// $pdo = Database::connect();
-		// $sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
-		// $q->execute(array($this->cart_id));
-		// $product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
+		$items = array();
+		$pdo = Database::connect();
+		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
+		$q->execute(array($this->cart_id));
+		$product_ids = $q->fetchAll(PDO::FETCH_ASSOC);
 
-		// foreach ($product_ids as $pid => $row) {
+		foreach ($product_ids as $pid => $row) {
 
-		// 	$sql = "SELECT * FROM product WHERE id = ?";
-		// 	$q = $pdo->prepare($sql);
-		// 	$q->execute(array($row['product_id']));
-		// 	$product = $q->fetchAll(PDO::FETCH_ASSOC);
-		// 	array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+			$sql = "SELECT * FROM product WHERE id = ?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($row['product_id']));
+			$product = $q->fetchAll(PDO::FETCH_ASSOC);
+			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
 			
-		// }
-		return "success";
+		}
+		return $items;
 	}
 
 	public function createCart() {
