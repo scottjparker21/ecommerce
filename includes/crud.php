@@ -225,7 +225,7 @@ class cart {
 
 		$this->customer_id = $_SESSION['userid'];
 		$pdo = Database::connect();
-		$sql = "SELECT * FROM transaction WHERE customer_id = '$this->customer_id'";
+		$sql = "SELECT * FROM transaction WHERE customer_id = " . $this->customer_id . "";
 		$result = $pdo->query($sql);
 		$this->cart_id = $result['id'];
 		Database::disconnect();
