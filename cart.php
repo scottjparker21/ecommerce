@@ -23,14 +23,14 @@
 		                            echo '<td>' . $row["cost"] . '</td>';
 		                            echo '<td>' . $row["description"] . '</td>';
 		                            echo '<td>'.$row["quantity"].'</td>';                            
-		                            echo '<td>';
-		                            echo '<input type="submit" class="" value="update">';
-		                            echo '</form>';       
-		                            echo '<form action="delete.php" method="post">';
-		                            echo '<input type="hidden" name="id" value="'.$row["id"].'">';
-		                            echo '<input type="submit" class="btn-danger" value="delete">';
-		                            echo '</form>';
-		                            echo '</td>';
+		                            // echo '<td>';
+		                            // echo '<input type="submit" class="" value="update">';
+		                            // echo '</form>';       
+		                            // echo '<form action="delete.php" method="post">';
+		                            // echo '<input type="hidden" name="id" value="'.$row["id"].'">';
+		                            // echo '<input type="submit" class="btn-danger" value="delete">';
+		                            // echo '</form>';
+		                            // echo '</td>';
 		                            echo '</tr>';
 
 					}

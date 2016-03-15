@@ -236,6 +236,8 @@ class cart {
 
 		$items = array();
 
+		echo "here";
+
 		$pdo = Database::connect();
 		$sql = "SELECT * FROM transaction_item WHERE transaction_id = ?";
 		$q->execute(array($this->cart_id));
