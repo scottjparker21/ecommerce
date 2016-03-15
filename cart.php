@@ -40,8 +40,9 @@
 		                            echo $row["cost"];
 		                            echo $row["description"];
 
-					*/
+					
 					}
+					*/
 						Database::disconnect();
 					
 
