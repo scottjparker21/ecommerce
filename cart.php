@@ -1,5 +1,5 @@
 <?php  require_once 'includes/session.php'; ?>
-
+<?php  require_once 'includes/crud.php'; ?>
 <!DOCTYPE html>
 	<html lang="en">
 		<?php require_once 'includes/header.php';?>
