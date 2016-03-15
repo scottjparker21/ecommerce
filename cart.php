@@ -13,11 +13,11 @@
 					echo " line 1";
 					$user_cart = new cart();
 					echo " line 2";
-					echo $user_cart->fetchCart();
+					$user_cart->fetchCart();
 					echo " line 3";
 
-					// echo $user_cart->customer_id;
-					// echo $user_cart->cart_id;
+					echo $user_cart->customer_id;
+					echo $user_cart->cart_id;
 
 				/*	$cart_data = $user_cart->fetchCart();
 
