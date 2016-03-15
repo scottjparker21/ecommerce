@@ -10,7 +10,7 @@
 				<h2> Cart </h2>
 
 					<?php
-					$pdo = Database::connect();
+					
 					$user_cart = new cart();
 					echo $user_cart->fetchCart();
 
@@ -44,7 +44,7 @@
 					
 					}
 					*/
-						Database::disconnect();
+						
 					
 
 					?>
