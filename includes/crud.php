@@ -225,10 +225,15 @@ class cart {
 
 		$this->customer_id = $_SESSION['userid'];
 		$pdo = Database::connect();
-		$sql = "SELECT * FROM transaction WHERE customer_id = " . $this->customer_id . "";
-		$result = $pdo->query($sql);
-		$this->cart_id = $result['id'];
+		$sql = "SELECT * FROM transaction WHERE customer_id = ? AND cart = ?";
+		$q = $pdo->prepare($sql);
+		// $result = $pdo->query($sql);
+		$q->execute(array($this->customer_id,1));
+		$cart = $q->fetch(PDO::FETCH_ASSOC);
+		$this->cart_id = $cart['id'];
 		Database::disconnect();
+		echo $this->cart_id;
+		echo $this->customer_id;
 
 	}
 
