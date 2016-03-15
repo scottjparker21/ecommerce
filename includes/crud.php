@@ -256,7 +256,7 @@ class cart {
 		$q = $pdo->prepare($sql);
 		$q->execute(array($this->customer_id));
 
-		$_SESSION['cart_id'] = $last_id = $pdo->lastInsertId();
+		$_SESSION['cart_id'] = $pdo->lastInsertId();
 		Database::disconnect();
 
 	}
