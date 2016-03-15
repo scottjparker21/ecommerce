@@ -232,8 +232,7 @@ class cart {
 		$cart = $q->fetch(PDO::FETCH_ASSOC);
 		$this->cart_id = $cart['id'];
 		Database::disconnect();
-		echo $this->cart_id;
-		echo $this->customer_id;
+		
 
 	}
 

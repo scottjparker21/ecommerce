@@ -10,11 +10,11 @@
 				<h2> Cart </h2>
 
 					<?php
-					echo "1";
+					echo " line 1";
 					$user_cart = new cart();
-					echo "2";
+					echo " line 2";
 					echo $user_cart->fetchCart();
-					echo "3";
+					echo " line 3";
 
 					// echo $user_cart->customer_id;
 					// echo $user_cart->cart_id;
