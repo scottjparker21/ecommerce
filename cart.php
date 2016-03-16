@@ -7,6 +7,7 @@
 			<?php require_once 'includes/navbar.php';?>
 			<div class="results"></div>	
 			<div id="content">
+				<div id="container">
 					<div class="row">
 		                	<h3>Address</h3>
 		            	</div>
@@ -23,10 +24,11 @@
 		                  <tbody>
 
 							<?php
-							
+
 										$user_cart = new cart();
 										$user_cart->fetchCart();
 										$cart_data = $user_cart->fetchCart();
+										$subtotal = 0;
 
 										foreach ($cart_data as $item) {
 												echo '<tr>';
@@ -47,7 +49,9 @@
 					                            echo '</form>';
 					                            echo '</td>';
 					                            echo '</tr>';
+					                            $subtotal = $subtotal + $item["cost"];
 										}
+										echo '<h3>' . "Subtotal = " . $subtotal . " " . '</h3>';
 
 										?>		
 										<form method="post" action="checkout.php">
@@ -56,6 +60,7 @@
 					       </tbody>
 					    </table>
 					</div>
+				</div>
 			</div>
 			<?php require_once 'includes/footer.php';?>
 
