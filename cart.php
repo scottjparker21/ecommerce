@@ -13,11 +13,10 @@
 				        <table class="table table-striped table-bordered">
 		                  <thead>
 		                    <tr>
-		                      <th>City</th>
-		                      <th>State</th>
-		                      <th>Zip</th>
-		                      <th>Street 1</th>
-		                      <th>Street 2</th>
+		                      <th>name</th>
+		                      <th>cost</th>
+		                      <th>description</th>
+		                      <th>quantity</th>
 		                    </tr>
 		                  </thead>
 		                  <tbody>
@@ -34,7 +33,6 @@
 										foreach ($cart_data as $item) {
 												echo '<tr>';
 					                            echo '<form action="checkout.php" method="post">';
-					                            echo '<td>' . $item["product_id"] . '</td>';
 					                            echo '<td>' . $item["name"] . '</td>';
 					                            echo '<td>' . $item["cost"] . '</td>';
 					                            echo '<td>' . $item["description"] . '</td>';
