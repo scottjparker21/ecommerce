@@ -5,9 +5,9 @@
 		<?php require_once 'includes/header.php';?>
 		<body>
 			<?php require_once 'includes/navbar.php';?>
+			<div id="container">
 			<div class="results"></div>	
-			<div id="content">
-				<div id="container">
+				<div id="content">
 					<div class="row">
 		                	<h3>Address</h3>
 		            	</div>
@@ -49,7 +49,7 @@
 					                            echo '</form>';
 					                            echo '</td>';
 					                            echo '</tr>';
-					                            $subtotal = $subtotal + $item["cost"];
+					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
 										}
 										echo '<h3>' . "Subtotal = " . $subtotal . " " . '</h3>';
 
