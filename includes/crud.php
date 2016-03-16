@@ -252,7 +252,7 @@ class cart {
 			$q = $pdo->prepare($sql);
 			$q->execute(array($row['product_id']));
 			$product = $q->fetchAll(PDO::FETCH_ASSOC);
-			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
+			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$product['name'],"cost"=>$product['cost'],"description"=>$product['description']));
 			
 		}
 		Database::disconnect();
