@@ -275,13 +275,12 @@ class cart {
 		}
 	}
 
-	public function updateQuantity() {
+	public function updateQuantity($tid,$new_q) {
 
 		$pdo = Database::connect();
 		$sql = "UPDATE transaction_item SET quantity = ? WHERE id = ?";
-
-
-
+		$q = $pdo->prepare($sql);
+		$q->execute(array($new_q,$tid));
 
 	}
 }
