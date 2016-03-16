@@ -215,7 +215,6 @@ class userCustomer {
 
 // CART CRUD ------------------------------------------------------------------------->
 
-
 class cart {
 
 	public $customer_id;
@@ -309,16 +308,11 @@ class cart {
 		$pdo = Database::connect();
 		$sql = "UPDATE transaction_item SET cart = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array(NULL,$this->cart_id));
-		echo $this->cart_id;
-		die();
+		$q->execute(array(0,$this->cart_id));
 		Database::disconnect();
+		$this->createCart();
+		
 	}
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------>
-
-
-
-
-

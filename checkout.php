@@ -6,7 +6,4 @@
 	$cart_checkout = new cart();
 	$cart_checkout->cartCheckout();
 
-	$new_cart = new cart();
-	$new_cart->createCart();
-
 	header("Location: index.php");
