@@ -303,6 +303,15 @@ class cart {
 		Database::disconnect();
 
 	}
+
+	public function cartCheckout() {
+
+		$pdo = Database::connect();
+		$sql = "UPDATE transaction_item SET cart = ? WHERE id = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array(NULL,$this->cart_id));
+		Database::disconnect();
+	}
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------>
