@@ -36,8 +36,8 @@
 					                            echo '<td>' . $item["name"] . '</td>';
 					                            echo '<td>' . $item["cost"] . '</td>';
 					                            echo '<td>' . $item["description"] . '</td>';
-					                          	echo '<td><input type="text" name="quantity" size="4" value="' . $row["quantity"] . '"></td>';
-					                          	
+					                          	echo '<td><input type="text" name="quantity" value="' . $item["quantity"] . '"></td>';
+
 					                            echo '<input type="hidden" name="id" value="'.$item["id"].'">';
 
 					                            echo '<td>';
