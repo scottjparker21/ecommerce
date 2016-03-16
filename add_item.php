@@ -1,20 +1,11 @@
 <?php
 
-	require_once 'includes/database.php';
+	require_once 'includes/session.php'; 
+	require_once 'includes/crud.php';
 
-	if ($_SESSION['cart'] == FALSE) {
-
-		$_SESSION['cart'] == TRUE;
-	}
-
-	if ( !empty($_POST)) {
-
-		$pid = $_POST['pid'];
-		$name = $_POST['name'];
-		$cost = $_POST['cost'];
-
-		
-	}
+	$pid = $_POST['id'];
+	echo $pid;
+	die();
 
 
 

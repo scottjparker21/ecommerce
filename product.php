@@ -30,7 +30,6 @@
 					$image = $data['image'];
 					$imagedescription = $data['description'];
 
-
 			?>
 					<h3> Product </h3>
 
@@ -40,13 +39,14 @@
 
 			       	<p> <?php echo $description; ?> </p>
 
-			     	 <p> <?php echo $imagedescription; ?> </p>
+			     	<p> <?php echo $imagedescription; ?> </p>
 
-			     	 <img src="data:image/jpeg;base64,<?php echo base64_encode( $image ); ?>" width="100px"/>
+			     	<img src="data:image/jpeg;base64,<?php echo base64_encode( $image ); ?>" width="100px"/>
 
-
-
-
+			     	<form method="post" action="add_item.php">
+			     			<input type="hidden" name="id" value="<?php echo $id ;?>">';
+							<button type="submit" value="checkout">Checkout</button>
+					</form>	
 
 			<?php require_once 'includes/footer.php';?>
 		</body>
