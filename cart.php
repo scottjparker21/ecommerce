@@ -32,7 +32,7 @@
 
 										foreach ($cart_data as $item) {
 												echo '<tr>';
-					                            echo '<form action="update.php" method="post">';
+					                            echo '<form action="cart_update.php" method="post">';
 					                            echo '<td>' . $item["name"] . '</td>';
 					                            echo '<td>' . $item["cost"] . '</td>';
 					                            echo '<td>' . $item["description"] . '</td>';
@@ -51,7 +51,7 @@
 					                            echo '</tr>';
 					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
 										}
-										echo '<h3>' . "Subtotal = $" . $subtotal . " " . '</h3>';
+										echo '<h3>' . "Subtotal = $ " . $subtotal . " " . '</h3>';
 
 										?>		
 										<form method="post" action="checkout.php">
