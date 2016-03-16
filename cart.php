@@ -32,13 +32,16 @@
 
 										foreach ($cart_data as $item) {
 												echo '<tr>';
-					                            echo '<form action="checkout.php" method="post">';
+					                            echo '<form action="update.php" method="post">';
 					                            echo '<td>' . $item["name"] . '</td>';
 					                            echo '<td>' . $item["cost"] . '</td>';
 					                            echo '<td>' . $item["description"] . '</td>';
-					                            echo '<td>'. $item["quantity"].'</td>';                            
+					                            echo '<td>'. $item["quantity"].'</td>';
+
+					                            echo '<input type="hidden" name="id" value="'.$item["id"].'">';
+
 					                            echo '<td>';
-					                            echo '<input type="submit" class="" value="update">';
+					                            echo '<input type="submit" class="" value="update">'; //to update quantity
 					                            echo '</form>';       
 					                            echo '<form action="delete.php" method="post">';
 					                            echo '<input type="hidden" name="id" value="'.$item["id"].'">';
@@ -47,7 +50,9 @@
 					                            echo '</td>';
 					                            echo '</tr>';
 										}
-										?>					                  
+
+										?>		
+										<p><a href="checkout.php" class="btn btn-secondary"> Checkout </a></p>				                  
 					       </tbody>
 					    </table>
 					</div>
