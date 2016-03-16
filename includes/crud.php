@@ -257,8 +257,7 @@ class cart {
 			
 		}
 		Database::disconnect();
-		print_r($items);
-		die();
+		
 		return $items;
 	}
 
