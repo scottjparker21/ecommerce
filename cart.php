@@ -19,7 +19,6 @@
 					$cart_data = $user_cart->fetchCart();
 
 					print_r($cart_data);
-					die();
 
 					foreach ($cart_data as $item) {
 									// echo '<tr>';
@@ -39,10 +38,10 @@
 		       //                      echo '</td>';
 		       //                      echo '</tr>';
 		                            echo "product id " . $item["pid"] . "  ";
-		                            echo "quantity " . $item["quantity"]. "  ";
-		                            echo "name " . $item["name"]. "  ";
-		                            echo "cost " . $item["cost"]. "  ";
-		                            echo "description " . $item["description"]. "  ";
+		                           // echo "quantity " . $item["quantity"]. "  ";
+		                           // echo "name " . $item["name"]. "  ";
+		                           // echo "cost " . $item["cost"]. "  ";
+		                          //  echo "description " . $item["description"]. "  ";
 					
 					}
 								
