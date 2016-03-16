@@ -45,7 +45,7 @@
 
 			     	<form method="post" action="add_item.php">
 			     			<input type="hidden" name="id" value="<?php echo $id ;?>">';
-							<button type="submit" value="checkout">Checkout</button>
+							<button type="submit" value="add">Add to Cart</button>
 					</form>	
 
 			<?php require_once 'includes/footer.php';?>

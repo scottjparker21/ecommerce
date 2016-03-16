@@ -283,6 +283,17 @@ class cart {
 		$q->execute(array($new_q,$tid));
 
 	}
+
+	public function addToCart() {
+
+		$pdo = Database::connect($product_id);
+		$sql = "INSERT INTO transaction_item (product_id,quantity,transaction_id) VALUES (?,?)";
+		$q = $pdo->prepare($sql);
+		$q = execute(array($product_id,1,$this->cart_id));
+		Database::disconnect();
+
+
+	}
 }
 
 // TRANSACTION CRUD ------------------------------------------------------------------------>
