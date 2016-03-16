@@ -52,7 +52,9 @@
 										}
 
 										?>		
-										<p><a href="checkout.php" class="btn btn-secondary"> Checkout </a></p>				                  
+										<form method="post" action="checkout.php">
+										    <button type="submit" value="checkout">Checkout</button>
+										</form>				                  
 					       </tbody>
 					    </table>
 					</div>
