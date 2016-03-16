@@ -17,6 +17,7 @@
 		                      <th>cost</th>
 		                      <th>description</th>
 		                      <th>quantity</th>
+		                      <th></th>
 		                    </tr>
 		                  </thead>
 		                  <tbody>

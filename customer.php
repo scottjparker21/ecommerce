@@ -75,7 +75,7 @@
 		                      <th>Expiration Month</th>
 		                      <th>Expiration Year</th>
 		                      <th>Type</th>
-		                      <th></th>
+		                      
 		                    </tr>
 		                  </thead>
 		                  <tbody>
