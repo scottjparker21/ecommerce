@@ -23,12 +23,9 @@
 		                  <tbody>
 
 							<?php
-										echo " line 1";
+							
 										$user_cart = new cart();
-										echo " line 2";
 										$user_cart->fetchCart();
-										echo " line 3";
-
 										$cart_data = $user_cart->fetchCart();
 
 										foreach ($cart_data as $item) {
