@@ -38,7 +38,7 @@
 					                            echo '<td>' . $item["description"] . '</td>';
 					                          	echo '<td><input type="text" name="quantity" value="' . $item["quantity"] . '"></td>';
 
-					                            echo '<input type="hidden" name="id" value="'.$item["id"].'">';
+					                            echo '<input type="hidden" name="id" value="'.$item["product_id"].'">';
 
 					                            echo '<td>';
 					                            echo '<input type="submit" class="" value="update">'; //to update quantity
