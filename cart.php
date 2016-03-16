@@ -8,9 +8,7 @@
 			<div id="container">
 			<div class="results"></div>	
 				<div id="content">
-					<div class="row">
-		                	<h3>Address</h3>
-		            	</div>
+		            <h3>Cart</h3>
 				        <table class="table table-striped table-bordered">
 		                  <thead>
 		                    <tr>
@@ -22,9 +20,7 @@
 		                    </tr>
 		                  </thead>
 		                  <tbody>
-
 							<?php
-
 										$user_cart = new cart();
 										$user_cart->fetchCart();
 										$cart_data = $user_cart->fetchCart();
@@ -52,12 +48,12 @@
 					                            echo '</tr>';
 					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
 										}
-										echo '<h3>' . "Subtotal = $ " . $subtotal . " " . '</h3>';
+									echo '<h3>' . "Subtotal = $ " . $subtotal . " " . '</h3>';
 
-										?>		
-										<form method="post" action="checkout.php">
-										    <button type="submit" value="checkout">Checkout</button>
-										</form>				                  
+							?>		
+								<form method="post" action="checkout.php">
+								    <button type="submit" value="checkout">Checkout</button>
+								</form>				                  
 					       </tbody>
 					    </table>
 					</div>

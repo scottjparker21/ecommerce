@@ -292,6 +292,15 @@ class cart {
 		$q->execute(array($product_id,1,$this->cart_id));
 		Database::disconnect();
 
+	}
+
+	public function deleteItem($product_id) {
+
+		$pdo = Database::connect();
+		$sql = "DELETE FROM transaction_item WHERE product_id = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($product_id));
+		Database::disconnect();
 
 	}
 }
