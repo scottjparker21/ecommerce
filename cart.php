@@ -51,7 +51,7 @@
 					                            echo '</tr>';
 					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
 										}
-										echo '<h3>' . "Subtotal = " . $subtotal . " " . '</h3>';
+										echo '<h3>' . "Subtotal = $" . $subtotal . " " . '</h3>';
 
 										?>		
 										<form method="post" action="checkout.php">
