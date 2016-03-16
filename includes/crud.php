@@ -255,9 +255,7 @@ class cart {
 			array_push($items, array("pid"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$row['name'],"cost"=>$row['cost'],"description"=>$row['description']));
 			
 		}
-		 Database::disconnect();
-		print_r($items);
-		die();
+		Database::disconnect();
 		
 		return $items;
 	}

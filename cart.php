@@ -18,6 +18,9 @@
 
 					$cart_data = $user_cart->fetchCart();
 
+					print_r($cart_data);
+					die();
+
 					foreach ($cart_data as $item) {
 									// echo '<tr>';
 		       //                      echo '<form action="checkout.php" method="post">';
