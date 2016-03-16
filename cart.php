@@ -35,7 +35,8 @@
 		       //                      echo '</form>';
 		       //                      echo '</td>';
 		       //                      echo '</tr>';
-		                            echo "product id " . $item["product_id"] . "  ";
+		                            echo "product id " . $item["pid"] . "  ";
+		                            echo "quantity " . $item["quantity"]. "  ";
 		                            echo "name " . $item["name"]. "  ";
 		                            echo "cost " . $item["cost"]. "  ";
 		                            echo "description " . $item["description"]. "  ";
