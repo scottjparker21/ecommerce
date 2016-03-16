@@ -8,3 +8,5 @@
 
 	$new_cart = new cart();
 	$new_cart->createCart();
+
+	header( "Location: cart.php" );
