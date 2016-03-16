@@ -310,6 +310,8 @@ class cart {
 		$sql = "UPDATE transaction_item SET cart = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array(NULL,$this->cart_id));
+		echo $this->cart_id;
+		die();
 		Database::disconnect();
 	}
 }
