@@ -253,7 +253,7 @@ class cart {
 			$q->execute(array($row['product_id']));
 			$product = $q->fetch(PDO::FETCH_ASSOC);
 			
-			array_push($items, array("product_id"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$product['name'],"cost"=>$product['cost'],"description"=>$product['description']));
+			array_push($items, array("transaction_item_id"=>$row['id'],"product_id"=>$row['product_id'],"quantity"=>$row['quantity'],"name"=>$product['name'],"cost"=>$product['cost'],"description"=>$product['description']));
 			
 		}
 		Database::disconnect();
@@ -273,6 +273,16 @@ class cart {
 			echo $error->getMessage();
 			die();
 		}
+	}
+
+	public function updateQuantity() {
+
+		$pdo = Database::connect();
+		$sql = "UPDATE transaction_item SET quantity = ? WHERE id = ?";
+
+
+
+
 	}
 }
 

@@ -39,6 +39,7 @@
 					                          	echo '<td><input type="text" name="quantity" value="' . $item["quantity"] . '"></td>';
 
 					                            echo '<input type="hidden" name="id" value="'.$item["product_id"].'">';
+					                            echo '<input type="hidden" name="transaction_item_id" value="'.$item["transaction_item_id"].'">';
 
 					                            echo '<td>';
 					                            echo '<input type="submit" class="" value="update">'; //to update quantity
