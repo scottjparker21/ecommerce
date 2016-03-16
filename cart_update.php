@@ -1,6 +1,6 @@
 <?php
 
-$pid = $_POST['product_id'];
+$pid = $_POST['id'];
 
 echo $pid;
 die();

@@ -44,7 +44,7 @@
 					                            echo '<input type="submit" class="" value="update">'; //to update quantity
 					                            echo '</form>';       
 					                            echo '<form action="delete.php" method="post">';
-					                            echo '<input type="hidden" name="id" value="'.$item["pid"].'">';
+					                            echo '<input type="hidden" name="id" value="'.$item["product_id"].'">';
 					                            echo '<input type="submit" class="btn-danger" value="delete">';
 					                            echo '</form>';
 					                            echo '</td>';
