@@ -47,7 +47,7 @@
 										echo '<select name="credit_card">';
 										foreach ($user_payment->fetchPayment() as $credit_cart) {
 											
-                            				echo '<option name="credit_card" value="' . $credit_card["type"] . '">' . $credit_card["card_number"] . " " . $credit_card["type"] . '</option>';                          
+                            				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["card_number"] . '</option>';                          
                                 			                                    		                                       
             								echo $credit_cart['card_number'];
 											echo '<br>';
