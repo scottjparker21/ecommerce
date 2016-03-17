@@ -45,17 +45,15 @@
 										$user_payment = new cart();
 										$user_payment->fetchPayment();
 
+										echo '<select name="credit_card">';
 										foreach ($user_payment->fetchPayment() as $credit_cart) {
-
-											echo '<select name="credit_card">';
+											
                             				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["card_number"] . " " . $credit_card["type"] . '</option>';                          
-                                			echo '<select>';
-                                    		                                       
+                                			                                    		                                       
             								echo $credit_cart['card_number'];
 											echo '<br>';
-
 										}
-
+										echo '</select>';
 
 									echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 									echo '<form method="post" action="process_order.php">';
