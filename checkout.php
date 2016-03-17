@@ -15,68 +15,77 @@
 		                      <th>name</th>
 		                      <th>cost</th>
 		                      <th>description</th>
-		                      <th>quantity</th>
-		                      
+		                      <th>quantity</th>		                      
 		                    </tr>
 		                  </thead>
 		                  <tbody>
-							<?php
-										$user_cart = new cart();
-										$user_cart->fetchCart();
-										$cart_data = $user_cart->fetchCart();
-										$subtotal = 0;
+				            	<div class="row">
+				            	<div class="col-lg-12">
+									<?php
+												$user_cart = new cart();
+												$user_cart->fetchCart();
+												$cart_data = $user_cart->fetchCart();
+												$subtotal = 0;
 
-										foreach ($cart_data as $item) {
-												echo '<tr>';
-					                            echo '<form action="cart_update.php" method="post">';
-					                            echo '<td>' . $item["name"] . '</td>';
-					                            echo '<td>' . $item["cost"] . '</td>';
-					                            echo '<td>' . $item["description"] . '</td>';
-					                          	echo '<td>' . $item["quantity"] . '</td>';
+												foreach ($cart_data as $item) {
+														echo '<tr>';
+							                            echo '<form action="cart_update.php" method="post">';
+							                            echo '<td>' . $item["name"] . '</td>';
+							                            echo '<td>' . $item["cost"] . '</td>';
+							                            echo '<td>' . $item["description"] . '</td>';
+							                          	echo '<td>' . $item["quantity"] . '</td>';
 
-					                            echo '<input type="hidden" name="id" value="'.$item["product_id"].'">';
-					                            echo '<input type="hidden" name="transaction_item_id" value="'.$item["transaction_item_id"].'">';
-					                            echo '</form>';
-					                           
-					                            echo '</tr>';
-					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
-										}
+							                            echo '<input type="hidden" name="id" value="'.$item["product_id"].'">';
+							                            echo '<input type="hidden" name="transaction_item_id" value="'.$item["transaction_item_id"].'">';
+							                            echo '</form>';
+							                           
+							                            echo '</tr>';
+							                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
+												}
+									?>
+								</div>
+								<div class="row">
+				            		<div class="col-lg-12">
+				            			<?php
+												$user_payment = new cart();
 
-										$user_payment = new cart();
+												echo '<select name="credit_card">';
+												foreach ($user_payment->fetchPayment() as $credit_card) {
+													
+		                            				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["type"] . ", " . $credit_card["card_number"] . '</option>';                          
+		                                			                                    		                                       
+												}
+												echo '</select>';
+										?>
+									</div>
+								</div>
+								<div class="row">
+				            		<div class="col-lg-12">
+				            			<?php
 
-										echo '<select name="credit_card">';
-										foreach ($user_payment->fetchPayment() as $credit_card) {
-											
-                            				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["type"] . ", " . $credit_card["card_number"] . '</option>';                          
-                                			                                    		                                       
-										}
-										echo '</select>';
-				//array returns correctly but options are incorrect
-										$user_address = new cart();
-										$a = $user_address->fetchAddress();
-										print_r($a);
+												$user_address = new cart();
+												$a = $user_address->fetchAddress();
+			
+												echo '<select name="address">';
+												foreach ($a as $address) {
+													
+		                            				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . '</option>';                          
+		                                			                                    		                                       
+												}
+												echo '</select>';
 
+												echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
+												echo '<form method="post" action="process_order.php">';
+											    echo 	'<button type="submit" value="process_order">Place Order</button>';
+												echo '</form>';
 
-										echo '<select name="address">';
-										foreach ($a as $address) {
-											
-                            				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . '</option>';                          
-                                			                                    		                                       
-										}
-										echo '</select>';
+												echo '<br>';
 
+												echo '<h3>' . "Choose Payment Option: " . '</h3>';	
 
-										echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
-										echo '<form method="post" action="process_order.php">';
-									    echo 	'<button type="submit" value="process_order">Place Order</button>';
-										echo '</form>';
-
-										echo '<br>';
-
-										echo '<h3>' . "Choose Payment Option: " . '</h3>';	
-
-							?>		
-											                  
+										?>		
+									</div>
+								</div>			                  
 					       </tbody>
 					    </table>
 					</div>
