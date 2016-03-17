@@ -54,6 +54,8 @@
 				//array returns correctly but options are incorrect
 										$user_address = new cart();
 										$a = $user_address->fetchAddress();
+										print_r($a);
+
 
 										echo '<select name="address">';
 										foreach ($a as $address) {
