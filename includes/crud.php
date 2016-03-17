@@ -327,7 +327,7 @@ class cart {
 		foreach ($payment_ids as $payid => $row ) {
 
 			$sql2 = "SELECT * FROM payment WHERE id = ?";
-			$q2 = $pdo->prepare($sql);
+			$q2 = $pdo->prepare($sql2);
 			$q2->execute(array($row['payment_id']));
 			$payment = $q2->fetch(PDO::FETCH_ASSOC);
 
