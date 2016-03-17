@@ -53,6 +53,8 @@
 										echo '</select>';
 
 										$user_address = new cart();
+										$test = $user_address->fetchAddress();
+										print_r($test);
 
 										echo '<select name="address">';
 										foreach ($user_address->fetchAddress() as $address) {
