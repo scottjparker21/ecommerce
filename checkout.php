@@ -53,11 +53,10 @@
 										echo '</select>';
 
 										$user_address = new cart();
-										$test = $user_address->fetchAddress();
-										print_r($test);
+										$a = $user_address->fetchAddress();
 
 										echo '<select name="address">';
-										foreach ($user_address->fetchAddress() as $address) {
+										foreach ($a as $address) {
 											
                             				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . ", " . $address["city"] . '</option>';                          
                                 			                                    		                                       
