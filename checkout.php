@@ -46,7 +46,9 @@
 								</div>
 								<div class="row">
 				            		<div class="col-lg-12">
+				            			<h3> Choose Payment: </h3>
 				            			<?php
+
 												$user_payment = new cart();
 
 												echo '<select name="credit_card">';
@@ -61,6 +63,7 @@
 								</div>
 								<div class="row">
 				            		<div class="col-lg-12">
+				            			<h3> Choose Address: </h3>
 				            			<?php
 
 												$user_address = new cart();
@@ -80,9 +83,6 @@
 												echo '</form>';
 
 												echo '<br>';
-
-												echo '<h3>' . "Choose Payment Option: " . '</h3>';	
-
 										?>		
 									</div>
 								</div>			                  
