@@ -58,7 +58,7 @@
 										echo '<select name="address">';
 										foreach ($a as $address) {
 											
-                            				echo '<option name="address" value="' . $address["id"] . '">'  $address["street_1"] '</option>';                          
+                            				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . '</option>';                          
                                 			                                    		                                       
 										}
 										echo '</select>';
