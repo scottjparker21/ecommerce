@@ -41,11 +41,30 @@
 					                            echo '</tr>';
 					                            $subtotal = $subtotal + ($item["cost"] * $item["quantity"]);
 										}
-									echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 
+										$user_payment = new cart();
+										$user_payment->fetchPayment();
+
+										foreach ($user_payment->fetchPayment() as $credit_cart) {
+
+											echo '<select name="credit_card">';
+                            				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["card_number"] . " " . $credit_card["type"] . '</option>';                          
+                                			echo '<select>';
+                                    		                                       
+            								echo $credit_cart['card_number'];
+											echo '<br>';
+
+										}
+
+
+									echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 									echo '<form method="post" action="process_order.php">';
 								    echo 	'<button type="submit" value="process_order">Place Order</button>';
-									echo '</form>';	
+									echo '</form>';
+
+									echo '<br>';
+
+									echo '<h3>' . "Choose Payment Option: " . '</h3>';	
 
 							?>		
 											                  

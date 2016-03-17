@@ -311,8 +311,39 @@ class cart {
 		$q->execute(array(0,$this->cart_id));
 		Database::disconnect();
 		$this->createCart();
-		
+
 	}
+
+	public function fetchPayment() {
+
+		$payments = array();
+
+		$pdo = Database::connect();
+		$sql =  "SELECT * FROM customer_payment WHERE customer_id = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($this->customer_id));
+		$payment_ids = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		foreach ($payment_ids as $payid => $row ) {
+
+			$sql2 = "SELECT * FROM payment WHERE id = ?";
+			$q2 = $pdo->prepare($sql);
+			$q2->execute(array($row['payment_id']));
+			$payment = $q2->fetch(PDO::FETCH_ASSOC);
+
+			$credit_card = array("id"=>$payment['id'],"card_full_name"=>$payment['card_full_name'],"card_number"=>$payment['card_number'],"card_security"=>$payment['card_security'],"expires_month"=>$payment['expires_month'],"expires_year"=>['expires_year'],"type"=>$payment['type']);
+			
+			array_push($payments,$credit_card);
+		}
+		Database::disconnect();
+		return $payments;
+
+	}
+
+
 }
 
-// TRANSACTION CRUD ------------------------------------------------------------------------>
+// CHECKOUT CRUD ------------------------------------------------------------------------>
+
+
+
