@@ -16,7 +16,7 @@
 		                      <th>cost</th>
 		                      <th>description</th>
 		                      <th>quantity</th>
-		                      <th></th>
+		                      
 		                    </tr>
 		                  </thead>
 		                  <tbody>
@@ -43,10 +43,12 @@
 										}
 									echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 
+									echo '<form method="post" action="process_order.php">';
+								    echo 	'<button type="submit" value="process_order">Place Order</button>';
+									echo '</form>';	
+
 							?>		
-								<form method="post" action="checkout.php">
-								    <button type="submit" value="checkout">Checkout</button>
-								</form>				                  
+											                  
 					       </tbody>
 					    </table>
 					</div>
