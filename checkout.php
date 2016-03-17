@@ -87,6 +87,7 @@
 												echo '<form method="post" action="process_order.php">';
 											    echo 	'<button type="submit" value="process_order">Place Order</button>';
 												echo '</form>';
+												echo '<br>';
 										?>						
 									</div>
 								</div>			                  
