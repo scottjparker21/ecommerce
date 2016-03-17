@@ -8,7 +8,7 @@
 			<div id="container">
 			<div class="results"></div>	
 				<div id="content">
-		            <h3>Cart</h3>
+		            <h3>Finalize Order</h3>
 				        <table class="table table-striped table-bordered">
 		                  <thead>
 		                    <tr>
@@ -54,14 +54,14 @@
 										}
 										echo '</select>';
 
-									echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
-									echo '<form method="post" action="process_order.php">';
-								    echo 	'<button type="submit" value="process_order">Place Order</button>';
-									echo '</form>';
+										echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
+										echo '<form method="post" action="process_order.php">';
+									    echo 	'<button type="submit" value="process_order">Place Order</button>';
+										echo '</form>';
 
-									echo '<br>';
+										echo '<br>';
 
-									echo '<h3>' . "Choose Payment Option: " . '</h3>';	
+										echo '<h3>' . "Choose Payment Option: " . '</h3>';	
 
 							?>		
 											                  

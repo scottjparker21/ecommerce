@@ -306,7 +306,7 @@ class cart {
 	public function cartCheckout() {
 
 		$pdo = Database::connect();
-		$sql = "UPDATE transaction_item SET cart = ? WHERE id = ?";
+		$sql = "UPDATE transaction SET cart = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array(0,$this->cart_id));
 		Database::disconnect();
@@ -338,6 +338,31 @@ class cart {
 		Database::disconnect();
 		return $payments;
 
+	}
+
+	public function fetchAddress() {
+
+		$address = array();
+
+		$pdo = Database::connect();
+		$sql = "SELECT * FROM customer_address WHERE customer_id = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($this->customer_id));
+		$address_ids = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		foreach ($address_ids as $add_id => $row) {
+
+			$sql2 = "SELECT * FROM address WHERE id = ?";
+			$q2 = $pdo->prepare($sql2);
+			$q2->execute(array($row['address_id']));
+			$address = $q2->fetch(PDO::FETCH_ASSOC);
+
+			$user_address = array("id"=>$address['id'],"city"=>$address['city'],"state"=>$address['state'],"zip"=>$address['zip'],"street_1"=>$address['street_1'],"street_2"=>$address['street_2']);
+
+			array_push($address,$user_address);
+		}
+		Database::disconnect();
+		return $address;
 	}
 
 
