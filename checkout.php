@@ -5,7 +5,7 @@
 		<?php require_once 'includes/header.php';?>
 		<body>
 			<?php require_once 'includes/navbar.php';?>
-		<div id="container">
+		<div class="container">
 			<div class="results"></div>	
 				<div id="content">
 		            <h3>Finalize Order</h3>
