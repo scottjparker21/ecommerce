@@ -1,4 +1,4 @@
-
+ 
 	<?php
 			$pdo = Database::connect();
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -7,15 +7,6 @@
 	        $q->execute();
 	        $categories = $q->fetchAll();
 	        Database::disconnect(); 
-
-     if( isset( $_SESSION['userid'] ) )
-     {
-        echo "you are logged in" ;
-     }
-   else
-     {
-        echo "create account to login";
-     }
   ?>
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
