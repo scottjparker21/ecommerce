@@ -51,19 +51,18 @@
                                 			                                    		                                       
 										}
 										echo '</select>';
-
+				//array returns correctly but options are incorrect
 										$user_address = new cart();
 										$a = $user_address->fetchAddress();
 
 										echo '<select name="address">';
 										foreach ($a as $address) {
 											
-                            				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . ", " . $address["city"] . '</option>';                          
+                            				echo '<option name="address" value="' . $address["id"] . '">'  $address["street_1"] '</option>';                          
                                 			                                    		                                       
 										}
 										echo '</select>';
 
-										//basically copy payment stuff here, change for address
 
 										echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 										echo '<form method="post" action="process_order.php">';
