@@ -355,9 +355,9 @@ class cart {
 			$sql2 = "SELECT * FROM address WHERE id = ?";
 			$q2 = $pdo->prepare($sql2);
 			$q2->execute(array($row['address_id']));
-			$address = $q2->fetch(PDO::FETCH_ASSOC);
+			$a = $q2->fetch(PDO::FETCH_ASSOC);
 
-			array_push($address,array("id"=>$address['id'],"city"=>$address['city'],"state"=>$address['state'],"zip"=>$address['zip'],"street_1"=>$address['street_1'],"street_2"=>$address['street_2']));
+			array_push($address,array("id"=>$a['id'],"city"=>$a['city'],"state"=>$a['state'],"zip"=>$a['zip'],"street_1"=>$a['street_1'],"street_2"=>$a['street_2']));
 		}
 		Database::disconnect();
 		return $address;
