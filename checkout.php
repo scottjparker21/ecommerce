@@ -49,10 +49,20 @@
 											
                             				echo '<option name="credit_card" value="' . $credit_card["id"] . '">' . $credit_card["type"] . ", " . $credit_card["card_number"] . '</option>';                          
                                 			                                    		                                       
-            								echo $credit_cart['card_number'];
-											echo '<br>';
 										}
 										echo '</select>';
+
+										$user_address = new cart();
+
+										echo '<select name="address">';
+										foreach ($user_address->fetchAddress() as $address) {
+											
+                            				echo '<option name="address" value="' . $address["id"] . '">' . $address["street_1"] . ", " . $address["city"] . '</option>';                          
+                                			                                    		                                       
+										}
+										echo '</select>';
+
+										//basically copy payment stuff here, change for address
 
 										echo '<h3>' . "Order Total = $ " . $subtotal . " " . '</h3>';
 										echo '<form method="post" action="process_order.php">';
