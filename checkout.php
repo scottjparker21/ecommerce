@@ -43,10 +43,6 @@
 										}
 
 										$user_payment = new cart();
-										$user_payment->fetchPayment();
-										$test = $user_payment->fetchPayment();
-										print_r($test);
-										die();
 
 										echo '<select name="credit_card">';
 										foreach ($user_payment->fetchPayment() as $credit_cart) {
