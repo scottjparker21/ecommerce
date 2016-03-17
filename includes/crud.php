@@ -360,6 +360,8 @@ class cart {
 			$user_address = array("id"=>$address['id'],"city"=>$address['city'],"state"=>$address['state'],"zip"=>$address['zip'],"street_1"=>$address['street_1'],"street_2"=>$address['street_2']);
 
 			array_push($address,$user_address);
+			print_r($address);
+			die();
 		}
 		Database::disconnect();
 		return $address;
