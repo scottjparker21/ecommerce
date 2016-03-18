@@ -6,7 +6,7 @@
 			<?php require_once 'includes/navbar.php';?>
 			<div class="results"></div>
 			<div class="jumbotron">
-			</div>
+			</div>	
 			<div class="container">	
 				<div id="content">
 					<div class="row">
