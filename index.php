@@ -5,6 +5,8 @@
 		<body>
 			<?php require_once 'includes/navbar.php';?>
 			<div class="results"></div>
+			<div class="jumbotron">
+			</div>
 			<div class="container">	
 				<div id="content">
 					<div class="row">
@@ -13,10 +15,6 @@
 							<center><h1> MKE Glass Supply </h1></center>
 						</div>
 					</div>
-
-				
-
-
 				</div>
 			</div>
 			<?php require_once 'includes/footer.php';?>
