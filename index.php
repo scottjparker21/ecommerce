@@ -6,6 +6,9 @@
 			<?php require_once 'includes/navbar.php';?>
 			<div class="results"></div>
 			<div class="jumbotron">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="">
+              		<img class="logo" src="img/mkeglass.png" alt="MKE Glass Supply logo">
+          		</div>
 			</div>	
 			<div class="container">	
 				<div id="content">
