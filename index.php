@@ -14,7 +14,7 @@
 				<div id="content">
 					<div class="row">
 						<div class="col-lg-12">
-							<img src="img/mkeglass.png" alt="mke glass logo">
+							<img src="assets/img/mkeglass.png" alt="mke glass logo">
 							<center><h1> MKE Glass Supply </h1></center>
 						</div>
 					</div>
