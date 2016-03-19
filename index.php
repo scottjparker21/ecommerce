@@ -20,8 +20,8 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-8">
-							<p>It is increasingly common to find pint glasses which contain markings on the base; very often these glasses are branded to one particular beer. The markings themselves are formed from small pits which aid in nucleation, allowing the gas within it to be released more easily, thus preserving the head. Without the aid of these pits a regular pint glass will keep a head for only 3 or 4 minutes before appearing 'flat'.[24] The markings come in a variety of styles ranging from a simple circular or square hatched pattern to more complicated branding messages.</p>
+						<div class="col-lg-12">
+							<center><p>It is increasingly common to find pint glasses which contain markings on the base; very often these glasses are branded to one particular beer. The markings themselves are formed from small pits which aid in nucleation, allowing the gas within it to be released more easily, thus preserving the head. Without the aid of these pits a regular pint glass will keep a head for only 3 or 4 minutes before appearing 'flat'.[24] The markings come in a variety of styles ranging from a simple circular or square hatched pattern to more complicated branding messages.</p></center>
 						</div>
 					</div>
 				</div>
