@@ -54,6 +54,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 footer {
   
 }
+.img-responsive {
+
+  max-width:100%;
+  height: auto;
+  display: block;
+
+}
 
 
 

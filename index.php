@@ -26,6 +26,20 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="col-lg-4">
+								<img src="home_beer.jpg" class="img-responsive" alt="beers on a bar">
+							</div>
+							<div class="col-lg-4">
+								<img src="home_whiskey.jpg" class="img-responsive" alt="beers on a bar">
+
+							</div>
+							<div class="col-lg-4">
+								<img src="home_mixed.jpg" class="img-responsive" alt="beers on a bar">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<?php require_once 'includes/footer.php';?>
