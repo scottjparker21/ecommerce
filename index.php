@@ -16,7 +16,7 @@
 				<div id="content">
 					<div class="row">
 						<div class="col-lg-12">
-							<center><h1> MKE Glass Supply </h1></center>
+							<center><h1 id="quicksand"> MKE Glass Supply </h1></center>
 						</div>
 					</div>
 					<div class="row">
