@@ -32,3 +32,6 @@ body {
   z-index: 3;
   max-height: 500px;
 }
+.navbar {
+  margin-bottom: 0px;
+}
