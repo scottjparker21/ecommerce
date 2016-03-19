@@ -3,7 +3,6 @@
 	<html lang="en">
 		<?php require_once 'includes/header.php';?>
 		<body>
-
 			<?php require_once 'includes/navbar.php';?>
 
 				<?php	
@@ -16,10 +15,7 @@
 			        $name = $data['name'];
 			        $cost = $data['cost'];
 			        $description = $data['description']; 
-			        // print_r($catinfo);
-			    // echo $name;
 			?>
-
 			<?php
 					$id = $_GET['productid'];
 					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -29,13 +25,7 @@
 				    $data = $q->fetch(PDO::FETCH_ASSOC);
 					$image = $data['image'];
 					$imagedescription = $data['description'];
-
-			?>
-
-			     	<form method="post" action="add_item.php">
-			     			<input type="hidden" name="id" value="<?php echo $id ;?>">';
-							<button type="submit" value="add">Add to Cart</button>
-					</form>	
+			?>		     	
 				<div class="container">	
 					<div id="content">
 						<div class="row">
@@ -44,6 +34,12 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<h2><?php echo $name; ?></h2>
+										</div>
+										<div class="col-lg-12">
+											<form method="post" action="add_item.php">
+			     								<input type="hidden" name="id" value="<?php echo $id ;?>">'
+												<button type="submit" value="add">Add to Cart</button>
+											</form>	
 										</div>
 									</div>
 									<div class="row">
