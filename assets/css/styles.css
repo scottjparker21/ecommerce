@@ -49,7 +49,8 @@ background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(246,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 }
 #textbox {
-  background: white;
+  background:;
+  margin: 10px;
 }
 footer {
   
@@ -61,7 +62,10 @@ footer {
   display: block;
 
 }
+#home_thumb {
+  margin-top: 20px;
 
+}
 
 
 
