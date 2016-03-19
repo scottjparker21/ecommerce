@@ -51,9 +51,11 @@
 					<div id="content">
 						<div class="row">
 							<div class="col-lg-4">
-								<h2> 
+								<h2> <?php echo $name; ?> </h2>
 							</div>
 						</div>
+						<div class="row">
+							
 					</div>
 				</div>
 			<?php require_once 'includes/footer.php';?>
