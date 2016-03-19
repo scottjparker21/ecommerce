@@ -47,7 +47,15 @@
 			     			<input type="hidden" name="id" value="<?php echo $id ;?>">';
 							<button type="submit" value="add">Add to Cart</button>
 					</form>	
-
+				<div class="container">	
+					<div id="content">
+						<div class="row">
+							<div class="col-lg-4">
+								<h2> 
+							</div>
+						</div>
+					</div>
+				</div>
 			<?php require_once 'includes/footer.php';?>
 		</body>
 	</html>
