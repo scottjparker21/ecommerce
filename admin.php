@@ -19,7 +19,6 @@
 				  <li><a href="crud/subcategory/index.php">Subcategory</a></li>
 				  <li><a href="crud/tag/index.php">Tag</a></li>
 				</ul>
-				
 			</div>
 			<?php require_once 'includes/footer.php';?>
 
