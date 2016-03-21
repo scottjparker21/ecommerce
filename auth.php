@@ -1,6 +1,7 @@
 <?php
 
 			require_once 'includes/database.php';
+			
 			$pdo = Database::connect();
 			$user = ($_POST["username"]);
 			$pass = ($_POST["password"]);
@@ -15,6 +16,7 @@
 	        $id = $data['id'];
 	        $password = $data['password'];
 	        $permission = $data['permission'];
+	        $email = $data['email'];
 
 	        Database::disconnect(); 
 
@@ -25,6 +27,7 @@
 	        $_SESSION["last"] = $last;
 	        $_SESSION["username"] = $username;
 	        $_SESSION["permission"] = $permission;
+	        $_SESSION["useremail"] = $email;
 	        
 		   	if ($user == $username && $pass == $password) {
 		   		echo "Welcome " . $_SESSION["first"] . " you have been successfully logged in.";
