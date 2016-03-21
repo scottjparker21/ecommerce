@@ -17,13 +17,12 @@
 					$results = "";
 
 		       		foreach ($product as $row){ 
-		       			echo $row['id'];
-		       			echo $row['name'];
-		       			die();
+
 			       	   $results .= "<li id='" . $row['id'] . "'>";
 			       	   $results .= "<a href='product.php?productid='" . $row['id'] . "'>";
 			       	   $results .= $row['name'];
 			       	   $results .= "</a>";
+			     
 		       		} 
 
 		       		echo $results;
