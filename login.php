@@ -4,6 +4,8 @@
 		<?php require_once 'includes/header.php'; ?>
 			<body>
 				<?php require_once 'includes/navbar.php';?>
+				<br><br><br><br><br>
+				<center>
 				<div class="container">
 					<form method="post" action="auth.php" enctype="multipart/form-data">
 				  		<div class="control-group">
@@ -28,5 +30,6 @@
 				  		</div>
 				  	</form>	
 				</div>
+			</center>
 			</body>
 		</html>
