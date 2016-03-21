@@ -22,7 +22,7 @@
 			       	   $results .= "<a href='product.php?productid='" . $row['id'] . "'>";
 			       	   $results .= $row['name'];
 			       	   $results .= "</a>";
-			     
+
 		       		} 
 
 		       		echo $results;
