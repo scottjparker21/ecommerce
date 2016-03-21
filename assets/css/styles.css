@@ -70,6 +70,12 @@ footer {
   margin:20px;
   margin-top: 40px;
 }
+@media only screen and (max-width : 991px) {
+
+    #home_thumb {
+      margin-bottom: 50px;
+    }
+}
 
 
 
