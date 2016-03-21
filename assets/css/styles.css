@@ -52,7 +52,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background:;
   margin: 10px;
 }
-footer {
+.footer {
  background-color:black;
 }
 .img-responsive {
