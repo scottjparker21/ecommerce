@@ -87,7 +87,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
     .logo {
       top: -90px;
-      left:50px;
+      left:-100px;
     }
   }
 
