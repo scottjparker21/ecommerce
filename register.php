@@ -100,6 +100,7 @@
 		<?php require_once 'includes/header.php'; ?>
 		<body>
 		<?php require_once 'includes/navbar.php'; ?>
+
 			<div class="container">
 			  	<div class="span10 offset1">
                     <div class="row">
@@ -166,15 +167,6 @@
                             <input name="gender" type="text"  placeholder="Gender" value="<?php echo !empty($gender)?$gender:'';?>">
                             <?php if (!empty($genderError)): ?>
                                 <span class="help-inline"><?php echo $genderError;?></span>
-                            <?php endif; ?>
-                        </div>
-                      </div>
-                      <div class="control-group <?php echo !empty($permissionError)?'error':'';?>">
-                        <label class="control-label">Permission</label>
-                        <div class="controls">
-                            <input name="permission" type="text"  placeholder="Permission" value="<?php echo !empty($permission)?$permission:'';?>">
-                            <?php if (!empty($permissionError)): ?>
-                                <span class="help-inline"><?php echo $permissionError;?></span>
                             <?php endif; ?>
                         </div>
                       </div>
