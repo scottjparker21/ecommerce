@@ -74,8 +74,7 @@
                 $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,2,$email));
 
                 $_SESSION["userid"] = $pdo->lastInsertId();
-                echo $_SESSION['userid'];
-                die();
+                $_SESSION["permission"] = 2; 
 
                 $user_cart = new cart();
                 $user_cart->createCart();
