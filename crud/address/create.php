@@ -1,6 +1,6 @@
-<?php  require_once '../../includes/session.php'; 
-    require_once '../../includes/database.php';
- 
+<?php  require_once '../../includes/session.php'; ?>
+<?php    require_once '../../includes/database.php'; ?>
+<?php 
     if ( !empty($_POST)) {
         // keep track validation errors
         $cityError = null;

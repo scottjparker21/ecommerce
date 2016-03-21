@@ -1,4 +1,5 @@
 <?php  require_once '../../includes/session.php'; ?>
+<?php require_once '../../includes/database.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@
                   </thead>
                   <tbody>
                   <?php
-                   require_once '../../includes/database.php';
+                   
                    $pdo = Database::connect();
                    $sql = 'SELECT * FROM address ORDER BY id DESC';
                    foreach ($pdo->query($sql) as $row) {
