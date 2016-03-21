@@ -1,5 +1,4 @@
- 
-	<?php
+<?php
 			$pdo = Database::connect();
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        $sql = "SELECT id,name FROM category ORDER BY name";
@@ -23,7 +22,7 @@
              			<li><a href="index.php">Home</a></li>
               		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Products<span class="caret"></span></a>
                 			<ul class="dropdown-menu">	
-                					<?php foreach ($categories as $row){?><li id="<?php echo $row['id'];?>"><a href="category.php?catid=<?php echo $row['id'];?>"><?php echo $row['name'];?></a></li><?php }?>		
+                					<?php foreach ($categories as $row){?><li id="<?php echo $row['id'];?>"><a href="../../category.php?catid=<?php echo $row['id'];?>"><?php echo $row['name'];?></a></li><?php }?>		
                 			</ul> 
                   <li><a href=""></a></li>                
         			</ul>
@@ -36,29 +35,29 @@
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 1 ){ ?>
                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-plus fa-fw"></i>&nbsp; Admin <span class="caret"></span></a>
                         <ul class="dropdown-menu"> 
-                            <li><a href="crud/address/index.php"> Address </a></li>
-                            <li><a href="crud/bin/index.php"> Bin </a></li>
-                            <li><a href="crud/category/index.php"> Category </a></li>
-                            <li><a href="crud/customer/index.php"> Customer </a></li>
-                            <li><a href="crud/payment/index.php"> Payment </a></li>
-                            <li><a href="crud/product/index.php"> Product </a></li>
-                            <li><a href="crud/shipment_center/index.php"> Shipment Center </a></li>
-                            <li><a href="crud/subcategory/index.php"> Address </a></li>
-                            <li><a href="crud/tag/index.php"> Tag </a></li>
+                            <li><a href="../address/index.php"> Address </a></li>
+                            <li><a href="../bin/index.php"> Bin </a></li>
+                            <li><a href="../category/index.php"> Category </a></li>
+                            <li><a href="../customer/index.php"> Customer </a></li>
+                            <li><a href="../payment/index.php"> Payment </a></li>
+                            <li><a href="../product/index.php"> Product </a></li>
+                            <li><a href="../shipment_center/index.php"> Shipment Center </a></li>
+                            <li><a href="../subcategory/index.php"> Address </a></li>
+                            <li><a href="../tag/index.php"> Tag </a></li>
                         </ul>
                   <?php } ?>
                   <?php if( isset( $_SESSION['permission'] ) && $_SESSION['permission'] == 2 ){ ?>
-                      <li><a class="" href="customer.php"><i class="fa fa-user fa-fw"></i>&nbsp;<?php echo $_SESSION['first']; ?></a></li>
+                      <li><a class="" href="../../customer.php"><i class="fa fa-user fa-fw"></i>&nbsp;<?php echo $_SESSION['first']; ?></a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
-                      <li><a class="" href="cart.php"><i class="fa fa-cart-arrow-down fa-fw"></i> &nbsp; Cart</a></li>
+                      <li><a class="" href="../../cart.php"><i class="fa fa-cart-arrow-down fa-fw"></i> &nbsp; Cart</a></li>
                   <?php } ?>
                   <?php if( isset( $_SESSION['userid'] ) ){ ?>
-                        <li><i class="icon-user"></i><a class="btn" href="logout.php">Logout</a></li>
+                        <li><i class="icon-user"></i><a class="btn" href="../../logout.php">Logout</a></li>
                   <?php } 
                       else{ ?>
                       <li><i class="icon-user"></i><a class="btn" href="login.php">Login</a></li>
-                      <li><i class=""></i><a class="btn" href="register.php">Register</a></li>
+                      <li><i class=""></i><a class="btn" href="../../register.php">Register</a></li>
                   <?php } ?>
         		  </ul>
       		</div>
