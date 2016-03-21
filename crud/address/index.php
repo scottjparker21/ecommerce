@@ -1,3 +1,5 @@
+<?php  require_once '../../includes/session.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,7 @@
 </head>
  
 <body>
+  <?php require_once '../../includes/navbar.php';?>
     <div class="container">
             <div class="row">
                 <h3>Address</h3>
@@ -59,6 +62,7 @@
             </table>
         </div>
     </div> <!-- /container -->
+    <?php require_once 'includes/footer.php';?>
   </body>
 </html>
 

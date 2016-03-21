@@ -1,3 +1,4 @@
+<?php  require_once '../../includes/session.php'; ?>
 <?php
     require_once '../../includes/database.php';
  
@@ -61,11 +62,14 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <link rel="../../assets/css/styles.css">
 </head>
  
 <body>
+    <?php require_once '../../includes/navbar.php';?>
     <div class="container">
-     
                 <div class="span10 offset1">
                     <div class="row">
                         <h3>Address</h3>
@@ -122,8 +126,7 @@
                           <a class="btn" href="index.php">Back</a>
                         </div>
                     </form>
-                </div>
-                 
+                </div>                
     </div> <!-- /container -->
   </body>
 </html>
