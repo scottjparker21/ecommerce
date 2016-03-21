@@ -11,7 +11,7 @@
 </head>
  
 <body>
-  <?php require_once '../../includes/navbar.php';?>
+  <?php require_once '../../includes/secondary_navbar.php';?>
     <div class="container">
             <div class="row">
                 <h3>Address</h3>
