@@ -85,6 +85,31 @@
                 echo $e->getMessage();
                 die();
             }
+            
+            $pdo = Database::connect();
+            $user = ($_POST["username"]);
+            $pass = ($_POST["password"]);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT * FROM customer WHERE username = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($_SESSION["userid"]));
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+            $username = $data['username'];
+            $first = $data['first'];
+            $last = $data['last'];
+            $id = $data['id'];
+            $password = $data['password'];
+            $permission = $data['permission'];
+            $email = $data['email'];
+
+            $_SESSION["userid"] = $id;
+            $_SESSION["first"] = $first;
+            $_SESSION["last"] = $last;
+            $_SESSION["username"] = $username;
+            $_SESSION["permission"] = $permission;
+            $_SESSION["useremail"] = $email;
+
+            Database::disconnect();
         }
     }
 ?>
