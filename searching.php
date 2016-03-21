@@ -10,7 +10,6 @@
 			        $sql = "SELECT * FROM product WHERE name  LIKE ? ";
 			        $q = $pdo->prepare($sql);
 			        $q->execute(array($id));
-
 			        $product = $q->fetchAll();
 			        Database::disconnect(); 
 
@@ -18,6 +17,9 @@
 					$results = "";
 
 		       		foreach ($product as $row){ 
+		       			echo $row['id'];
+		       			echo $row['name'];
+		       			die();
 			       	   $results .= "<li id='" . $row['id'] . "'>";
 			       	   $results .= "<a href='product.php?productid='" . $row['id'] . "'>";
 			       	   $results .= $row['name'];
