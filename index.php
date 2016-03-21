@@ -29,14 +29,14 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="col-lg-4" id="home_thumb">
+							<div class="col-lg-4 col-md-4" id="home_thumb">
 								<img src="assets/img/home_beer.jpg" class="img-responsive" alt="beers on a bar">
 							</div>
-							<div class="col-lg-4" id="home_thumb">
+							<div class="col-lg-4 col-md-4" id="home_thumb">
 								<img src="assets/img/home_whiskey.jpg" class="img-responsive" alt="beers on a bar">
 
 							</div>
-							<div class="col-lg-4" id="home_thumb">
+							<div class="col-lg-4 col-md-4" id="home_thumb">
 								<img src="assets/img/home_mixed.jpg" class="img-responsive" alt="beers on a bar">
 							</div>
 						</div>
