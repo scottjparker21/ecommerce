@@ -11,7 +11,6 @@
         $usernameError = null;
         $passwordError = null;
         $genderError = null;
-        $permissionError = null;
         $emailError = null;
          
         // keep track post values
@@ -22,7 +21,6 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $gender = $_POST['gender'];
-        $permission = $_POST['permission'];
         $email = $_POST['email'];
          
         // validate input
@@ -62,11 +60,6 @@
             $valid = false;
         }
 
-        if (empty($permission)) {
-            $permissionError = 'Please enter Permission';
-            $valid = false;
-        }
-
         if (empty($email)) {
             $emailError = 'Please enter Email';
             $valid = false;
@@ -78,9 +71,11 @@
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sql = "INSERT INTO customer (first,last,phone,dob,username,password,gender,permission,email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
-                $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,$permission,$email));
+                $q->execute(array($first,$last,$phone,$dob,$username,$password,$gender,2,$email));
 
                 $_SESSION["userid"] = $pdo->lastInsertId();
+                echo $_SESSION['userid'];
+                die();
 
                 $user_cart = new cart();
                 $user_cart->createCart();
