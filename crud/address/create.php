@@ -1,4 +1,4 @@
-<?php  require_once '../../includes/session.php'; ?>
+
 <?php    require_once '../../includes/database.php'; ?>
 <?php 
     if ( !empty($_POST)) {
@@ -67,7 +67,6 @@
 </head>
  
 <body>
-    <?php require_once '../../includes/secondary_navbar.php';?>
     <div class="container">
                 <div class="span10 offset1">
                     <div class="row">
