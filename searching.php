@@ -18,14 +18,11 @@
 
 		       		foreach ($product as $row){ 
 
-			       	   $results .= "<li id='" . $row['id'] . "'>";
-			       	   $results .= "<a href='product.php?productid='" . $row['id'] . "'>";
-			       	   $results .= $row['name'];
-			       	   $results .= "</a>";
+			       	   echo "<li id='" . $row['id'] . "'>";
+			       	   echo "<a href='product.php?productid=" . $row['id'] . "'>";
+			       	   echo $row['name'];
+			       	   echo "</a>";
 
-		       		} 
-
-		       		echo $results;
-		       		
+		       		} 	       		
 			?>
 
