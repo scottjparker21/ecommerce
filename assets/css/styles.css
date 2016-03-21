@@ -63,7 +63,8 @@ footer {
 
 }
 #home_thumb {
-  margin-top: 20px;
+  margin-top: 15px;
+  padding:10px;
 
 }
 .product-info{
@@ -73,7 +74,7 @@ footer {
 @media only screen and (max-width : 991px) {
 
     #home_thumb {
-      
+
     }
 }
 
