@@ -18,7 +18,8 @@
 				?>
 					<h3> Products </h3>
 			       <?php foreach ($product as $row){?>
-			       		{?><li id="<?php echo $row['id'];?>"><a href="product.php?productid=<?php echo $row['id'];?>"><?php echo $row['name'];?></a>
+			       		<li id="<?php echo $row['id'];?>"><a href="product.php?productid=<?php echo $row['id'];?>"><?php echo $row['name'];?></a>
+			       <?php } ?>
 			</div>	       				
 			<?php require_once 'includes/footer.php';?>
 		</body>
