@@ -1,5 +1,4 @@
-<?php  require_once '../../includes/session.php'; ?>
-<?php
+<?php  require_once '../../includes/session.php'; 
     require_once '../../includes/database.php';
  
     if ( !empty($_POST)) {
