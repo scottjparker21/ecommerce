@@ -90,7 +90,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
       left:-100px;
     }
   }
+ /* index.php Extra Small Devices, Phones */ 
+  @media only screen and (min-width : 480px) {
+      .logo {
+      top: -90px;
+      left:-100px;
+      }
 
+    }
 
 
 
