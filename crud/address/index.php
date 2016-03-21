@@ -1,4 +1,4 @@
-<?php  require_once '../../includes/session.php'; ?>
+
 <?php require_once '../../includes/database.php'; ?>
 
 <!DOCTYPE html>
