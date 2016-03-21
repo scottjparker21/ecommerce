@@ -63,7 +63,6 @@
             </table>
         </div>
     </div> <!-- /container -->
-    <?php require_once '../../includes/footer.php';?>
   </body>
 </html>
 
