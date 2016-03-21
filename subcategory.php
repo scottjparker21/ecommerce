@@ -5,9 +5,6 @@
 		<body>
 		<?php require_once 'includes/navbar.php';?>
 			<div class="container">
-
-				<p> <?php echo "<p>" . $_GET['subcatid'] . "</p>"; ?> 
-
 				<?php	
 					$id = $_GET['subcatid'];
 			        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
