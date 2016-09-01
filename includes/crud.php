@@ -390,6 +390,8 @@ class cart {
 	        $cost = $data['cost'];
 	        $description = $data['description']; 
 
+	        echo "made it to end of sql statment";
+	        
 	        array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
 	        print_r($productInfo);
 	        die();
