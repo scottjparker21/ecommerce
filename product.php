@@ -1,4 +1,5 @@
 <?php  require_once 'includes/session.php'; ?>
+<?php  require_once 'includes/crud.php'; ?>
 <!DOCTYPE html>
 	<html lang="en">
 		<?php require_once 'includes/header.php';?>
@@ -7,14 +8,16 @@
 
 				<?php	
 					$id = $_GET['productid'];
-			        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			        $sql = "SELECT * FROM product WHERE id = ? ";
-			        $q = $pdo->prepare($sql);
-			        $q->execute(array($id));
-			        $data = $q->fetch(PDO::FETCH_ASSOC);
-			        $name = $data['name'];
-			        $cost = $data['cost'];
-			        $description = $data['description']; 
+			  //       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			  //       $sql = "SELECT * FROM product WHERE id = ? ";
+			  //       $q = $pdo->prepare($sql);
+			  //       $q->execute(array($id));
+			  //       $data = $q->fetch(PDO::FETCH_ASSOC);
+			  //       $name = $data['name'];
+			  //       $cost = $data['cost'];
+			  //       $description = $data['description']; 
+				$productInfo = new Product();
+				$productInfo->getProduct($id);
 			?>
 			<?php
 					$id = $_GET['productid'];

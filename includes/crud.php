@@ -366,7 +366,38 @@ class cart {
 
 }
 
-// CHECKOUT CRUD ------------------------------------------------------------------------>
+// CHECKOUT PRODUCT ------------------------------------------------------------------------>
+
+	class Product {
+
+		public $pid; 
+
+		function __construct($id){
+
+			$this->pid = $id;
+		}
+
+		public function getProduct(){
+
+			$productInfo = array();
+
+			$pdo = Database::connect();
+	        $sql = "SELECT * FROM product WHERE id = ? ";
+	        $q = $pdo->prepare($sql);
+	        $q->execute(array($this->pid));
+	        $data = $q->fetch(PDO::FETCH_ASSOC);
+	        $name = $data['name'];
+	        $cost = $data['cost'];
+	        $description = $data['description']; 
+
+	        array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
+	        print_r($productInfo);
+	        die();
+		}
+
+	}
+
+
 
 
 
