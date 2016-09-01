@@ -18,16 +18,17 @@
 			  //       $description = $data['description']; 
 				$productInfo = new Product($id);
 				$productInfo->getProduct();
+				print_r($productInfo);
 			?>
 			<?php
-					$id = $_GET['productid'];
-					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$sql = "SELECT * FROM image WHERE product_id = ?";
-					$q = $pdo->prepare($sql);
-					$q->execute(array($id));
-				    $data = $q->fetch(PDO::FETCH_ASSOC);
-					$image = $data['image'];
-					$imagedescription = $data['description'];
+					// $id = $_GET['productid'];
+					// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					// $sql = "SELECT * FROM image WHERE product_id = ?";
+					// $q = $pdo->prepare($sql);
+					// $q->execute(array($id));
+				 //    $data = $q->fetch(PDO::FETCH_ASSOC);
+					// $image = $data['image'];
+					// $imagedescription = $data['description'];
 			?>		     	
 				<div class="container">	
 					<div id="content">

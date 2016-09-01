@@ -366,14 +366,13 @@ class cart {
 
 }
 
-// CHECKOUT PRODUCT ------------------------------------------------------------------------>
+//  Product Crud ------------------------------------------------------------------------>
 
 	class Product {
 
 		public $pid; 
 
 		function __construct($id){
-
 			$this->pid = $id;
 		}
 
@@ -397,13 +396,10 @@ class cart {
 			$image = $data2['image'];
 			$imagedescription = $data2['description'];
 
-	        echo "made it to end of sql statment";
 	        array_push($productInfo,array("name"=>$name,"cost"=>$cost, "description"=>$description,"image"=>$image,"imagedescription"=>$imagedescription));
 	        // array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
 	        // print_r($productInfo);
-	        // return $productInfo;
-	        echo $productInfo[0]['name'];
-	        die();
+	        return $productInfo;
 	        Database::disconnect();
 		}
 
