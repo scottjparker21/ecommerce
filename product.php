@@ -18,7 +18,6 @@
 			  //       $description = $data['description']; 
 				$productInfo = new Product($id);
 				$pInfo = $productInfo->getProduct();
-				print_r($pInfo);
 			?>
 			<?php
 					// $id = $_GET['productid'];
@@ -37,7 +36,7 @@
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-12">
-											<h2><?php echo $productData[0]['name']; ?></h2>
+											<h2><?php echo $pInfo[0]['name']; ?></h2>
 										</div>
 										<div class="col-lg-12">
 											<form method="post" action="add_item.php">
