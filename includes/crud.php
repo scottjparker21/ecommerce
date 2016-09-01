@@ -399,7 +399,6 @@ class cart {
 	        array_push($productData,array("name"=>$name,"cost"=>$cost, "description"=>$description,"image"=>$image,"imagedescription"=>$imagedescription));
 	        // array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
 	        echo $productData[0]['name'];
-	        die();
 	        return $productData;
 	        Database::disconnect();
 		}
