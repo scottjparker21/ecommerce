@@ -378,7 +378,7 @@ class cart {
 
 		public function getProduct(){
 
-			$productInfo = array();
+			$productData = array();
 
 			$pdo = Database::connect();
 	        $sql = "SELECT * FROM product WHERE id = ? ";
@@ -396,10 +396,10 @@ class cart {
 			$image = $data2['image'];
 			$imagedescription = $data2['description'];
 
-	        array_push($productInfo,array("name"=>$name,"cost"=>$cost, "description"=>$description,"image"=>$image,"imagedescription"=>$imagedescription));
+	        array_push($productData,array("name"=>$name,"cost"=>$cost, "description"=>$description,"image"=>$image,"imagedescription"=>$imagedescription));
 	        // array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
 	        // print_r($productInfo);
-	        return $productInfo;
+	        return $productData;
 	        Database::disconnect();
 		}
 

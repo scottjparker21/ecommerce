@@ -18,7 +18,7 @@
 			  //       $description = $data['description']; 
 				$productInfo = new Product($id);
 				$productInfo->getProduct();
-				print_r($productInfo);
+				print_r($productData);
 			?>
 			<?php
 					// $id = $_GET['productid'];
