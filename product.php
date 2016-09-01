@@ -47,17 +47,17 @@
 									</div>
 									<div class="row">
 										<div class="col-lg-12">
-											<h2>Cost:&nbsp <?php echo $cost; ?> </h2>
+											<h2>Cost:&nbsp <?php echo $pInfo[0]['cost']; ?> </h2>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-12">
-											<h4> <?php echo $description; ?> </h4>
+											<h4> <?php echo $pInfo[0]['description']; ?> </h4>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<center><img src="data:image/jpeg;base64,<?php echo base64_encode( $image ); ?>" class="img-responsive" alt=" <?php echo $imagedescription; ?> "/><center>
+									<center><img src="data:image/jpeg;base64,<?php echo base64_encode( $pInfo[0]['image'] ); ?>" class="img-responsive" alt=" <?php echo $pInfo[0]['imagedescription']; ?> "/><center>
 								</div>
 							</div>
 						</div>
