@@ -370,32 +370,32 @@ class cart {
 
 	class Product {
 
-		// public $pid; 
+		public $pid; 
 
-		// function __construct($id){
+		function __construct($id){
 
-		// 	$this->pid = $id;
-		// }
+			$this->pid = $id;
+		}
 
-		// public function getProduct(){
+		public function getProduct(){
 
-		// 	$productInfo = array();
+			$productInfo = array();
 
-		// 	$pdo = Database::connect();
-	 //        $sql = "SELECT * FROM product WHERE id = ? ";
-	 //        $q = $pdo->prepare($sql);
-	 //        $q->execute(array($this->pid));
-	 //        $data = $q->fetch(PDO::FETCH_ASSOC);
-	 //        $name = $data['name'];
-	 //        $cost = $data['cost'];
-	 //        $description = $data['description']; 
+			$pdo = Database::connect();
+	        $sql = "SELECT * FROM product WHERE id = ? ";
+	        $q = $pdo->prepare($sql);
+	        $q->execute(array($this->pid));
+	        $data = $q->fetch(PDO::FETCH_ASSOC);
+	        $name = $data['name'];
+	        $cost = $data['cost'];
+	        $description = $data['description']; 
 
-	 //        echo "made it to end of sql statment";
-	        
-	 //        array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
-	 //        print_r($productInfo);
-	 //        die();
-		// }
+	        echo "made it to end of sql statment";
+	        array_push($productInfo,$name, $cost, $description);
+	        // array_push($productInfo,"name"=>$data['name'],"cost"=>$data['cost'],"description"=>$data['description']);
+	        print_r($productInfo);
+	        die();
+		}
 
 	}
 
